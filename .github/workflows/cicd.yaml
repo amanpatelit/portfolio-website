@@ -1,199 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aman Patel | Sr. DevOps Engineer</title>
+name: 🚀 Deploy Website to S3 + CloudFront
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png">
+on:
+  push:
+    branches:
+      - main   #  triggers deploy when you push to main
 
-  <style>
-    :root {
-      --bg-color: #f4f6f8;
-      --card-color: #ffffff;
-      --text-color: #0d1117;
-      --subtext-color: #4b5563;
-      --link-color: #2563eb;
-      --hover-color: #1d4ed8;
-    }
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
 
-    [data-theme="dark"] {
-      --bg-color: #0d1117;
-      --card-color: #161b22;
-      --text-color: #e6edf3;
-      --subtext-color: #8b949e;
-      --link-color: #58a6ff;
-      --hover-color: #1f6feb;
-    }
+    env:
+      AWS_REGION: ap-south-1             
+      S3_BUCKET: ${{ vars.S3_BUCKET_NAME }} 
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ vars.CLOUDFRONT_ID }}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-      transition: background 0.4s ease, color 0.4s ease;
-    }
+    steps:
+      #Step 1: Checkout code
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-    body {
-      background: var(--bg-color);
-      color: var(--text-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      text-align: center;
-    }
+      #Step 2: Configure AWS credentials (using Secrets)
+      - name: Configure AWS credentials .
+      
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ env.AWS_REGION }}
 
-    .card {
-      background: var(--card-color);
-      padding: 2.5rem 3rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      animation: fadeInUp 1s ease;
-    }
 
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+      #  Step 4: Deploy to S3
+      - name: Upload files to S3
+        run: |
+          echo "Deploying website to bucket: $S3_BUCKET"
+          aws s3 sync ./ s3://$S3_BUCKET \
+            --exclude ".git/*" \
+            --exclude ".github/*" \
+            --delete
 
-    img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 3px solid var(--link-color);
-      margin-bottom: 1.2rem;
-      box-shadow: 0 0 12px rgba(37, 99, 235, 0.3);
-    }
-
-    h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.4rem;
-      color: var(--text-color);
-    }
-
-    h2 {
-      font-size: 1rem;
-      color: var(--subtext-color);
-      margin-bottom: 1.2rem;
-    }
-
-    .tagline {
-      font-size: 1rem;
-      color: var(--link-color);
-      font-weight: 500;
-      margin-bottom: 1.8rem;
-      min-height: 25px;
-      overflow: hidden;
-      white-space: nowrap;
-      border-right: 3px solid var(--link-color);
-      animation: typing 4s steps(40, end) infinite, blink 0.6s step-end infinite alternate;
-    }
-
-    @keyframes typing {
-      0% { width: 0; }
-      40% { width: 100%; }
-      60% { width: 100%; }
-      100% { width: 0; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin-top: 1.2rem;
-    }
-
-    a {
-      color: var(--link-color);
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-
-    a:hover {
-      color: var(--hover-color);
-      text-decoration: underline;
-    }
-
-    .email {
-      margin-top: 1.5rem;
-      color: var(--subtext-color);
-      font-size: 0.95rem;
-    }
-
-    .theme-toggle {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      background: var(--card-color);
-      color: var(--link-color);
-      border: 2px solid var(--link-color);
-      border-radius: 20px;
-      padding: 8px 14px;
-      font-size: 0.9rem;
-      cursor: pointer;
-      transition: 0.3s;
-      z-index: 10;
-    }
-
-    .theme-toggle:hover {
-      background: var(--link-color);
-      color: #fff;
-    }
-  </style>
-</head>
-<body>
-  <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
-
-  <div class="card">
-    <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman Patel" loading="lazy" width="120" height="120">
-    <h1>Aman Patel</h1>
-    <h2>Sr. DevOps Engineer</h2>
-
-    <p class="tagline">Let’s code & deploy with AI </p>
-
-    <div class="social-links">
-      <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">LinkedIn</a>
-      <a href="https://github.com/amanpatelit" target="_blank">GitHub</a>
-    </div>
-
-    <p class="email">📧 amanpatel.itofficial@gmail.com</p>
-  </div>
-
-  <script>
-    const body = document.body;
-    const button = document.querySelector(".theme-toggle");
-
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    if (prefersDark) {
-      body.setAttribute("data-theme", "dark");
-      button.textContent = "☀️ Light";
-    }
-
-    function toggleTheme() {
-      const currentTheme = body.getAttribute("data-theme");
-      if (currentTheme === "dark") {
-        body.removeAttribute("data-theme");
-        button.textContent = "🌙 Dark";
-      } else {
-        body.setAttribute("data-theme", "dark");
-        button.textContent = "☀️ Light";
-      }
-    }
-  </script>
-</body>
-</html>
+      # Step 5: Invalidate CloudFront Cache
+      - name: Invalidate CloudFront distribution
+        run: |
+          echo "Invalidating CloudFront cache for distribution: $CLOUDFRONT_DISTRIBUTION_ID"
+          aws cloudfront create-invalidation \
+            --distribution-id $CLOUDFRONT_DISTRIBUTION_ID \
+            --paths "/*"
