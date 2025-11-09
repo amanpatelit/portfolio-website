@@ -17,10 +17,20 @@
     }
 
     body{
-      margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center;
+      margin:0; min-height:100vh; display:flex; flex-direction:column; align-items:center;
       background:var(--bg); color:var(--text);
       font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
     }
+
+    .content{
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      padding:40px 0;
+    }
+
     .card{
       width:90%; max-width:360px; background:#fff; border-radius:20px;
       padding:28px 32px; text-align:center; box-shadow:0 8px 25px rgba(0,0,0,.1);
@@ -32,8 +42,10 @@
       width:96px; height:96px; border-radius:50%; object-fit:cover; margin-bottom:12px;
       border:3px solid var(--brand); box-shadow:0 0 14px rgba(37,99,235,.35);
     }
+
     h1{font-size:1.55rem; margin:.2rem 0 .15rem}
     h2{font-size:1rem; color:var(--muted); margin:0 0 14px}
+
     .tagline-wrap{display:flex; justify-content:center; margin:10px 0 20px;}
     .tagline{
       font-size:.98rem; font-weight:500; line-height:1.4;
@@ -51,42 +63,58 @@
     }
     .social a{font-size:1.35rem; color:var(--brand); transition:.25s}
     .social a:hover{transform:scale(1.15); color:#1d4ed8}
+
     .email{color:var(--muted); font-size:.92rem; display:flex; align-items:center; justify-content:center; gap:6px}
     .glow{text-shadow:0 0 12px currentColor, 0 0 18px currentColor}
 
     footer{
-      margin-top:32px; text-align:center; font-size:.8rem; color:var(--muted);
-      line-height:1.6; opacity:.9;
+      width:100%;
+      text-align:center;
+      font-size:.85rem;
+      color:var(--muted);
+      padding:15px 0 25px;
+      line-height:1.6;
+      border-top:1px solid rgba(0,0,0,0.05);
+      margin-top:auto;
     }
-    footer a{color:var(--brand); text-decoration:none; font-weight:500;}
-    footer a:hover{text-decoration:underline; color:#1d4ed8;}
+    footer a{
+      color:var(--brand);
+      text-decoration:none;
+      font-weight:500;
+    }
+    footer a:hover{
+      text-decoration:underline;
+      color:#1d4ed8;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <img class="profile-img" src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman Patel">
-    <h1>Aman Patel</h1>
-    <h2>Sr. DevOps Engineer</h2>
+  <div class="content">
+    <div class="card">
+      <img class="profile-img" src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman Patel">
+      <h1>Aman Patel</h1>
+      <h2>Sr. DevOps Engineer</h2>
 
-    <div class="tagline-wrap">
-      <span id="tagline" class="tagline"></span>
+      <div class="tagline-wrap">
+        <span id="tagline" class="tagline"></span>
+      </div>
+
+      <div class="social">
+        <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/amanpatelit" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+
+      <div class="email">
+        <i class="fa-solid fa-envelope"></i>
+        <span>amanpatel.itofficial@gmail.com</span>
+      </div>
     </div>
-
-    <div class="social">
-      <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-      <a href="https://github.com/amanpatelit" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
-    </div>
-
-    <div class="email">
-      <i class="fa-solid fa-envelope"></i>
-      <span>amanpatel.itofficial@gmail.com</span>
-    </div>
-
-    <footer>
-      <p>Stay updated with the latest insights in <strong>Cloud, DevOps, and AI-driven Infrastructure</strong>.</p>
-      <p>Connect with me on <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">LinkedIn</a> · © 2025 Aman Patel</p>
-    </footer>
   </div>
+
+  <footer>
+    <p>Stay updated with the latest insights in <strong>Cloud, DevOps, and AI-driven Infrastructure</strong>.</p>
+    <p>Connect with me on <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">LinkedIn</a> · © 2025 Aman Patel</p>
+  </footer>
 
   <script>
     const taglineEl = document.getElementById('tagline');
