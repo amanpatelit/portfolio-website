@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
   <title>Aman Patel | Sr. DevOps Engineer</title>
   <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous"/>
@@ -28,6 +28,10 @@
       --border: rgba(255, 255, 255, 0.08);
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -39,13 +43,14 @@
       font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
       transition: background 0.5s ease, color 0.5s ease;
       position: relative;
+      overflow-x: hidden;
     }
 
     /* Theme toggle button */
     .theme-toggle {
       position: fixed;
-      top: 18px;
-      right: 18px;
+      top: 16px;
+      right: 16px;
       background: var(--card);
       border: 2px solid var(--brand);
       color: var(--brand);
@@ -56,6 +61,7 @@
       font-weight: 500;
       transition: all 0.3s ease;
       box-shadow: 0 2px 10px var(--shadow);
+      z-index: 10;
     }
 
     .theme-toggle:hover {
@@ -69,15 +75,15 @@
       align-items: center;
       justify-content: center;
       width: 100%;
-      padding: 40px 0;
+      padding: 40px 10px;
     }
 
     .card {
-      width: 90%;
-      max-width: 360px;
+      width: 100%;
+      max-width: 380px;
       background: var(--card);
       border-radius: 20px;
-      padding: 28px 32px;
+      padding: 28px 24px;
       text-align: center;
       box-shadow: 0 8px 25px var(--shadow);
       animation: fadeInUp 0.6s ease both;
@@ -90,8 +96,8 @@
     }
 
     .profile-img {
-      width: 96px;
-      height: 96px;
+      width: 90px;
+      height: 90px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 12px;
@@ -101,12 +107,12 @@
     }
 
     h1 {
-      font-size: 1.55rem;
+      font-size: 1.4rem;
       margin: 0.2rem 0 0.15rem;
     }
 
     h2 {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--muted);
       margin: 0 0 14px;
     }
@@ -115,14 +121,16 @@
       display: flex;
       justify-content: center;
       margin: 10px 0 20px;
+      padding: 0 6px;
     }
 
     .tagline {
-      font-size: 0.98rem;
+      font-size: 0.9rem;
       font-weight: 500;
       line-height: 1.4;
       transition: color 0.4s ease, text-shadow 0.4s ease;
       position: relative;
+      word-break: keep-all;
     }
 
     .tagline::after {
@@ -144,8 +152,9 @@
     .social {
       display: flex;
       justify-content: center;
-      gap: 18px;
-      margin: 12px 0 12px;
+      gap: 16px;
+      margin: 12px 0 14px;
+      flex-wrap: wrap;
     }
 
     .social a {
@@ -161,11 +170,14 @@
 
     .email {
       color: var(--muted);
-      font-size: 0.92rem;
+      font-size: 0.88rem;
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
+      flex-wrap: wrap;
+      text-align: center;
+      word-break: break-all;
     }
 
     .glow {
@@ -175,13 +187,14 @@
     footer {
       width: 100%;
       text-align: center;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       color: var(--muted);
-      padding: 15px 0 25px;
+      padding: 15px 10px 25px;
       line-height: 1.6;
       border-top: 1px solid var(--border);
       margin-top: auto;
       transition: color 0.5s ease, border-color 0.5s ease;
+      word-wrap: break-word;
     }
 
     footer a {
@@ -194,6 +207,15 @@
     footer a:hover {
       text-decoration: underline;
       color: #1d4ed8;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.3rem; }
+      h2 { font-size: 0.9rem; }
+      .tagline { font-size: 0.85rem; }
+      .social a { font-size: 1.2rem; }
+      .theme-toggle { padding: 6px 12px; font-size: 0.85rem; }
     }
   </style>
 </head>
@@ -228,12 +250,11 @@
   </footer>
 
   <script>
-    // --- Theme Handling ---
+    // Theme Handling
     const themeToggle = document.getElementById("themeToggle");
     const userPref = localStorage.getItem("theme");
     const systemPrefDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    // Set theme based on stored or system preference
     if (userPref === "dark" || (!userPref && systemPrefDark)) {
       document.documentElement.setAttribute("data-theme", "dark");
       themeToggle.textContent = "☀️ Light";
@@ -252,7 +273,7 @@
       }
     });
 
-    // --- Tagline Typing Effect ---
+    // Tagline Typing Effect
     const taglineEl = document.getElementById('tagline');
     const phrases = [
       { text: "Let’s code & deploy with AI", color: "#2563eb" },
