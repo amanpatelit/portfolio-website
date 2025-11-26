@@ -3,241 +3,239 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aman Patel | Sr. ML DevOps Engineer</title>
-  <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    crossorigin="anonymous" />
+
+  <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
+    /* ------------------------------------------------------------------
+       COLOR SYSTEM (LIGHT + DARK)
+    ------------------------------------------------------------------ */
     :root {
-      --bg: #f4f6f8;
-      --text: #0d1117;
-      --muted: #6b7280;
+      --bg: #f5f7fa;
+      --text: #0f1115;
+      --muted: #6d7280;
       --brand: #2563eb;
       --card: #ffffff;
-      --shadow: rgba(0, 0, 0, 0.12);
-      --border: rgba(0, 0, 0, 0.08);
+      --border: rgba(0, 0, 0, 0.06);
+      --shadow: rgba(0, 0, 0, 0.06);
     }
 
     [data-theme="dark"] {
       --bg: #0d1117;
       --text: #e6edf3;
       --muted: #9ca3af;
-      --brand: #58a6ff;
+      --brand: #3ea6ff;
       --card: #161b22;
-      --shadow: rgba(0, 0, 0, 0.6);
-      --border: rgba(255, 255, 255, 0.1);
+      --border: rgba(255, 255, 255, 0.08);
+      --shadow: rgba(0, 0, 0, 0.7);
     }
 
+    /* ------------------------------------------------------------------
+        BASE STYLE
+    ------------------------------------------------------------------ */
     body {
       margin: 0;
-      font-family: "Poppins", system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-family: "Poppins", system-ui, sans-serif; 
+      -webkit-font-smoothing: antialiased;
     }
 
+    /* ------------------------------------------------------------------
+        MAIN CARD
+    ------------------------------------------------------------------ */
     .content {
       display: flex;
       justify-content: center;
-      padding: 60px 18px 20px;
+      padding: 75px 18px 40px;
     }
 
     .card {
       width: 100%;
-      max-width: 420px;
+      max-width: 440px;
       background: var(--card);
-      border-radius: 22px;
-      padding: 32px 28px;
-      box-shadow: 0 20px 45px var(--shadow);
+      padding: 40px 32px;
+      border-radius: 26px;
       text-align: center;
       border: 1px solid var(--border);
-      animation: fadeUp 0.8s ease-out;
+      box-shadow: 0 18px 50px var(--shadow);
+      animation: fadeSlideUp 0.7s ease-out;
     }
 
-    /* Card entrance animation */
-    @keyframes fadeUp {
-      0% {
+    @keyframes fadeSlideUp {
+      from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(18px);
       }
 
-      100% {
+      to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
     .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      width: 125px;
+      height: 125px;
       object-fit: cover;
+      border-radius: 50%;
       border: 3px solid var(--brand);
-      margin-bottom: 14px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+      margin-bottom: 16px;
+      transition: transform 0.3s ease, filter 0.3s ease;
     }
 
     .profile-img:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 18px var(--brand);
+      transform: scale(1.08);
+      filter: drop-shadow(0 0 10px var(--brand));
     }
 
     h1 {
-      font-size: 1.8rem;
-      margin: 10px 0 4px;
+      font-size: 1.95rem;
+      margin: 12px 0 6px;
+      font-weight: 600;
     }
 
     h2 {
-      font-size: 1.05rem;
-      margin: 0;
+      margin: 0 0 16px;
       color: var(--muted);
+      font-size: 1.05rem;
+      font-weight: 500;
     }
 
-    .tagline-wrap {
-      height: 26px;
-      margin-top: 8px;
+    /* ------------------------------------------------------------------
+        SOCIAL ICONS (Professional Grid Style)
+    ------------------------------------------------------------------ */
+    .social {
+      display: flex;
+      justify-content: center;
+      gap: 22px;
+      margin: 20px 0 14px;
     }
 
-    /* -----------------------------------------------------
-        PROFESSIONAL SOCIAL ICON SYSTEM
-    ------------------------------------------------------ */
     .social a {
-      font-size: 1.7rem;
-      margin: 0 12px;
-      display: inline-block;
-
-      transition:
-        transform 0.22s cubic-bezier(0.25, 0.1, 0.25, 1),
-        filter 0.25s ease,
-        opacity 0.25s ease;
+      font-size: 1.65rem;
+      transition: transform 0.28s ease, filter 0.28s ease, opacity 0.3s ease;
     }
 
     .social a:hover {
-      transform: scale(1.12) rotate(3deg);
+      transform: translateY(-4px) scale(1.12);
       filter: drop-shadow(0 0 8px var(--brand));
-      opacity: 0.95;
     }
 
     .social a:active {
-      transform: scale(0.9) rotate(-2deg);
-      opacity: 0.85;
+      transform: scale(0.9);
+      opacity: 0.75;
     }
 
-    /* -----------------------------------------------------
-        NEWSLETTER BUTTON (Premium UX)
-    ------------------------------------------------------ */
+    /* ------------------------------------------------------------------
+        CTA BUTTON (Premium)
+    ------------------------------------------------------------------ */
     .newsletter-btn {
-      display: inline-block;
-      margin-top: 18px;
-      padding: 12px 18px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      margin-top: 20px;
       background: var(--brand);
       color: #fff;
+      border-radius: 12px;
       text-decoration: none;
-      border-radius: 10px;
       font-weight: 500;
-      transition:
-        transform 0.22s cubic-bezier(0.25, 0.1, 0.25, 1),
-        box-shadow 0.25s ease;
+      transition: transform 0.28s ease, box-shadow 0.3s ease;
     }
 
     .newsletter-btn:hover {
-      transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 4px 18px var(--brand);
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 6px 18px var(--brand);
     }
 
     .newsletter-btn:active {
-      transform: scale(0.96);
-      box-shadow: none;
+      transform: scale(0.95);
     }
 
-    /* -----------------------------------------------------
-        TALKS SECTION + MIC ANIMATION
-    ------------------------------------------------------ */
+    /* ------------------------------------------------------------------
+        TALKS SECTION
+    ------------------------------------------------------------------ */
     .talks-section {
-      width: 100%;
-      padding: 70px 16px;
       text-align: center;
+      padding: 65px 20px 40px;
     }
 
     .talks-section h2 {
       font-size: 1.7rem;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .talks-text {
-      max-width: 700px;
+      max-width: 760px;
       margin: 0 auto 10px;
-      font-size: 1rem;
-      line-height: 1.7;
       color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.7;
     }
 
     .talks-email {
-      font-weight: 600;
       color: var(--brand);
-      font-size: 1.05rem;
+      font-size: 1.08rem;
+      font-weight: 600;
     }
 
     .talks-icon {
-      display: inline-block;
-      animation:
-        micBounce 1.9s ease-in-out infinite,
-        micGlow 2.8s ease-in-out infinite;
+      font-size: 2.5rem;
+      color: var(--brand);
+      margin-bottom: 10px;
+      animation: micBounce 2s ease infinite, micGlow 3s ease infinite;
     }
 
     @keyframes micBounce {
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-6px);
-      }
+      50% { transform: translateY(-7px); }
     }
 
     @keyframes micGlow {
-      0%, 100% {
-        filter: drop-shadow(0 0 0px var(--brand));
-      }
-
-      50% {
-        filter: drop-shadow(0 0 10px var(--brand));
-      }
+      50% { filter: drop-shadow(0 0 10px var(--brand)); }
     }
 
-    /* -----------------------------------------------------
-        FOOTER
-    ------------------------------------------------------ */
     footer {
-      padding: 40px 10px;
-      font-size: 0.9rem;
       text-align: center;
+      padding: 45px 10px 30px;
       color: var(--muted);
+      font-size: 0.93rem;
     }
 
-    /* -----------------------------------------------------
-        THEME TOGGLE BUTTON
-    ------------------------------------------------------ */
+    /* ------------------------------------------------------------------
+        THEME TOGGLE
+    ------------------------------------------------------------------ */
     .theme-toggle {
       position: fixed;
-      top: 18px;
-      right: 18px;
+      top: 20px;
+      right: 20px;
+      padding: 9px 20px;
       background: var(--card);
-      border: 2px solid var(--brand);
       color: var(--brand);
+      border: 2px solid var(--brand);
       border-radius: 50px;
-      padding: 8px 16px;
-      font-size: 0.9rem;
       cursor: pointer;
+      font-size: 0.9rem;
       font-weight: 600;
-      box-shadow: 0 2px 10px var(--shadow);
-      z-index: 20;
-      transition: 0.2s;
+      box-shadow: 0 3px 12px var(--shadow);
+      transition: transform 0.25s ease;
+      z-index: 100;
     }
 
     .theme-toggle:hover {
       transform: scale(1.05);
+    }
+
+    /* ------------------------------------------------------------------
+        RESPONSIVENESS
+    ------------------------------------------------------------------ */
+    @media (max-width: 480px) {
+      h1 { font-size: 1.7rem; }
+      .profile-img { width: 108px; height: 108px; }
+      .social { gap: 18px; }
     }
   </style>
 </head>
@@ -246,16 +244,13 @@
 
   <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
 
+  <!---------------------- MAIN PROFILE CARD ----------------------->
   <div class="content">
     <div class="card">
-      <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img">
+      <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img" alt="Aman Patel Profile">
 
       <h1>Aman Patel</h1>
       <h2>Sr. ML DevOps Engineer</h2>
-
-      <div class="tagline-wrap">
-        <span id="tagline" class="tagline"></span>
-      </div>
 
       <div class="social">
 
@@ -277,19 +272,23 @@
 
       </div>
 
-      <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7398812948757893120" class="newsletter-btn">
-        <i class="fa-solid fa-bell"></i> Subscribe to My Newsletter
+      <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7398812948757893120"
+        class="newsletter-btn">
+        <i class="fa-solid fa-bell"></i>
+        Subscribe to My Newsletter
       </a>
     </div>
   </div>
 
+  <!---------------------- TALKS SECTION ----------------------->
   <section class="talks-section">
-    <i class="fa-solid fa-microphone-lines talks-icon" style="font-size:2.4rem;color:var(--brand);"></i>
+    <i class="fa-solid fa-microphone-lines talks-icon"></i>
     <h2>Talks & Presentations</h2>
 
     <p class="talks-text">
-      I deliver sessions on DevOps, Cloud Infrastructure, AI-driven automation, platform engineering,
-      and modern career strategies. For workshops, webinars, or speaking engagements:
+      I deliver sessions on DevOps, Cloud Infrastructure, AI-driven automation,
+      platform engineering, and modern career strategies.
+      For workshops, webinars, or speaking engagements:
     </p>
 
     <span class="talks-email">amanpatel.itofficial@gmail.com</span>
@@ -299,24 +298,27 @@
     © 2025 Aman Patel • Insights on Cloud, DevOps & AI Infrastructure
   </footer>
 
+  <!---------------------- THEME TOGGLE LOGIC ----------------------->
   <script>
     const themeToggle = document.getElementById("themeToggle");
     const saved = localStorage.getItem("theme");
+
     if (saved === "dark") {
       document.documentElement.setAttribute("data-theme", "dark");
       themeToggle.textContent = "☀️ Light";
     }
 
     themeToggle.onclick = () => {
-      const dark = document.documentElement.getAttribute("data-theme") === "dark";
-      if (dark) {
+      const isDark = document.documentElement.getAttribute("data-theme") === "dark";
+
+      if (isDark) {
         document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("theme", "light");
         themeToggle.textContent = "🌙 Dark";
+        localStorage.setItem("theme", "light");
       } else {
         document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
         themeToggle.textContent = "☀️ Light";
+        localStorage.setItem("theme", "dark");
       }
     };
   </script>
