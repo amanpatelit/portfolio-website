@@ -10,9 +10,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
-    /* ------------------------------------------------------------------
-       COLOR SYSTEM (LIGHT + DARK)
-    ------------------------------------------------------------------ */
     :root {
       --bg: #f5f7fa;
       --text: #0f1115;
@@ -33,20 +30,13 @@
       --shadow: rgba(0, 0, 0, 0.7);
     }
 
-    /* ------------------------------------------------------------------
-        BASE STYLE
-    ------------------------------------------------------------------ */
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
-      font-family: "Poppins", system-ui, sans-serif; 
-      -webkit-font-smoothing: antialiased;
+      font-family: "Poppins", system-ui, sans-serif;
     }
 
-    /* ------------------------------------------------------------------
-        MAIN CARD
-    ------------------------------------------------------------------ */
     .content {
       display: flex;
       justify-content: center;
@@ -105,9 +95,41 @@
       font-weight: 500;
     }
 
-    /* ------------------------------------------------------------------
-        SOCIAL ICONS (Professional Grid Style)
-    ------------------------------------------------------------------ */
+    /* Rotating Thought Line */
+    .thought-line {
+      font-size: 1rem;
+      color: var(--muted);
+      font-style: italic;
+      height: 22px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .fade {
+      animation: fadeInOut 4s ease infinite;
+    }
+
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+        transform: translateY(6px);
+      }
+
+      10% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      80% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+    }
+
     .social {
       display: flex;
       justify-content: center;
@@ -125,14 +147,6 @@
       filter: drop-shadow(0 0 8px var(--brand));
     }
 
-    .social a:active {
-      transform: scale(0.9);
-      opacity: 0.75;
-    }
-
-    /* ------------------------------------------------------------------
-        CTA BUTTON (Premium)
-    ------------------------------------------------------------------ */
     .newsletter-btn {
       display: inline-flex;
       align-items: center;
@@ -152,21 +166,9 @@
       box-shadow: 0 6px 18px var(--brand);
     }
 
-    .newsletter-btn:active {
-      transform: scale(0.95);
-    }
-
-    /* ------------------------------------------------------------------
-        TALKS SECTION
-    ------------------------------------------------------------------ */
     .talks-section {
       text-align: center;
       padding: 65px 20px 40px;
-    }
-
-    .talks-section h2 {
-      font-size: 1.7rem;
-      margin-bottom: 12px;
     }
 
     .talks-text {
@@ -183,21 +185,6 @@
       font-weight: 600;
     }
 
-    .talks-icon {
-      font-size: 2.5rem;
-      color: var(--brand);
-      margin-bottom: 10px;
-      animation: micBounce 2s ease infinite, micGlow 3s ease infinite;
-    }
-
-    @keyframes micBounce {
-      50% { transform: translateY(-7px); }
-    }
-
-    @keyframes micGlow {
-      50% { filter: drop-shadow(0 0 10px var(--brand)); }
-    }
-
     footer {
       text-align: center;
       padding: 45px 10px 30px;
@@ -205,9 +192,6 @@
       font-size: 0.93rem;
     }
 
-    /* ------------------------------------------------------------------
-        THEME TOGGLE
-    ------------------------------------------------------------------ */
     .theme-toggle {
       position: fixed;
       top: 20px;
@@ -224,19 +208,6 @@
       transition: transform 0.25s ease;
       z-index: 100;
     }
-
-    .theme-toggle:hover {
-      transform: scale(1.05);
-    }
-
-    /* ------------------------------------------------------------------
-        RESPONSIVENESS
-    ------------------------------------------------------------------ */
-    @media (max-width: 480px) {
-      h1 { font-size: 1.7rem; }
-      .profile-img { width: 108px; height: 108px; }
-      .social { gap: 18px; }
-    }
   </style>
 </head>
 
@@ -244,13 +215,15 @@
 
   <button class="theme-toggle" id="themeToggle">🌙 Dark</button>
 
-  <!---------------------- MAIN PROFILE CARD ----------------------->
   <div class="content">
     <div class="card">
       <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img" alt="Aman Patel Profile">
 
       <h1>Aman Patel</h1>
       <h2>Sr. ML DevOps Engineer</h2>
+
+      <!-- Rotating Thought Line -->
+      <p class="thought-line fade" id="thoughtText">💭 Let’s Code & Deploy</p>
 
       <div class="social">
 
@@ -272,15 +245,14 @@
 
       </div>
 
-      <a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7398812948757893120"
-        class="newsletter-btn">
+      <a href="https://amanpatelofficial.substack.com/" class="newsletter-btn">
         <i class="fa-solid fa-bell"></i>
         Subscribe to My Newsletter
       </a>
+
     </div>
   </div>
 
-  <!---------------------- TALKS SECTION ----------------------->
   <section class="talks-section">
     <i class="fa-solid fa-microphone-lines talks-icon"></i>
     <h2>Talks & Presentations</h2>
@@ -298,7 +270,6 @@
     © 2025 Aman Patel • Insights on Cloud, DevOps & AI Infrastructure
   </footer>
 
-  <!---------------------- THEME TOGGLE LOGIC ----------------------->
   <script>
     const themeToggle = document.getElementById("themeToggle");
     const saved = localStorage.getItem("theme");
@@ -321,6 +292,22 @@
         localStorage.setItem("theme", "dark");
       }
     };
+
+    /* Rotating Thoughts */
+    const thoughts = [
+      "💭 Let’s Code & Deploy",
+      "🚀 Build • Automate • Scale",
+      "☁️ DevOps • Cloud • AI",
+      "💡 Let’s Code & Deploy"
+    ];
+
+    let index = 0;
+    const thoughtText = document.getElementById("thoughtText");
+
+    setInterval(() => {
+      index = (index + 1) % thoughts.length;
+      thoughtText.textContent = thoughts[index];
+    }, 4000);
   </script>
 
 </body>
