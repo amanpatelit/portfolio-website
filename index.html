@@ -56,12 +56,12 @@
     }
 
     @keyframes fadeSlideUp {
-      from {
+      0% {
         opacity: 0;
         transform: translateY(18px);
       }
 
-      to {
+      100% {
         opacity: 1;
         transform: translateY(0);
       }
@@ -95,7 +95,6 @@
       font-weight: 500;
     }
 
-    /* Rotating Thought Line */
     .thought-line {
       font-size: 1rem;
       color: var(--muted);
@@ -139,7 +138,7 @@
 
     .social a {
       font-size: 1.65rem;
-      transition: transform 0.28s ease, filter 0.28s ease, opacity 0.3s ease;
+      transition: transform 0.28s ease, filter 0.28s ease;
     }
 
     .social a:hover {
@@ -166,9 +165,55 @@
       box-shadow: 0 6px 18px var(--brand);
     }
 
-    .talks-section {
-      text-align: center;
-      padding: 65px 20px 40px;
+    /* ----------------------------------------------- */
+    /*      FIXED + PERFECT CENTERED MIC SECTION       */
+    /* ----------------------------------------------- */
+
+    .mic-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: micFloat 3s ease-in-out infinite;
+    }
+
+    .talks-icon {
+      font-size: 5.4rem;
+      color: var(--brand);
+      display: inline-block;
+      animation:
+        micPulse 2.4s ease-in-out infinite,
+        micGlow 2.4s ease-in-out infinite;
+    }
+
+    @keyframes micFloat {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-14px);
+      }
+    }
+
+    @keyframes micGlow {
+      0% {
+        filter: drop-shadow(0 0 6px var(--brand));
+      }
+      50% {
+        filter: drop-shadow(0 0 28px var(--brand))
+                drop-shadow(0 0 14px var(--brand));
+      }
+      100% {
+        filter: drop-shadow(0 0 6px var(--brand));
+      }
+    }
+
+    @keyframes micPulse {
+      0%, 100% {
+        transform: scale(1);
+      }
+      50% {
+        transform: scale(1.16);
+      }
     }
 
     .talks-text {
@@ -205,7 +250,6 @@
       font-size: 0.9rem;
       font-weight: 600;
       box-shadow: 0 3px 12px var(--shadow);
-      transition: transform 0.25s ease;
       z-index: 100;
     }
   </style>
@@ -222,11 +266,9 @@
       <h1>Aman Patel</h1>
       <h2>Sr. ML DevOps Engineer</h2>
 
-      <!-- Rotating Thought Line -->
       <p class="thought-line fade" id="thoughtText">💭 Let’s Code & Deploy</p>
 
       <div class="social">
-
         <a href="https://www.linkedin.com/in/amanpatelofficial/" style="color:#0A66C2;">
           <i class="fa-brands fa-linkedin"></i>
         </a>
@@ -242,7 +284,6 @@
         <a href="https://amanpatelofficial.substack.com/" style="color:#FF6719;">
           <i class="fa-solid fa-rss"></i>
         </a>
-
       </div>
 
       <a href="https://amanpatelofficial.substack.com/" class="newsletter-btn">
@@ -254,7 +295,10 @@
   </div>
 
   <section class="talks-section">
-    <i class="fa-solid fa-microphone-lines talks-icon"></i>
+    <div class="mic-wrapper">
+      <i class="fa-solid fa-microphone-lines talks-icon"></i>
+    </div>
+
     <h2>Talks & Presentations</h2>
 
     <p class="talks-text">
@@ -296,7 +340,7 @@
     /* Rotating Thoughts */
     const thoughts = [
       "💭 Let’s Code & Deploy",
-      "🚀 Build • Automate • Scale",
+      "  Build • Automate • Scale",
       "☁️ DevOps • Cloud • AI",
       "💡 Let’s Code & Deploy"
     ];
