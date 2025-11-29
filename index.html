@@ -10,6 +10,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
+    /* ------------------------------ */
+    /* GLOBAL FIX – Removes side scroll */
+    /* ------------------------------ */
+    html, body {
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ------------------------------ */
+    /* THEME COLORS */
+    /* ------------------------------ */
     :root {
       --bg: #f5f7fa;
       --text: #0f1115;
@@ -31,7 +47,6 @@
     }
 
     body {
-      margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: "Poppins", system-ui, sans-serif;
@@ -41,6 +56,7 @@
       display: flex;
       justify-content: center;
       padding: 75px 18px 40px;
+      overflow-x: hidden; /* added safe fix */
     }
 
     .card {
@@ -56,15 +72,8 @@
     }
 
     @keyframes fadeSlideUp {
-      0% {
-        opacity: 0;
-        transform: translateY(18px);
-      }
-
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      0% { opacity: 0; transform: translateY(18px); }
+      100% { opacity: 1; transform: translateY(0); }
     }
 
     .profile-img {
@@ -74,12 +83,11 @@
       border-radius: 50%;
       border: 3px solid var(--brand);
       margin-bottom: 16px;
-      transition: transform 0.3s ease, filter 0.3s ease;
+      transition: 0.3s ease;
     }
 
     .profile-img:hover {
-      transform: scale(1.08);
-      filter: drop-shadow(0 0 10px var(--brand));
+      transform: scale(1.06);
     }
 
     h1 {
@@ -102,31 +110,14 @@
       height: 22px;
       margin-bottom: 20px;
       overflow: hidden;
-    }
-
-    .fade {
       animation: fadeInOut 4s ease infinite;
     }
 
     @keyframes fadeInOut {
-      0% {
-        opacity: 0;
-        transform: translateY(6px);
-      }
-
-      10% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      80% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(-6px);
-      }
+      0% { opacity: 0; transform: translateY(6px); }
+      10% { opacity: 1; transform: translateY(0); }
+      80% { opacity: 1; }
+      100% { opacity: 0; transform: translateY(-6px); }
     }
 
     .social {
@@ -137,13 +128,12 @@
     }
 
     .social a {
-      font-size: 1.65rem;
-      transition: transform 0.28s ease, filter 0.28s ease;
+      font-size: 1.6rem;
+      transition: 0.25s ease;
     }
 
     .social a:hover {
-      transform: translateY(-4px) scale(1.12);
-      filter: drop-shadow(0 0 8px var(--brand));
+      transform: translateY(-4px);
     }
 
     .newsletter-btn {
@@ -157,77 +147,58 @@
       border-radius: 12px;
       text-decoration: none;
       font-weight: 500;
-      transition: transform 0.28s ease, box-shadow 0.3s ease;
+      transition: 0.28s ease;
     }
 
     .newsletter-btn:hover {
-      transform: translateY(-2px) scale(1.04);
-      box-shadow: 0 6px 18px var(--brand);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
     }
 
-    /* ----------------------------------------------- */
-    /*      FIXED + PERFECT CENTERED MIC SECTION       */
-    /* ----------------------------------------------- */
+    /* ----------------------------------------- */
+    /*       PROFESSIONAL MIC SECTION (FIXED)    */
+    /* ----------------------------------------- */
+
+    .talks-section {
+      text-align: center;
+      padding: 65px 20px 40px;
+      overflow-x: hidden; /* prevent overflow from animation */
+    }
 
     .mic-wrapper {
       display: flex;
       justify-content: center;
-      align-items: center;
-      animation: micFloat 3s ease-in-out infinite;
+      margin-bottom: 18px;
+      width: 100%;
+      overflow: hidden; /* SAFE FIX */
     }
 
     .talks-icon {
-      font-size: 5.4rem;
+      font-size: 4.2rem;
       color: var(--brand);
-      display: inline-block;
-      animation:
-        micPulse 2.4s ease-in-out infinite,
-        micGlow 2.4s ease-in-out infinite;
+      opacity: 0.92;
+      animation: micFloat 4s ease-in-out infinite;
     }
 
     @keyframes micFloat {
-      0%, 100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-14px);
-      }
-    }
-
-    @keyframes micGlow {
-      0% {
-        filter: drop-shadow(0 0 6px var(--brand));
-      }
-      50% {
-        filter: drop-shadow(0 0 28px var(--brand))
-                drop-shadow(0 0 14px var(--brand));
-      }
-      100% {
-        filter: drop-shadow(0 0 6px var(--brand));
-      }
-    }
-
-    @keyframes micPulse {
-      0%, 100% {
-        transform: scale(1);
-      }
-      50% {
-        transform: scale(1.16);
-      }
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
     }
 
     .talks-text {
       max-width: 760px;
-      margin: 0 auto 10px;
+      margin: 0 auto;
       color: var(--muted);
       font-size: 1.05rem;
-      line-height: 1.7;
+      line-height: 1.65;
     }
 
     .talks-email {
       color: var(--brand);
       font-size: 1.08rem;
       font-weight: 600;
+      display: block;
+      margin-top: 6px;
     }
 
     footer {
@@ -237,6 +208,7 @@
       font-size: 0.93rem;
     }
 
+    /* Theme Toggle */
     .theme-toggle {
       position: fixed;
       top: 20px;
@@ -250,6 +222,7 @@
       font-size: 0.9rem;
       font-weight: 600;
       box-shadow: 0 3px 12px var(--shadow);
+      transition: 0.25s ease;
       z-index: 100;
     }
   </style>
@@ -261,40 +234,28 @@
 
   <div class="content">
     <div class="card">
-      <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img" alt="Aman Patel Profile">
+      <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img">
 
       <h1>Aman Patel</h1>
       <h2>Sr. ML DevOps Engineer</h2>
 
-      <p class="thought-line fade" id="thoughtText">💭 Let’s Code & Deploy</p>
+      <p class="thought-line" id="thoughtText">💭 Let’s Code & Deploy</p>
 
       <div class="social">
-        <a href="https://www.linkedin.com/in/amanpatelofficial/" style="color:#0A66C2;">
-          <i class="fa-brands fa-linkedin"></i>
-        </a>
-
-        <a href="https://github.com/amanpatelit" style="color:#000000;">
-          <i class="fa-brands fa-github"></i>
-        </a>
-
-        <a href="https://www.youtube.com/@amanpatelletscodeanddeploy" style="color:#FF0000;">
-          <i class="fa-brands fa-youtube"></i>
-        </a>
-
-        <a href="https://amanpatelofficial.substack.com/" style="color:#FF6719;">
-          <i class="fa-solid fa-rss"></i>
-        </a>
+        <a href="https://www.linkedin.com/in/amanpatelofficial/" style="color:#0A66C2;"><i class="fa-brands fa-linkedin"></i></a>
+        <a href="https://github.com/amanpatelit" style="color:#000;"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.youtube.com/@amanpatelletscodeanddeploy" style="color:#FF0000;"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://amanpatelofficial.substack.com/" style="color:#ff6719;"><i class="fa-solid fa-rss"></i></a>
       </div>
 
       <a href="https://amanpatelofficial.substack.com/" class="newsletter-btn">
-        <i class="fa-solid fa-bell"></i>
-        Subscribe to My Newsletter
+        <i class="fa-solid fa-bell"></i> Subscribe to My Newsletter
       </a>
-
     </div>
   </div>
 
   <section class="talks-section">
+
     <div class="mic-wrapper">
       <i class="fa-solid fa-microphone-lines talks-icon"></i>
     </div>
@@ -304,10 +265,10 @@
     <p class="talks-text">
       I deliver sessions on DevOps, Cloud Infrastructure, AI-driven automation,
       platform engineering, and modern career strategies.
-      For workshops, webinars, or speaking engagements:
     </p>
 
     <span class="talks-email">amanpatel.itofficial@gmail.com</span>
+
   </section>
 
   <footer>
@@ -315,6 +276,7 @@
   </footer>
 
   <script>
+    // Theme Toggle
     const themeToggle = document.getElementById("themeToggle");
     const saved = localStorage.getItem("theme");
 
@@ -337,12 +299,12 @@
       }
     };
 
-    /* Rotating Thoughts */
+    // Rotating Thought Text
     const thoughts = [
       "💭 Let’s Code & Deploy",
-      "  Build • Automate • Scale",
+      " Build • Automate • Scale",
       "☁️ DevOps • Cloud • AI",
-      "💡 Let’s Code & Deploy"
+      "💡 Solving Infra Problems Daily"
     ];
 
     let index = 0;
