@@ -130,22 +130,28 @@
       transform: translateY(-3px);
     }
 
+    /* PREMIUM FULL-WIDTH BUTTON */
     .newsletter-btn {
-      padding: 9px 18px;
-      background: var(--brand);
+      width: 100%;
+      padding: 14px 0;
+      background: linear-gradient(135deg, var(--brand), #1e4fcf);
+      border-radius: 14px;
       color: #fff;
-      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 600;
       text-decoration: none;
-      font-size: 0.92rem;
-      font-weight: 500;
-      display: inline-flex;
-      gap: 6px;
-      transition: .25s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: 0.25s ease;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      margin-top: 6px;
     }
 
     .newsletter-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 5px 14px rgba(0,0,0,0.18);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.18);
     }
 
     /* Talks Section Compact */
@@ -204,20 +210,6 @@
       transition: .25s;
       z-index: 1000;
     }
-
-    /* MOBILE TIGHT LAYOUT */
-    @media (max-width: 480px) {
-      .content { padding: 40px 12px 20px; }
-      .card { padding: 22px 18px; }
-      .profile-img { width: 108px; height: 108px; }
-      h1 { font-size: 1.55rem; }
-      h2 { font-size: 0.9rem; }
-      .social { gap: 14px; }
-      .newsletter-btn { padding: 8px 16px; }
-      .talks-section { padding: 32px 12px 20px; }
-      .talks-icon { font-size: 3rem; }
-      footer { padding: 18px 10px; }
-    }
   </style>
 </head>
 
@@ -242,7 +234,7 @@
     </div>
 
     <a href="https://amanpatelofficial.substack.com/" class="newsletter-btn">
-      <i class="fa-solid fa-bell"></i> Subscribe
+      <i class="fa-solid fa-bell"></i> Subscribe to My Newsletter
     </a>
   </div>
 </div>
