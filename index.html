@@ -11,21 +11,20 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
-    /* GENERAL RESET */
     html,
     body {
       margin: 0;
       padding: 0;
       overflow-x: hidden;
       font-family: "Poppins", system-ui, sans-serif;
-      width: 100%;
+      background: var(--bg);
+      color: var(--text);
     }
 
     * {
       box-sizing: border-box;
     }
 
-    /* LIGHT THEME */
     :root {
       --bg: #f4f6f9;
       --text: #0f1115;
@@ -36,7 +35,6 @@
       --shadow: rgba(0, 0, 0, 0.06);
     }
 
-    /* DARK THEME */
     [data-theme="dark"] {
       --bg: #0d1117;
       --text: #e6edf3;
@@ -47,12 +45,6 @@
       --shadow: rgba(0, 0, 0, 0.7);
     }
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    /* THEME TOGGLE BUTTON */
     .theme-toggle {
       position: fixed;
       top: 12px;
@@ -63,18 +55,14 @@
       border: 2px solid var(--brand);
       border-radius: 50px;
       font-size: .82rem;
-      font-weight: 600;
       cursor: pointer;
-      transition: .25s;
       z-index: 1000;
     }
 
-    /* MAIN CONTENT CARD */
     .content {
       display: flex;
       justify-content: center;
       padding: 48px 16px 25px;
-      width: 100%;
     }
 
     .card {
@@ -86,7 +74,7 @@
       border: 1px solid var(--border);
       box-shadow: 0 14px 35px var(--shadow);
       text-align: center;
-      animation: fadeUp 0.7s ease-out;
+      animation: fadeUp .7s ease-out;
     }
 
     @keyframes fadeUp {
@@ -101,14 +89,12 @@
       }
     }
 
-    /* PROFILE IMAGE */
     .profile-img {
       width: 120px;
       height: 120px;
       border-radius: 50%;
       border: 3px solid var(--brand);
       object-fit: cover;
-      margin-bottom: 8px;
       transition: .3s;
     }
 
@@ -116,7 +102,6 @@
       transform: scale(1.05);
     }
 
-    /* HEADINGS */
     h1 {
       margin: 10px 0 4px;
       font-size: 1.8rem;
@@ -130,38 +115,13 @@
       font-weight: 500;
     }
 
-    /* ROTATING THOUGHT TEXT */
     .thought-line {
       height: 20px;
-      font-size: .95rem;
-      margin-bottom: 14px;
       color: var(--muted);
       font-style: italic;
-      animation: fadeText 4s infinite;
+      margin-bottom: 14px;
     }
 
-    @keyframes fadeText {
-      0% {
-        opacity: 0;
-        transform: translateY(4px);
-      }
-
-      15% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      85% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(-4px);
-      }
-    }
-
-    /* SOCIAL ICON ROW */
     .social {
       display: flex;
       justify-content: center;
@@ -178,7 +138,6 @@
       transform: translateY(-3px);
     }
 
-    /* BUTTON */
     .newsletter-btn {
       width: 100%;
       padding: 14px 0;
@@ -193,52 +152,62 @@
       justify-content: center;
       gap: 10px;
       transition: 0.25s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
       margin-top: 6px;
     }
 
     .newsletter-btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
     }
 
-    /* TALKS SECTION */
-    .talks-section {
+    /* PUBLIC SPEAKING SECTION */
+    .speaking-section {
       text-align: center;
-      padding: 40px 15px 25px;
+      padding: 50px 20px;
+      margin-top: 20px;
     }
 
-    .talks-icon {
-      font-size: 3.3rem;
+    .speaking-section h2 {
+      font-size: 1.8rem;
       color: var(--brand);
-      animation: floatMic 3s infinite;
+      margin-bottom: 12px;
     }
 
-    @keyframes floatMic {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-5px);
-      }
-    }
-
-    .talks-text {
-      max-width: 700px;
-      margin: 8px auto;
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .talks-email {
-      color: var(--brand);
-      display: block;
-      margin-top: 6px;
+    .speaking-sub {
       font-size: 1rem;
-      font-weight: 600;
+      color: var(--muted);
+      max-width: 650px;
+      margin: auto;
+      line-height: 1.6;
+    }
+
+    .speaking-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+      margin-top: 30px;
+      padding: 0 18px;
+    }
+
+    .speak-card {
+      background: var(--card);
+      padding: 18px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 6px 18px var(--shadow);
+      text-align: left;
+    }
+
+    .speak-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.1rem;
+      color: var(--brand);
+    }
+
+    .speak-card p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.45;
     }
 
     /* FOOTER */
@@ -247,19 +216,18 @@
       padding: 24px 10px;
       font-size: 0.85rem;
       color: var(--muted);
+      margin-top: 30px;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- THEME BUTTON -->
   <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
 
   <!-- PROFILE CARD -->
   <div class="content">
     <div class="card">
-
       <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img" />
 
       <h1>Aman Patel</h1>
@@ -270,28 +238,44 @@
       <div class="social">
         <a href="https://www.linkedin.com/in/amanpatelofficial/" style="color:#0A66C2;"><i
             class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/amanpatelit" style="color:#000;"><i class="fa-brands fa-github"></i></a>
+        <a href="https://github.com/amanpatelit" style="color:#000;"><i
+            class="fa-brands fa-github"></i></a>
         <a href="https://www.youtube.com/@amanpatelletscodeanddeploy" style="color:#FF0000;"><i
             class="fa-brands fa-youtube"></i></a>
-        <a href="https://amanpatelofficial.substack.com/" style="color:#ff6719;"><i class="fa-solid fa-rss"></i></a>
+        <a href="https://amanpatelofficial.substack.com/" style="color:#ff6719;"><i
+            class="fa-solid fa-rss"></i></a>
       </div>
 
       <a href="https://amanpatelofficial.substack.com/" class="newsletter-btn">
         <i class="fa-solid fa-bell"></i> Subscribe to My Newsletter
       </a>
-
     </div>
   </div>
 
-  <!-- TALKS SECTION -->
-  <section class="talks-section">
-    <i class="fa-solid fa-microphone-lines talks-icon"></i>
-    <h2>Talks & Presentations</h2>
-    <p class="talks-text">
-      I deliver sessions on DevOps, Cloud Infrastructure, AI-driven automation,
-      platform engineering, and modern tech career strategies.
+  <!-- ⭐ NEW PUBLIC SPEAKING SECTION -->
+  <section class="speaking-section">
+    <h2>Public Speaking Expertise</h2>
+    <p class="speaking-sub">
+      I help engineers, students, and tech leaders communicate boldly — whether it's a tech talk,
+      conference, interview, or a leadership presentation.
     </p>
-    <span class="talks-email">amanpatel.itofficial@gmail.com</span>
+
+    <div class="speaking-grid">
+      <div class="speak-card">
+        <h3>🎤 Technical Talks</h3>
+        <p>I simplify complex DevOps, Kubernetes, and Cloud topics for diverse audiences.</p>
+      </div>
+
+      <div class="speak-card">
+        <h3>💼 Leadership Presentations</h3>
+        <p>Helping professionals deliver clear, confident, and structured presentations.</p>
+      </div>
+
+      <div class="speak-card">
+        <h3>🎓 Career Mentoring</h3>
+        <p>Guiding students & engineers on communication, confidence, and tech career strategy.</p>
+      </div>
+    </div>
   </section>
 
   <!-- FOOTER -->
@@ -300,7 +284,6 @@
   </footer>
 
   <script>
-    // THEME SWITCH
     const btn = document.getElementById("themeToggle");
     const savedTheme = localStorage.getItem("theme");
 
@@ -322,7 +305,7 @@
       }
     };
 
-    // ROTATING THOUGHT LINE
+    // Thought rotation
     const thoughts = [
       "💭 Let’s Code & Deploy",
       "Build • Automate • Scale",
