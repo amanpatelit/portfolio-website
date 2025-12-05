@@ -2,8 +2,8 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aman Patel | Sr. ML DevOps Engineer & Public Speaker</title>
 
   <link rel="icon" href="https://cdn.amansdlc.com/aiwithaman.png" />
@@ -34,24 +34,21 @@
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Poppins", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Poppins", sans-serif;
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
-    /* THEME TOGGLE */
+    /* THEME BUTTON */
     .theme-toggle {
       position: fixed;
       top: 14px;
@@ -62,7 +59,6 @@
       background: var(--card);
       color: var(--muted);
       font-size: 0.8rem;
-      font-weight: 500;
       cursor: pointer;
       z-index: 40;
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
@@ -85,9 +81,7 @@
     }
 
     @media (max-width: 840px) {
-      .hero {
-        grid-template-columns: minmax(0, 1fr);
-      }
+      .hero { grid-template-columns: 1fr; }
     }
 
     .hero-eyebrow {
@@ -104,15 +98,25 @@
       margin-bottom: 8px;
     }
 
-    .hero-title span {
-      color: var(--brand);
-    }
+    .hero-title span { color: var(--brand); }
 
     .hero-subtitle {
-      font-size: 0.98rem;
+      font-size: 1rem;
       color: var(--muted);
       max-width: 34rem;
+      margin-bottom: 16px;
+    }
+
+    /* 🚀 ADDED TAGLINE HERE */
+    .tagline {
+      display:inline-block;
       margin-bottom: 22px;
+      padding: 6px 14px;
+      background: var(--brand-soft);
+      color: var(--brand);
+      font-size: 0.9rem;
+      border-radius: 10px;
+      font-weight: 600;
     }
 
     .hero-badges {
@@ -127,7 +131,7 @@
       padding: 5px 10px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      background: rgba(148, 163, 184, 0.04);
+      background: rgba(148, 163, 184, 0.05);
       color: var(--muted);
     }
 
@@ -135,7 +139,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 22px;
+      margin-bottom: 20px;
     }
 
     .btn-primary {
@@ -154,10 +158,7 @@
       transition: 0.15s ease;
     }
 
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
-    }
+    .btn-primary:hover { transform: translateY(-1px); }
 
     .hero-meta {
       font-size: 0.8rem;
@@ -169,10 +170,8 @@
       font-weight: 500;
     }
 
-    .hero-right {
-      display: flex;
-      justify-content: center;
-    }
+    /* HERO RIGHT CARD */
+    .hero-right { display: flex; justify-content: center; }
 
     .hero-card {
       width: 100%;
@@ -216,7 +215,7 @@
     .hero-social a {
       font-size: 1.2rem;
       color: var(--muted);
-      transition: 0.18s ease;
+      transition: 0.2s ease;
     }
 
     .hero-social a:hover {
@@ -227,22 +226,17 @@
     .hero-newsletter {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
       gap: 8px;
-      font-size: 0.84rem;
       padding: 9px 12px;
-      border-radius: 999px;
       background: var(--brand-soft);
       color: var(--brand);
-      border: none;
+      border-radius: 999px;
+      font-size: 0.85rem;
       font-weight: 500;
     }
 
     /* SECTIONS */
-    .section {
-      margin-top: 40px;
-      margin-bottom: 10px;
-    }
+    .section { margin-top: 50px; }
 
     .section-header {
       text-align: center;
@@ -266,7 +260,7 @@
     .speaking-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
     .speak-card {
@@ -275,12 +269,10 @@
       overflow: hidden;
       border: 1px solid var(--border-subtle);
       box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
-      transition: 0.16s ease;
+      transition: 0.18s ease;
     }
 
-    .speak-card:hover {
-      transform: translateY(-3px);
-    }
+    .speak-card:hover { transform: translateY(-3px); }
 
     .speak-img {
       width: 100%;
@@ -305,12 +297,12 @@
 
     /* FOOTER */
     footer {
-      margin-top: 44px;
-      padding: 18px 16px 26px;
-      font-size: 0.8rem;
+      margin-top: 50px;
+      padding: 20px;
+      font-size: 0.85rem;
+      text-align: center;
       color: var(--muted);
       border-top: 1px solid var(--border-subtle);
-      text-align: center;
     }
   </style>
 </head>
@@ -320,16 +312,23 @@
   <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
 
   <main class="page-wrap">
-    <!-- HERO -->
+
+    <!-- HERO SECTION -->
     <section class="hero">
       <div class="hero-left">
         <div class="hero-eyebrow">Cloud • DevOps • AI Infrastructure</div>
+
         <h1 class="hero-title">
           Aman Patel — <span>Sr. ML DevOps Engineer</span> & Public Speaker
         </h1>
+
         <p class="hero-subtitle">
-          Helping engineering teams design scalable cloud platforms, automate infrastructure pipelines, and adopt modern DevOps & AI-driven workflows.
+          Helping engineering teams design scalable cloud platforms, automate infrastructure pipelines &
+          adopt modern DevOps workflows.
         </p>
+
+        <!-- ⭐ NEW TAGLINE ADDED -->
+        <div class="tagline">🚀 Let’s Code & Deploy</div>
 
         <div class="hero-badges">
           <span class="badge">AWS · Kubernetes · MLOps</span>
@@ -342,22 +341,24 @@
             <i class="fa-solid fa-microphone-lines"></i>
             Book a Tech Talk
           </a>
-          <a href="https://amanpatelofficial.substack.com" target="_blank" class="btn-primary"
+
+          <a href="https://amanpatelofficial.substack.com"
+             target="_blank"
+             class="btn-primary"
              style="background:#1e293b;">
             Newsletter
           </a>
         </div>
 
         <p class="hero-meta">
-          Sharing real-world DevOps lessons & cloud insights through talks, mentoring & content.
+          Sharing real-world DevOps lessons & cloud architecture insights.
         </p>
       </div>
 
+      <!-- RIGHT CARD -->
       <div class="hero-right">
         <div class="hero-card">
-          <img src="https://cdn.amansdlc.com/aiwithaman.png"
-               alt="Aman Patel"
-               class="hero-avatar" />
+          <img src="https://cdn.amansdlc.com/aiwithaman.png" class="hero-avatar" alt="Aman Patel">
 
           <div class="hero-name">Aman Patel</div>
           <div class="hero-role">Sr. ML DevOps Engineer</div>
@@ -378,12 +379,12 @@
       </div>
     </section>
 
-    <!-- SPEAKING -->
+    <!-- SPEAKING SECTION -->
     <section id="speaking" class="section">
       <div class="section-header">
         <h2 class="section-title">Speaking & Workshops</h2>
         <p class="section-sub">
-          I deliver practical, real-world focused sessions on DevOps, Cloud, Kubernetes & engineering careers.
+          Delivering practical, real-world sessions on DevOps, Cloud, Kubernetes & engineering careers.
         </p>
       </div>
 
@@ -394,7 +395,7 @@
                alt="Technical Talks">
           <div class="speak-body">
             <h3>🎤 Technical Talks</h3>
-            <p>Deep-dive sessions on CI/CD, Kubernetes, observability, and automation workflows.</p>
+            <p>Deep dives on CI/CD, Kubernetes, observability & automation pipelines.</p>
           </div>
         </article>
 
@@ -404,21 +405,22 @@
                alt="Leadership Presentations">
           <div class="speak-body">
             <h3>💼 Leadership Presentations</h3>
-            <p>Helping engineering leaders understand cloud strategy, SRE, platform scaling & DevOps culture.</p>
+            <p>Helping engineering leaders understand cloud strategy, scaling & DevOps culture.</p>
           </div>
         </article>
 
         <article class="speak-card">
           <img class="speak-img"
                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1200"
-               alt="Mentoring Workshops">
+               alt="Workshops">
           <div class="speak-body">
             <h3>🎓 Mentoring & Workshops</h3>
-            <p>Hands-on labs & career sessions for students and engineers on cloud, DevOps & communication.</p>
+            <p>Hands-on training for students & engineers on cloud, DevOps & communication.</p>
           </div>
         </article>
       </div>
     </section>
+
   </main>
 
   <footer>
