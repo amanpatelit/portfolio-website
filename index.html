@@ -2,24 +2,24 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Aman Patel | Sr. ML DevOps Engineer & Public Speaker</title>
 
-  <link rel="icon" href="https://cdn.amansdlc.com/aiwithaman.png">
+  <link rel="icon" href="https://cdn.amansdlc.com/aiwithaman.png" />
   <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
     :root {
       --bg: #f7f9fc;
-      --text: #0f1115;
-      --muted: #6d7280;
+      --text: #0f172a;
+      --muted: #6b7280;
       --brand: #2563eb;
-      --brand-dark: #1d4ed8;
-      --brand-light: #3b82f6;
+      --brand-soft: #dbeafe;
       --card: #ffffff;
       --border-subtle: rgba(15, 23, 42, 0.08);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
     }
 
     [data-theme="dark"] {
@@ -27,10 +27,10 @@
       --text: #e5e7eb;
       --muted: #9ca3af;
       --brand: #3ea6ff;
-      --brand-dark: #1f78bf;
-      --brand-light: #60b7ff;
+      --brand-soft: rgba(62, 166, 255, 0.14);
       --card: #020617;
-      --border-subtle: rgba(148, 163, 184, 0.25);
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.7);
     }
 
     * {
@@ -42,7 +42,7 @@
     body {
       background: var(--bg);
       color: var(--text);
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Poppins", sans-serif;
       line-height: 1.6;
     }
 
@@ -57,34 +57,34 @@
       top: 14px;
       right: 14px;
       padding: 8px 16px;
-      border-radius: 50px;
-      border: 1px solid var(--brand);
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
       background: var(--card);
-      color: var(--brand);
-      font-size: 0.82rem;
-      font-weight: 600;
+      color: var(--muted);
+      font-size: 0.8rem;
+      font-weight: 500;
       cursor: pointer;
-      z-index: 50;
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.12);
+      z-index: 40;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.12);
     }
 
-    /* LAYOUT WRAPPER */
+    /* PAGE WRAPPER */
     .page-wrap {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 70px 16px 40px;
+      padding: 80px 16px 40px;
     }
 
-    /* HERO SECTION */
+    /* HERO */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
       gap: 40px;
       align-items: center;
-      margin-bottom: 60px;
+      margin-bottom: 64px;
     }
 
-    @media (max-width: 820px) {
+    @media (max-width: 840px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
@@ -109,7 +109,7 @@
     }
 
     .hero-subtitle {
-      font-size: 1rem;
+      font-size: 0.98rem;
       color: var(--muted);
       max-width: 34rem;
       margin-bottom: 22px;
@@ -124,39 +124,39 @@
 
     .badge {
       font-size: 0.78rem;
-      padding: 4px 10px;
+      padding: 5px 10px;
       border-radius: 999px;
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.01);
+      background: rgba(148, 163, 184, 0.04);
       color: var(--muted);
     }
 
     .hero-buttons {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 26px;
+      gap: 10px;
+      margin-bottom: 22px;
     }
 
     .btn-primary {
       padding: 11px 18px;
       border-radius: 999px;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-weight: 600;
-      background: linear-gradient(135deg, var(--brand), var(--brand-dark));
+      background: var(--brand);
       color: #fff;
       border: none;
       cursor: pointer;
-      box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
       transition: 0.15s ease;
     }
 
     .btn-primary:hover {
       transform: translateY(-1px);
-      box-shadow: 0 16px 32px rgba(37, 99, 235, 0.45);
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.45);
     }
 
     .btn-ghost {
@@ -164,7 +164,7 @@
       border-radius: 999px;
       font-size: 0.9rem;
       border: 1px solid var(--border-subtle);
-      background: rgba(15, 23, 42, 0.02);
+      background: transparent;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
@@ -172,13 +172,14 @@
       color: var(--text);
     }
 
-    .btn-ghost i {
-      font-size: 0.95rem;
-    }
-
     .hero-meta {
       font-size: 0.8rem;
       color: var(--muted);
+    }
+
+    .hero-meta a {
+      color: var(--brand);
+      font-weight: 500;
     }
 
     .hero-right {
@@ -189,12 +190,12 @@
     .hero-card {
       width: 100%;
       max-width: 320px;
-      border-radius: 20px;
+      border-radius: 18px;
       background: var(--card);
       border: 1px solid var(--border-subtle);
       padding: 22px 20px;
       text-align: center;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.16);
+      box-shadow: var(--shadow-soft);
     }
 
     .hero-avatar {
@@ -207,13 +208,13 @@
     }
 
     .hero-name {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 4px;
     }
 
     .hero-role {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--muted);
       margin-bottom: 14px;
     }
@@ -222,11 +223,12 @@
       display: flex;
       justify-content: center;
       gap: 14px;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .hero-social a {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
+      color: var(--muted);
       transition: 0.18s ease;
     }
 
@@ -240,15 +242,16 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      font-size: 0.9rem;
-      padding: 9px 14px;
+      font-size: 0.84rem;
+      padding: 9px 12px;
       border-radius: 999px;
-      background: rgba(37, 99, 235, 0.08);
-      color: var(--brand-dark);
-      border: 1px solid rgba(37, 99, 235, 0.18);
+      background: var(--brand-soft);
+      color: var(--brand);
+      border: none;
+      font-weight: 500;
     }
 
-    /* SECTION LAYOUT */
+    /* GENERIC SECTION */
     .section {
       margin-top: 40px;
       margin-bottom: 10px;
@@ -268,7 +271,7 @@
     }
 
     .section-title {
-      font-size: 1.7rem;
+      font-size: 1.6rem;
       font-weight: 650;
       margin-bottom: 6px;
     }
@@ -292,13 +295,13 @@
       border-radius: 16px;
       overflow: hidden;
       border: 1px solid var(--border-subtle);
-      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.12);
-      transition: 0.18s ease;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      transition: 0.16s ease;
     }
 
     .speak-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 36px rgba(15, 23, 42, 0.14);
     }
 
     .speak-img {
@@ -312,9 +315,9 @@
     }
 
     .speak-body h3 {
-      font-size: 1.05rem;
+      font-size: 1.02rem;
       margin-bottom: 4px;
-      color: var(--brand-dark);
+      color: var(--brand);
     }
 
     .speak-body p {
@@ -327,6 +330,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 18px;
+      min-height: 40px;
     }
 
     .blog-card {
@@ -347,7 +351,7 @@
       font-size: 0.98rem;
       font-weight: 600;
       margin-bottom: 4px;
-      color: var(--brand-dark);
+      color: var(--text);
     }
 
     .blog-meta {
@@ -357,7 +361,7 @@
     }
 
     .blog-link {
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       font-weight: 500;
       color: var(--brand);
       display: inline-flex;
@@ -373,12 +377,13 @@
       font-size: 0.9rem;
       color: var(--muted);
       text-align: center;
+      margin-top: 8px;
     }
 
     /* FOOTER */
     footer {
-      margin-top: 40px;
-      padding: 20px 16px 26px;
+      margin-top: 44px;
+      padding: 18px 16px 26px;
       font-size: 0.8rem;
       color: var(--muted);
       border-top: 1px solid var(--border-subtle);
@@ -396,17 +401,18 @@
     <section class="hero">
       <div class="hero-left">
         <div class="hero-eyebrow">Cloud • DevOps • AI Infrastructure</div>
-        <h1 class="hero-title">Aman Patel — <span>Sr. ML DevOps Engineer</span> & Public Speaker</h1>
+        <h1 class="hero-title">
+          Aman Patel — <span>Sr. ML DevOps Engineer</span> & Public Speaker
+        </h1>
         <p class="hero-subtitle">
           I help engineering teams design scalable cloud platforms, automate infrastructure, and adopt
-          modern DevOps and AI-driven practices—while communicating these systems clearly to both technical
-          and non-technical audiences.
+          modern DevOps and AI-driven practices—while keeping communication clear for both technical and non-technical audiences.
         </p>
 
         <div class="hero-badges">
           <span class="badge">AWS · Kubernetes · MLOps</span>
           <span class="badge">DevOps & Platform Engineering</span>
-          <span class="badge">Public Speaking & Tech Mentoring</span>
+          <span class="badge">Talks · Workshops · Mentoring</span>
         </div>
 
         <div class="hero-buttons">
@@ -416,13 +422,14 @@
           </a>
           <a href="#blog" class="btn-ghost">
             <i class="fa-solid fa-rss"></i>
-            Read My Latest Blogs
+            Explore Latest Blogs
           </a>
         </div>
 
         <p class="hero-meta">
-          Currently sharing insights on cloud, DevOps, and AI infrastructure via talks, workshops, and
-          <a href="https://amanpatelofficial.substack.com" target="_blank" style="color: var(--brand); font-weight: 500;">Substack</a>.
+          Writing regularly on
+          <a href="https://amanpatelofficial.substack.com" target="_blank">Substack</a>
+          about DevOps, cloud architecture, and AI infrastructure.
         </p>
       </div>
 
@@ -430,7 +437,7 @@
         <div class="hero-card">
           <img src="https://cdn.amansdlc.com/aiwithaman.png"
                alt="Aman Patel"
-               class="hero-avatar">
+               class="hero-avatar" />
 
           <div class="hero-name">Aman Patel</div>
           <div class="hero-role">Sr. ML DevOps Engineer</div>
@@ -460,14 +467,14 @@
       </div>
     </section>
 
-    <!-- PUBLIC SPEAKING -->
+    <!-- SPEAKING -->
     <section id="speaking" class="section">
       <div class="section-header">
         <div class="section-eyebrow">Public Speaking</div>
         <h2 class="section-title">Speaking & Workshops</h2>
         <p class="section-sub">
-          I collaborate with communities, colleges, and teams to deliver practical, no-fluff sessions on
-          DevOps, Cloud, Kubernetes, MLOps, and real-world tech career growth.
+          I work with communities, colleges, and teams to deliver practical sessions on DevOps, cloud-native
+          architecture, Kubernetes, MLOps, and real-world tech careers.
         </p>
       </div>
 
@@ -475,12 +482,11 @@
         <article class="speak-card">
           <img class="speak-img"
                src="https://images.pexels.com/photos/3182762/pexels-photo-3182762.jpeg?auto=compress&cs=tinysrgb&w=1200"
-               alt="Technical talks on stage">
+               alt="Technical talks on stage" />
           <div class="speak-body">
             <h3>🎤 Technical Talks</h3>
             <p>
-              Deep-dive sessions on CI/CD, Kubernetes, cloud-native architectures, and MLOps pipelines—explained with
-              real production examples.
+              End-to-end sessions on CI/CD, Kubernetes, observability and MLOps—rooted in real production problem-solving.
             </p>
           </div>
         </article>
@@ -488,11 +494,11 @@
         <article class="speak-card">
           <img class="speak-img"
                src="https://images.pexels.com/photos/1181407/pexels-photo-1181407.jpeg?auto=compress&cs=tinysrgb&w=1200"
-               alt="Leadership and strategy discussions">
+               alt="Leadership and strategy discussions" />
           <div class="speak-body">
             <h3>💼 Leadership Presentations</h3>
             <p>
-              Helping engineering leaders understand platform strategy, reliability, cost optimization, and DevOps culture at scale.
+              Helping leaders understand platform strategy, reliability, cost optimization and DevOps culture at scale.
             </p>
           </div>
         </article>
@@ -500,33 +506,31 @@
         <article class="speak-card">
           <img class="speak-img"
                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1200"
-               alt="Mentoring and workshops">
+               alt="Mentoring and workshops" />
           <div class="speak-body">
             <h3>🎓 Mentoring & Workshops</h3>
             <p>
-              Hands-on labs and career sessions for students and engineers on Linux, cloud fundamentals, DevOps tooling, and communication.
+              Hands-on labs and career-focused sessions for students and engineers on Linux, cloud, DevOps tooling and communication.
             </p>
           </div>
         </article>
       </div>
     </section>
 
-    <!-- BLOG SECTION -->
+    <!-- BLOGS -->
     <section id="blog" class="section">
       <div class="section-header">
         <div class="section-eyebrow">Blog</div>
         <h2 class="section-title">Latest from the Newsletter</h2>
         <p class="section-sub">
-          Curated thoughts and deep dives from my Substack: infra lessons, DevOps patterns, and career notes for modern engineers.
+          A selection of recent posts from my Substack for engineers who want to grow in DevOps, cloud and AI infra.
         </p>
       </div>
 
-      <div id="blog-container" class="blog-list">
-        <!-- JS will inject cards here -->
-      </div>
+      <div id="blog-container" class="blog-list"></div>
 
       <p id="blog-empty" class="blog-empty" style="display:none;">
-        Couldn’t load posts right now. You can read all articles directly on
+        Couldn’t load posts right now. Read all articles directly on
         <a href="https://amanpatelofficial.substack.com" target="_blank" style="color: var(--brand); font-weight: 500;">
           Substack
         </a>.
@@ -587,9 +591,7 @@
 
           html += `
             <article class="blog-card">
-              <a href="${link}" target="_blank" class="blog-title">
-                ${title}
-              </a>
+              <a href="${link}" target="_blank" class="blog-title">${title}</a>
               <div class="blog-meta">${pubDate}</div>
               <a href="${link}" target="_blank" class="blog-link">
                 Read on Substack <i class="fa-solid fa-arrow-up-right-from-square"></i>
