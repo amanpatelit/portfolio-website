@@ -13,111 +13,81 @@
     html, body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
       font-family: "Poppins", sans-serif;
       background: #0d1117;
       color: #fff;
     }
 
-    /* THEME TOGGLE */
+    /* THEME BUTTON */
     .theme-toggle {
       position: fixed;
-      top: 14px;
-      right: 14px;
-      padding: 8px 16px;
+      top: 12px;
+      right: 12px;
+      padding: 8px 14px;
       border-radius: 50px;
       border: 2px solid #3ea6ff;
       background: rgba(0,0,0,0.4);
       color: #3ea6ff;
+      font-size: .82rem;
       cursor: pointer;
-      font-size: 0.85rem;
       backdrop-filter: blur(6px);
-      z-index: 9999;
+      z-index: 1000;
     }
 
-    /* HERO SECTION WITH FULL BACKGROUND VIDEO */
+    /* CLEAN HERO (NO VIDEO) */
     .hero {
-      position: relative;
-      height: 100vh;
-      width: 100%;
-      overflow: hidden;
+      height: 70vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-    }
-
-    /* YouTube Video Background */
-    .hero iframe {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 220%;
-      height: 140%;
-      transform: translate(-50%, -50%);
-      z-index: -2;
-      pointer-events: none;
-      filter: brightness(45%);
-    }
-
-    /* Dark overlay */
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.55);
-      z-index: -1;
-    }
-
-    /* CONTENT ON TOP OF VIDEO */
-    .hero-content {
-      z-index: 10;
-      max-width: 650px;
       padding: 20px;
+      background: linear-gradient(135deg, #0d1117, #111827);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .hero-content {
+      max-width: 650px;
       animation: fadeUp 1s ease-out;
     }
 
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+      to   { opacity: 1; transform: translateY(0); }
     }
 
-    .hero-content h1 {
+    .hero h1 {
       font-size: 3rem;
       font-weight: 700;
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .hero-content h2 {
-      font-size: 1.3rem;
-      font-weight: 400;
-      opacity: 0.9;
-      margin-bottom: 22px;
+    .hero h2 {
+      font-size: 1.2rem;
+      opacity: 0.85;
+      margin-bottom: 25px;
     }
 
-    .hero-content .cta {
-      padding: 14px 28px;
+    .cta {
+      padding: 14px 26px;
       background: #3ea6ff;
       color: #000;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 10px;
       text-decoration: none;
-      font-size: 1rem;
       transition: 0.2s;
-      display: inline-block;
     }
 
     .cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 18px rgba(62, 166, 255, 0.4);
+      box-shadow: 0 6px 18px rgba(62,166,255,0.4);
     }
 
-    /* PROFILE CARD SECTION */
+    /* PROFILE CARD */
     .content {
       display: flex;
       justify-content: center;
-      padding: 50px 16px 20px;
-      background: #0d1117;
+      padding: 40px 16px 20px;
     }
 
     .card {
@@ -126,10 +96,10 @@
       background: #161b22;
       padding: 28px 22px;
       border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
       text-align: center;
       box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-      animation: fadeUp 1s ease-out;
+      animation: fadeUp 0.8s ease-out;
     }
 
     .profile-img {
@@ -140,26 +110,22 @@
       margin-bottom: 10px;
     }
 
-    h3 {
-      font-size: 1.6rem;
-      margin: 10px 0 6px;
-    }
-
     .thought-line {
-      font-style: italic;
-      margin-bottom: 14px;
       opacity: 0.8;
+      margin-bottom: 12px;
+      font-style: italic;
+      height: 20px;
     }
 
     .social {
       display: flex;
       justify-content: center;
       gap: 18px;
-      margin: 16px 0 18px;
+      margin: 16px 0;
     }
 
     .social a {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       transition: 0.2s;
     }
 
@@ -168,39 +134,36 @@
     }
 
     .newsletter-btn {
-      padding: 14px;
+      padding: 12px 20px;
       background: #3ea6ff;
       color: #000;
-      border-radius: 12px;
-      text-decoration: none;
       font-weight: 600;
-      display: inline-block;
+      border-radius: 12px;
       width: 100%;
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 8px;
     }
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 22px;
       color: #9ca3af;
-      background: #0d1117;
+      margin-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.08);
     }
   </style>
 </head>
 
 <body>
 
-<button id="themeToggle" class="theme-toggle">☀️ Light</button>
+<button class="theme-toggle" id="themeToggle">☀️ Light</button>
 
-<!-- HERO with FULL BACKGROUND VIDEO -->
+<!-- HERO (NOW CLEAN + PROFESSIONAL) -->
 <section class="hero">
-  <iframe
-    src="https://www.youtube.com/embed/hceiQjFzE2E?autoplay=1&mute=1&controls=0&showinfo=0&rel=0&loop=1&playlist=hceiQjFzE2E"
-    allow="autoplay; encrypted-media"
-  ></iframe>
-
   <div class="hero-content">
     <h1>Aman Patel</h1>
-    <h2>Sr. ML DevOps Engineer • Cloud | DevOps | AI Infra</h2>
+    <h2>Sr. ML DevOps Engineer • Cloud | DevOps | AI Infrastructure</h2>
     <a href="#contact" class="cta">Book a Session</a>
   </div>
 </section>
@@ -211,16 +174,16 @@
     <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img">
 
     <h3>Aman Patel</h3>
-    <p class="thought-line" id="thoughtText">💭 Let’s Code & Deploy</p>
+    <p id="thoughtText" class="thought-line">💭 Let’s Code & Deploy</p>
 
     <div class="social">
       <a href="https://www.linkedin.com/in/amanpatelofficial/" style="color:#3ea6ff"><i class="fab fa-linkedin"></i></a>
       <a href="https://github.com/amanpatelit" style="color:#fff"><i class="fab fa-github"></i></a>
       <a href="https://www.youtube.com/@amanpatelletscodeanddeploy" style="color:#ff4747"><i class="fab fa-youtube"></i></a>
-      <a href="https://amanpatelofficial.substack.com/" style="color:#ffae47"><i class="fa-solid fa-rss"></i></a>
+      <a href="https://amanpatelofficial.substack.com/" style="color:#ffaa44"><i class="fa-solid fa-rss"></i></a>
     </div>
 
-    <a class="newsletter-btn" href="https://amanpatelofficial.substack.com/">
+    <a href="https://amanpatelofficial.substack.com/" class="newsletter-btn">
       🔔 Subscribe to My Newsletter
     </a>
   </div>
@@ -231,25 +194,25 @@
 </footer>
 
 <script>
-  // DARK MODE
-  const btn = document.getElementById("themeToggle");
-  btn.onclick = () => {
-    document.body.classList.toggle("light");
-  };
-
   // THOUGHT ROTATION
   const thoughts = [
     "💭 Let’s Code & Deploy",
     "Build • Automate • Scale",
     "DevOps • Cloud • AI",
-    "Solving Infra Problems Daily"
+    "Solving Infra Problems Daily",
   ];
+
   let i = 0;
-  const el = document.getElementById("thoughtText");
   setInterval(() => {
+    document.getElementById("thoughtText").textContent = thoughts[i];
     i = (i + 1) % thoughts.length;
-    el.textContent = thoughts[i];
   }, 3500);
+
+  // THEME BUTTON (LIGHT / DARK)
+  const btn = document.getElementById("themeToggle");
+  btn.onclick = () => {
+    document.body.classList.toggle("light");
+  };
 </script>
 
 </body>
