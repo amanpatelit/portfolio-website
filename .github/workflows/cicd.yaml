@@ -1,48 +1,38 @@
-name: Deploy Website on aws S3 with CloudFront
+name: Deploy Website on AWS S3 with CloudFront
 
 on:
   push:
     branches:
-      - main   #  triggers deploy when you push to main
+      - main
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
 
     env:
-      AWS_REGION: ap-south-1             
-      S3_BUCKET: ${{ secrets.S3_BUCKET}} 
-      CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID}}
+      S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
 
     steps:
-      #Step 1: Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      #Step 2: Configure AWS credentials (using Secrets)
-      - name: Configure AWS credentials .
-
+      - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ env.AWS_REGION }}
+          aws-region: ap-south-1  # Keep only here (required for S3)
 
-
-      #  Step 4: Deploy to S3
       - name: Upload files to S3
         run: |
-          echo "Deploying website to bucket: $S3_BUCKET"
           aws s3 sync ./ s3://$S3_BUCKET \
             --exclude ".git/*" \
             --exclude ".github/*" \
             --delete
 
-      # Step 5: Invalidate CloudFront Cache
       - name: Invalidate CloudFront distribution
         run: |
-          echo "Invalidating CloudFront cache for distribution: $CLOUDFRONT_DISTRIBUTION_ID"
           aws cloudfront create-invalidation \
             --distribution-id $CLOUDFRONT_DISTRIBUTION_ID \
             --paths "/*"
-
