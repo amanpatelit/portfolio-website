@@ -51,56 +51,82 @@
       color: var(--text);
     }
 
-    /* FLOATING BACKGROUND BLOBS */
+    /* ⭐ PREMIUM BACKGROUND EFFECT */
     .bg-blur-1,
     .bg-blur-2,
-    .bg-blur-3 {
+    .bg-blur-3,
+    .bg-gradient {
       position: fixed;
-      border-radius: 50%;
-      filter: blur(80px);
-      opacity: 0.45;
       z-index: -1;
+      filter: blur(65px);
+      opacity: 0.55;
+      pointer-events: none;
     }
 
+    /* Soft Gradient Sky */
+    .bg-gradient {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 20% 30%, rgba(173, 216, 255, 0.4), transparent 55%),
+        radial-gradient(circle at 80% 20%, rgba(200, 235, 255, 0.35), transparent 60%),
+        radial-gradient(circle at 50% 90%, rgba(180, 220, 255, 0.3), transparent 60%);
+      animation: slowGlow 12s infinite alternate ease-in-out;
+    }
+
+    /* Floating Blobs */
     .bg-blur-1 {
-      width: 280px;
-      height: 280px;
-      background: #c7e6ff;
-      top: 80px;
-      left: -60px;
-      animation: floatBlob 6s ease-in-out infinite;
+      width: 380px;
+      height: 380px;
+      background: rgba(120, 180, 255, 0.35);
+      top: 10%;
+      left: -10%;
+      animation: floatBlob 8s ease-in-out infinite;
     }
 
     .bg-blur-2 {
-      width: 320px;
-      height: 320px;
-      background: #d8f0ff;
-      top: 260px;
-      right: -40px;
-      animation: floatBlob 7s ease-in-out infinite reverse;
+      width: 420px;
+      height: 420px;
+      background: rgba(100, 190, 255, 0.32);
+      top: 40%;
+      right: -12%;
+      animation: floatBlob 10s ease-in-out infinite reverse;
     }
 
     .bg-blur-3 {
-      width: 260px;
-      height: 260px;
-      background: #e4f4ff;
-      bottom: 80px;
-      left: 50%;
-      transform: translateX(-50%);
-      animation: floatBlob 5.5s ease-in-out infinite;
+      width: 320px;
+      height: 320px;
+      background: rgba(150, 210, 255, 0.28);
+      bottom: 8%;
+      left: 45%;
+      animation: floatBlob 9s ease-in-out infinite;
     }
 
+    /* ANIMATIONS */
     @keyframes floatBlob {
       0% {
         transform: translateY(0px) scale(1);
       }
 
       50% {
-        transform: translateY(-25px) scale(1.07);
+        transform: translateY(-35px) scale(1.08);
       }
 
       100% {
         transform: translateY(0px) scale(1);
+      }
+    }
+
+    @keyframes slowGlow {
+      0% {
+        opacity: 0.45;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0.6;
+        transform: scale(1.05);
       }
     }
 
@@ -121,7 +147,7 @@
       z-index: 1000;
     }
 
-    /* MAIN CONTENT CARD */
+    /* MAIN CONTENT */
     .content {
       display: flex;
       justify-content: center;
@@ -299,12 +325,13 @@
 
 <body>
 
-  <!-- FLOATING BACKGROUND BLOBS -->
+  <!-- ⭐ PREMIUM BACKGROUND -->
+  <div class="bg-gradient"></div>
   <div class="bg-blur-1"></div>
   <div class="bg-blur-2"></div>
   <div class="bg-blur-3"></div>
 
-  <!-- THEME BUTTON -->
+  <!-- THEME SWITCH -->
   <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
 
   <!-- PROFILE CARD -->
@@ -332,7 +359,7 @@
     </div>
   </div>
 
-  <!-- TALKS SECTION -->
+  <!-- TALKS -->
   <section class="talks-section">
     <i class="fa-solid fa-microphone-lines talks-icon"></i>
     <h2>Talks & Presentations</h2>
