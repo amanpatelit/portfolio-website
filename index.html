@@ -202,6 +202,7 @@
       mask-composite: exclude;
       opacity: 0;
       transition: 0.4s ease;
+      pointer-events: none; /* 🔥 FIX: don't block clicks */
     }
 
     .card:hover::after {
