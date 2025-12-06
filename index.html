@@ -7,8 +7,7 @@
   <title>Aman Patel | Sr. ML DevOps Engineer</title>
 
   <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png" />
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
     /* GENERAL RESET */
@@ -52,6 +51,59 @@
       color: var(--text);
     }
 
+    /* FLOATING BACKGROUND BLOBS */
+    .bg-blur-1,
+    .bg-blur-2,
+    .bg-blur-3 {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      z-index: -1;
+    }
+
+    .bg-blur-1 {
+      width: 280px;
+      height: 280px;
+      background: #c7e6ff;
+      top: 80px;
+      left: -60px;
+      animation: floatBlob 6s ease-in-out infinite;
+    }
+
+    .bg-blur-2 {
+      width: 320px;
+      height: 320px;
+      background: #d8f0ff;
+      top: 260px;
+      right: -40px;
+      animation: floatBlob 7s ease-in-out infinite reverse;
+    }
+
+    .bg-blur-3 {
+      width: 260px;
+      height: 260px;
+      background: #e4f4ff;
+      bottom: 80px;
+      left: 50%;
+      transform: translateX(-50%);
+      animation: floatBlob 5.5s ease-in-out infinite;
+    }
+
+    @keyframes floatBlob {
+      0% {
+        transform: translateY(0px) scale(1);
+      }
+
+      50% {
+        transform: translateY(-25px) scale(1.07);
+      }
+
+      100% {
+        transform: translateY(0px) scale(1);
+      }
+    }
+
     /* THEME TOGGLE BUTTON */
     .theme-toggle {
       position: fixed;
@@ -87,6 +139,7 @@
       box-shadow: 0 14px 35px var(--shadow);
       text-align: center;
       animation: fadeUp 0.7s ease-out;
+      backdrop-filter: blur(8px);
     }
 
     @keyframes fadeUp {
@@ -101,7 +154,6 @@
       }
     }
 
-    /* PROFILE IMAGE */
     .profile-img {
       width: 120px;
       height: 120px;
@@ -116,7 +168,6 @@
       transform: scale(1.05);
     }
 
-    /* HEADINGS */
     h1 {
       margin: 10px 0 4px;
       font-size: 1.8rem;
@@ -130,7 +181,6 @@
       font-weight: 500;
     }
 
-    /* ROTATING THOUGHT TEXT */
     .thought-line {
       height: 20px;
       font-size: .95rem;
@@ -161,7 +211,6 @@
       }
     }
 
-    /* SOCIAL ICON ROW */
     .social {
       display: flex;
       justify-content: center;
@@ -178,7 +227,6 @@
       transform: translateY(-3px);
     }
 
-    /* BUTTON */
     .newsletter-btn {
       width: 100%;
       padding: 14px 0;
@@ -202,7 +250,6 @@
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
     }
 
-    /* TALKS SECTION */
     .talks-section {
       text-align: center;
       padding: 40px 15px 25px;
@@ -241,7 +288,6 @@
       font-weight: 600;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       padding: 24px 10px;
@@ -252,6 +298,11 @@
 </head>
 
 <body>
+
+  <!-- FLOATING BACKGROUND BLOBS -->
+  <div class="bg-blur-1"></div>
+  <div class="bg-blur-2"></div>
+  <div class="bg-blur-3"></div>
 
   <!-- THEME BUTTON -->
   <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
@@ -268,11 +319,9 @@
       <p class="thought-line" id="thoughtText">💭 Let’s Code & Deploy</p>
 
       <div class="social">
-        <a href="https://www.linkedin.com/in/amanpatelofficial/" style="color:#0A66C2;"><i
-            class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/amanpatelofficial/" style="color:#0A66C2;"><i class="fa-brands fa-linkedin"></i></a>
         <a href="https://github.com/amanpatelit" style="color:#000;"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.youtube.com/@amanpatelletscodeanddeploy" style="color:#FF0000;"><i
-            class="fa-brands fa-youtube"></i></a>
+        <a href="https://www.youtube.com/@amanpatelletscodeanddeploy" style="color:#FF0000;"><i class="fa-brands fa-youtube"></i></a>
         <a href="https://amanpatelofficial.substack.com/" style="color:#ff6719;"><i class="fa-solid fa-rss"></i></a>
       </div>
 
@@ -294,13 +343,11 @@
     <span class="talks-email">amanpatel.itofficial@gmail.com</span>
   </section>
 
-  <!-- FOOTER -->
   <footer>
     © 2025 Aman Patel • Cloud, DevOps & AI Infrastructure
   </footer>
 
   <script>
-    // THEME SWITCH
     const btn = document.getElementById("themeToggle");
     const savedTheme = localStorage.getItem("theme");
 
@@ -322,7 +369,6 @@
       }
     };
 
-    // ROTATING THOUGHT LINE
     const thoughts = [
       "💭 Let’s Code & Deploy",
       "Build • Automate • Scale",
