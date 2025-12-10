@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +24,9 @@
     --card: #1a1c23;
   }
 
+  /* Page Structure */
   html, body {
+    height: 100%;
     margin: 0;
     font-family: Inter, system-ui, sans-serif;
     background: linear-gradient(135deg, var(--bg), var(--bg2));
@@ -37,10 +38,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 48px 20px 80px;
   }
 
-  /* Toggle Button */
+  /* Dark Mode Button */
   .toggle-container {
     position: fixed;
     top: 20px;
@@ -49,32 +49,38 @@
 
   .toggle-btn {
     background: var(--card);
-    border: 1px solid #d0d0d0;
-    padding: 8px 14px;
+    color: var(--text);
+    border: 1px solid #ccc;
+    padding: 8px 16px;
     border-radius: 20px;
     cursor: pointer;
     font-size: 13px;
-    color: var(--text);
     transition: 0.3s;
   }
 
+  body.dark .toggle-btn {
+    border-color: #555;
+  }
+
+  /* Profile Card */
   .card {
+    margin-top: 80px;
     width: min(420px, 92%);
     background: var(--card);
     border-radius: 18px;
     padding: 34px 28px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     text-align: center;
     transition: background 0.3s;
   }
 
-  /* 🎈 Floating Avatar Animation */
+  /* Floating Avatar */
   .avatar {
     width: 112px;
     height: 112px;
     border-radius: 50%;
-    object-fit: cover;
     border: 4px solid #eef3fb;
+    object-fit: cover;
     margin-bottom: 18px;
     animation: float 3s ease-in-out infinite;
   }
@@ -87,7 +93,7 @@
 
   h1 { font-size: 26px; margin: 6px 0 0; font-weight: 700; }
   .role { color: var(--muted); margin-top: 5px; font-size: 14px; }
-  .tagline { color: var(--muted); font-size: 13px; font-style: italic; }
+  .tagline { color: var(--muted); font-size: 13px; margin-top: 6px; font-style: italic; }
 
   /* Social Icons */
   .socials {
@@ -99,16 +105,15 @@
 
   .socials img {
     width: 24px;
-    height: 24px;
-    transition: 0.3s ease;
+    transition: 0.3s;
   }
 
   .socials img:hover {
-    transform: translateY(-4px) scale(1.15);
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+    transform: translateY(-4px) scale(1.18);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
   }
 
-  /* Button */
+  /* Subscribe Button */
   .btn {
     display: inline-block;
     width: 85%;
@@ -118,20 +123,28 @@
     border-radius: 10px;
     font-weight: 600;
     text-decoration: none;
-    transition: 0.25s ease;
+    transition: 0.25s;
   }
 
   .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(30, 99, 255, 0.25);
+    box-shadow: 0 6px 18px rgba(30, 99, 255, 0.28);
   }
 
-  /* Mic Animation */
+  /* Footer Section (Sticks to Bottom) */
+  .footer {
+    margin-top: auto;
+    padding: 40px 20px 40px;
+    text-align: center;
+    width: 100%;
+    max-width: 900px;
+  }
+
   .mic {
     font-size: 32px;
-    margin-bottom: 6px;
     color: var(--accent);
     animation: pulse 1.8s infinite ease-in-out;
+    margin-bottom: 8px;
   }
 
   @keyframes pulse {
@@ -140,26 +153,24 @@
     100% { transform: scale(1); opacity: 0.85; }
   }
 
-  /* Footer */
-  .footer {
-    margin-top: 56px;
-    text-align: center;
-    max-width: 900px;
-  }
-
-  .footer h2 { font-size: 18px; }
-  .footer p { font-size: 14px; color: var(--muted); }
-  .email { color: var(--accent); font-weight: 600; }
+  .footer h2 { margin: 0 0 10px; font-size: 18px; }
+  .footer p { font-size: 14px; color: var(--muted); margin: 0 0 10px; }
+  .email { color: var(--accent); font-weight: 600; text-decoration: none; }
   .copyright { margin-top: 18px; font-size: 12px; color: var(--muted); }
+
 </style>
 </head>
 
 <body>
 
+<!-- Light/Dark Toggle -->
 <div class="toggle-container">
-  <button class="toggle-btn" onclick="document.body.classList.toggle('dark')">🌙 Night / ☀️ Day</button>
+  <button class="toggle-btn" onclick="document.body.classList.toggle('dark')">
+    🌙 Night / ☀️ Day
+  </button>
 </div>
 
+<!-- PROFILE CARD -->
 <div class="card">
   <img class="avatar" src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman Patel">
 
@@ -187,8 +198,10 @@
   </a>
 </div>
 
+<!-- FOOTER (stays at the bottom) -->
 <div class="footer">
   <div class="mic">🎤</div>
+
   <h2>Talks & Presentations</h2>
   <p>I deliver sessions on DevOps, Cloud Infrastructure, AI automation, platform engineering, and modern tech career strategies.</p>
 
