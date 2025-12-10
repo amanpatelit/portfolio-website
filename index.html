@@ -4,453 +4,225 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Aman Patel | Sr. ML DevOps Engineer</title>
+  <title>TechOps Examples</title>
 
-  <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* GENERAL RESET */
-    html,
     body {
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
-      font-family: "Poppins", system-ui, sans-serif;
-      width: 100%;
+      background: #fadc3c; /* Yellow background like screenshot */
+      font-family: "Inter", sans-serif;
     }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    /* LIGHT THEME */
-    :root {
-      --bg: #f4f6f9;
-      --text: #0f1115;
-      --muted: #6d7280;
-      --brand: #2563eb;
-      --card: rgba(255, 255, 255, 0.22);
-      --border: rgba(255, 255, 255, 0.28);
-      --shadow: rgba(0, 0, 0, 0.10);
-    }
-
-    /* DARK THEME */
-    [data-theme="dark"] {
-      --bg: #0d1117;
-      --text: #e6edf3;
-      --muted: #9ca3af;
-      --brand: #3ea6ff;
-      --card: rgba(22, 27, 34, 0.35);
-      --border: rgba(255, 255, 255, 0.18);
-      --shadow: rgba(0, 0, 0, 0.55);
-    }
-
-    body {
-      background: var(--bg);
-      color: var(--text);
-    }
-
-    /* ⭐ PREMIUM BACKGROUND EFFECT */
-    .bg-blur-1,
-    .bg-blur-2,
-    .bg-blur-3,
-    .bg-gradient {
-      position: fixed;
-      z-index: -1;
-      filter: blur(65px);
-      opacity: 0.55;
-      pointer-events: none;
-    }
-
-    /* Gradient Sky */
-    .bg-gradient {
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: radial-gradient(circle at 20% 30%, rgba(173, 216, 255, 0.4), transparent 55%),
-        radial-gradient(circle at 80% 20%, rgba(200, 235, 255, 0.35), transparent 60%),
-        radial-gradient(circle at 50% 90%, rgba(180, 220, 255, 0.3), transparent 60%);
-      animation: slowGlow 12s infinite alternate ease-in-out;
-    }
-
-    /* Floating Blobs */
-    .bg-blur-1 {
-      width: 380px;
-      height: 380px;
-      background: rgba(120, 180, 255, 0.35);
-      top: 10%;
-      left: -10%;
-      animation: floatBlob 8s ease-in-out infinite;
-    }
-
-    .bg-blur-2 {
-      width: 420px;
-      height: 420px;
-      background: rgba(100, 190, 255, 0.32);
-      top: 40%;
-      right: -12%;
-      animation: floatBlob 10s ease-in-out infinite reverse;
-    }
-
-    .bg-blur-3 {
-      width: 320px;
-      height: 320px;
-      background: rgba(150, 210, 255, 0.28);
-      bottom: 8%;
-      left: 45%;
-      animation: floatBlob 9s ease-in-out infinite;
-    }
-
-    @keyframes floatBlob {
-      0% {
-        transform: translateY(0px) scale(1);
-      }
-      50% {
-        transform: translateY(-35px) scale(1.08);
-      }
-      100% {
-        transform: translateY(0px) scale(1);
-      }
-    }
-
-    @keyframes slowGlow {
-      0% {
-        opacity: 0.45;
-        transform: scale(1);
-      }
-      100% {
-        opacity: 0.6;
-        transform: scale(1.05);
-      }
-    }
-
-    /* THEME BUTTON */
-    .theme-toggle {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      padding: 7px 16px;
-      background: var(--card);
-      color: var(--brand);
-      border: 2px solid var(--brand);
-      border-radius: 50px;
-      font-size: .82rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: .25s;
-      z-index: 1000;
-    }
-
-    /* MAIN CONTENT */
-    .content {
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 80px 40px;
       display: flex;
-      justify-content: center;
-      padding: 48px 16px 25px;
-      width: 100%;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* ⭐ PREMIUM GLASS CARD */
-    .card {
-      width: 100%;
-      max-width: 420px;
-      background: var(--card);
-      padding: 28px 24px;
-      border-radius: 22px;
-      border: 1px solid var(--border);
-      box-shadow:
-        0 8px 28px var(--shadow),
-        inset 0 0 35px rgba(255, 255, 255, 0.15);
-      text-align: center;
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      animation: fadeUp 0.7s ease-out;
-      transition: 0.35s ease;
-      transform: translateY(0);
-      position: relative;
+    /* LEFT SECTION */
+    .left {
+      max-width: 520px;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow:
-        0 14px 45px rgba(0, 0, 0, 0.22),
-        inset 0 0 45px rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.45);
+    .logo {
+      width: 80px;
+      margin-bottom: 22px;
     }
 
-    /* Animated Border Glow */
-    .card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 22px;
-      padding: 2px;
-      background: linear-gradient(
-        135deg,
-        rgba(120, 180, 255, 0.55),
-        rgba(180, 220, 255, 0.35),
-        rgba(140, 200, 255, 0.55)
-      );
-      -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      -webkit-mask-composite: xor;
-      mask-composite: exclude;
-      opacity: 0;
-      transition: 0.4s ease;
-      pointer-events: none; /* 🔥 FIX: don't block clicks */
-    }
-
-    .card:hover::after {
-      opacity: 1;
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(12px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* PROFILE */
-    .profile-img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 3px solid var(--brand);
-      object-fit: cover;
-      margin-bottom: 8px;
-      transition: .3s;
-    }
-
-    .profile-img:hover {
-      transform: scale(1.05);
+    h3 {
+      font-size: 20px;
+      margin: 0;
+      font-weight: 600;
     }
 
     h1 {
-      margin: 10px 0 4px;
-      font-size: 1.8rem;
-      font-weight: 600;
+      font-size: 30px;
+      margin: 10px 0 20px;
+      font-weight: 700;
+      line-height: 1.35;
     }
 
-    h2 {
-      margin: 0 0 10px;
-      color: var(--muted);
-      font-size: 1rem;
+    .subtext {
+      font-size: 15px;
+      opacity: 0.9;
+      line-height: 1.5;
+      margin-bottom: 28px;
+    }
+
+    /* EMAIL INPUT */
+    .email-box {
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 8px;
+      padding: 10px 14px;
+      width: 340px;
+      border: 1px solid #dfdfdf;
+    }
+
+    .email-box input {
+      border: none;
+      outline: none;
+      font-size: 15px;
+      flex: 1;
+    }
+
+    .button {
+      background: black;
+      color: white;
+      padding: 12px 22px;
+      margin-left: 10px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .small-text {
+      margin-top: 10px;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    /* RIGHT SECTION */
+    .right {
+      max-width: 360px;
+      text-align: left;
+    }
+
+    .profile-img {
+      width: 85px;
+      height: 85px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 10px;
+    }
+
+    .profile-name {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .profile-role {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-bottom: 18px;
+    }
+
+    .quote-box {
+      border: 3px solid black;
+      padding: 22px;
+      border-radius: 20px;
+      position: relative;
+      background: transparent;
+      font-size: 14px;
+      line-height: 1.5;
       font-weight: 500;
     }
 
-    .thought-line {
-      height: 20px;
-      font-size: .95rem;
-      margin-bottom: 14px;
-      color: var(--muted);
-      font-style: italic;
-      animation: fadeText 4s infinite;
+    .quote-box:before {
+      content: "“";
+      font-size: 40px;
+      font-weight: bold;
+      position: absolute;
+      top: -18px;
+      left: 12px;
     }
 
-    @keyframes fadeText {
-      0% {
-        opacity: 0;
-        transform: translateY(4px);
+    .quote-box:after {
+      content: "”";
+      font-size: 40px;
+      font-weight: bold;
+      position: absolute;
+      bottom: -25px;
+      right: 12px;
+    }
+
+    .stars {
+      margin-top: 10px;
+      letter-spacing: 2px;
+    }
+
+    @media(max-width: 900px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
       }
-      15% {
-        opacity: 1;
-        transform: translateY(0);
+
+      .email-box {
+        margin: 0 auto;
       }
-      85% {
-        opacity: 1;
+
+      .button {
+        margin: 10px auto;
       }
-      100% {
-        opacity: 0;
-        transform: translateY(-4px);
+
+      .right {
+        margin-top: 40px;
+        text-align: center;
       }
-    }
-
-    /* SOCIAL ICONS */
-    .social {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin: 12px 0 14px;
-    }
-
-    .social a {
-      font-size: 1.45rem;
-      transition: .25s;
-    }
-
-    .social a:hover {
-      transform: translateY(-3px);
-    }
-
-    /* NEWSLETTER BUTTON */
-    .newsletter-btn {
-      width: 100%;
-      padding: 14px 0;
-      background: linear-gradient(135deg, var(--brand), #1e4fcf);
-      border-radius: 14px;
-      color: #fff;
-      font-size: 1rem;
-      font-weight: 600;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      transition: 0.25s ease;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-      margin-top: 6px;
-    }
-
-    .newsletter-btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
-    }
-
-    /* TALKS */
-    .talks-section {
-      text-align: center;
-      padding: 40px 15px 25px;
-    }
-
-    .talks-icon {
-      font-size: 3.3rem;
-      color: var(--brand);
-      animation: floatMic 3s infinite;
-    }
-
-    @keyframes floatMic {
-      0%,
-      100% {
-        transform: translateY(0);
-      }
-      50% {
-        transform: translateY(-5px);
-      }
-    }
-
-    .talks-text {
-      max-width: 700px;
-      margin: 8px auto;
-      font-size: 0.95rem;
-      color: var(--muted);
-      line-height: 1.55;
-    }
-
-    .talks-email {
-      color: var(--brand);
-      display: block;
-      margin-top: 6px;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px 10px;
-      font-size: 0.85rem;
-      color: var(--muted);
     }
   </style>
 </head>
 
 <body>
 
-  <!-- ⭐ PREMIUM BACKGROUND -->
-  <div class="bg-gradient"></div>
-  <div class="bg-blur-1"></div>
-  <div class="bg-blur-2"></div>
-  <div class="bg-blur-3"></div>
+  <div class="container">
 
-  <!-- THEME SWITCH -->
-  <button id="themeToggle" class="theme-toggle">🌙 Dark</button>
+    <!-- LEFT SIDE -->
+    <div class="left">
+      <img src="https://cdn.amansdlc.com/aiwithaman.png" class="logo" />
 
-  <!-- PROFILE CARD -->
-  <div class="content">
-    <div class="card">
+      <h3>TechOps Examples</h3>
 
-      <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img" />
+      <h1>
+        DevOps and Cloud newsletter to grow your real-world expertise — Practical examples, no fluff.
+      </h1>
 
-      <h1>Aman Patel</h1>
-      <h2>Sr. ML DevOps Engineer</h2>
+      <p class="subtext">
+        57,000+ receive 1 practical use case example, the best links to remote job opportunities,
+        and free learning resources.
+      </p>
 
-      <p class="thought-line" id="thoughtText">💭 Let’s Code & Deploy</p>
+      <div style="display:flex; align-items:center;">
+        <div class="email-box">
+          <input type="text" placeholder="Your Email Here.." />
+        </div>
 
-      <div class="social">
-        <a href="https://www.linkedin.com/in/amanpatelofficial/" style="color:#0A66C2;"><i class="fa-brands fa-linkedin"></i></a>
-        <a href="https://github.com/amanpatelit" style="color:#000;"><i class="fa-brands fa-github"></i></a>
-        <a href="https://www.youtube.com/@amanpatelletscodeanddeploy" style="color:#FF0000;"><i class="fa-brands fa-youtube"></i></a>
-        <a href="https://amanpatelofficial.substack.com/" style="color:#ff6719;"><i class="fa-solid fa-rss"></i></a>
+        <a class="button">Start Great TechOps →</a>
       </div>
 
-      <a href="https://amanpatelofficial.substack.com/" class="newsletter-btn">
-        <i class="fa-solid fa-bell"></i> Subscribe to My Newsletter
-      </a>
-
+      <p class="small-text">(it's free)</p>
     </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="right">
+      <img src="https://cdn.amansdlc.com/aiwithaman.png" class="profile-img" />
+
+      <div class="profile-name">Mumshad Mannambeth</div>
+      <div class="profile-role">CEO @ KodeKloud</div>
+
+      <div class="quote-box">
+        Govardhana has a knack for breaking down complex topics into engaging,
+        relatable content that resonates with the audience.
+        He nails it every time.
+        <b>Can't recommend him enough!</b>
+
+        <div class="stars">★★★★★</div>
+      </div>
+    </div>
+
   </div>
-
-  <!-- TALKS -->
-  <section class="talks-section">
-    <i class="fa-solid fa-microphone-lines talks-icon"></i>
-    <h2>Talks & Presentations</h2>
-    <p class="talks-text">
-      I deliver sessions on DevOps, Cloud Infrastructure, AI-driven automation,
-      platform engineering, and modern tech career strategies.
-    </p>
-    <span class="talks-email">amanpatel.itofficial@gmail.com</span>
-  </section>
-
-  <footer>
-    © 2025 Aman Patel • Cloud, DevOps & AI Infrastructure
-  </footer>
-
-  <script>
-    const btn = document.getElementById("themeToggle");
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-      document.documentElement.setAttribute("data-theme", "dark");
-      btn.textContent = "☀️ Light";
-    }
-
-    btn.onclick = () => {
-      const dark = document.documentElement.getAttribute("data-theme") === "dark";
-      if (dark) {
-        document.documentElement.removeAttribute("data-theme");
-        localStorage.setItem("theme", "light");
-        btn.textContent = "🌙 Dark";
-      } else {
-        document.documentElement.setAttribute("data-theme", "dark");
-        localStorage.setItem("theme", "dark");
-        btn.textContent = "☀️ Light";
-      }
-    };
-
-    const thoughts = [
-      "💭 Let’s Code & Deploy",
-      "Build • Automate • Scale",
-      "DevOps • Cloud • AI",
-      "Solving Infra Problems Daily"
-    ];
-
-    let i = 0;
-    const el = document.getElementById("thoughtText");
-
-    setInterval(() => {
-      i = (i + 1) % thoughts.length;
-      el.textContent = thoughts[i];
-    }, 4000);
-  </script>
 
 </body>
 
