@@ -6,10 +6,11 @@
 
 <title>Aman Patel – Sr. AI DevOps Engineer</title>
 
-<!-- 🌟 Favicon (Browser Tab Icon) -->
+<!-- Favicon -->
 <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png">
 
 <style>
+  /* ---------- THEME VARIABLES ---------- */
   :root {
     --bg: #f3f7ff;
     --bg2: #ffffff;
@@ -17,6 +18,8 @@
     --muted: #666;
     --accent: #1e63ff;
     --card: #ffffff;
+    --radius: 18px;
+    --transition: 0.3s ease;
   }
 
   body.dark {
@@ -28,14 +31,19 @@
     --card: #1a1c23;
   }
 
-  /* Global Layout */
+  /* ---------- GLOBAL ---------- */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   html, body {
     height: 100%;
-    margin: 0;
     font-family: Inter, system-ui, sans-serif;
     background: linear-gradient(135deg, var(--bg), var(--bg2));
     color: var(--text);
-    transition: background 0.4s, color 0.4s;
+    transition: background var(--transition), color var(--transition);
   }
 
   body {
@@ -44,7 +52,7 @@
     align-items: center;
   }
 
-  /* Toggle Button */
+  /* ---------- THEME TOGGLE ---------- */
   .toggle-container {
     position: fixed;
     top: 20px;
@@ -59,61 +67,64 @@
     border-radius: 20px;
     cursor: pointer;
     font-size: 13px;
-    transition: 0.3s;
+    transition: var(--transition);
   }
 
-  /* Card */
+  .toggle-btn:hover {
+    opacity: 0.8;
+  }
+
+  /* ---------- CARD ---------- */
   .card {
     margin-top: 80px;
     width: min(420px, 92%);
     background: var(--card);
-    border-radius: 18px;
+    border-radius: var(--radius);
     padding: 34px 28px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    transition: background 0.3s;
+    transition: background var(--transition);
   }
 
-  /* Floating Avatar */
+  /* ---------- AVATAR FLOAT ---------- */
   .avatar {
     width: 112px;
     height: 112px;
     border-radius: 50%;
-    border: 4px solid #eef3fb;
     object-fit: cover;
+    border: 4px solid rgba(255,255,255,0.4);
     margin-bottom: 18px;
     animation: float 3s ease-in-out infinite;
   }
 
   @keyframes float {
-    0% { transform: translateY(0); }
+    0%,100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
   }
 
-  h1 { font-size: 26px; margin: 6px 0 0; font-weight: 700; }
-  .role { color: var(--muted); margin-top: 5px; font-size: 14px; }
-  .tagline { color: var(--muted); font-size: 13px; margin-top: 6px; font-style: italic; }
+  h1 { font-size: 26px; font-weight: 700; }
+  .role { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .tagline { color: var(--muted); font-size: 13px; font-style: italic; margin-top: 6px; }
 
-  /* Social Icons */
+  /* ---------- SOCIAL ICONS ---------- */
   .socials {
-    margin: 16px 0;
     display: flex;
-    gap: 14px;
     justify-content: center;
+    gap: 14px;
+    margin: 16px 0;
   }
 
   .socials img {
     width: 24px;
-    transition: 0.3s;
+    transition: var(--transition);
   }
 
   .socials img:hover {
-    transform: translateY(-4px) scale(1.18);
+    transform: translateY(-4px) scale(1.15);
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.25));
   }
 
-  /* Button */
+  /* ---------- BUTTON ---------- */
   .btn {
     display: inline-block;
     width: 85%;
@@ -123,7 +134,7 @@
     border-radius: 10px;
     font-weight: 600;
     text-decoration: none;
-    transition: 0.25s;
+    transition: var(--transition);
   }
 
   .btn:hover {
@@ -131,41 +142,48 @@
     box-shadow: 0 6px 18px rgba(30,99,255,0.28);
   }
 
-  /* Footer (sticks at bottom) */
+  /* ---------- FOOTER ---------- */
   .footer {
     margin-top: auto;
     padding: 40px 20px;
     text-align: center;
-    width: 100%;
     max-width: 900px;
+    width: 100%;
   }
 
-  /* Mic Icon */
   .mic {
     font-size: 34px;
     color: var(--accent);
+    margin-top: -20px;
     animation: pulse 1.8s infinite ease-in-out;
-    margin-bottom: 8px;
-    margin-top: -25px;
   }
 
   @keyframes pulse {
-    0% { transform: scale(1); opacity: 0.85; }
+    0%,100% { transform: scale(1); opacity: 0.8; }
     50% { transform: scale(1.12); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.85; }
   }
 
-  .footer h2 { margin: 0 0 10px; font-size: 18px; }
-  .footer p { font-size: 14px; color: var(--muted); }
-  .email { color: var(--accent); font-weight: 600; text-decoration: none; }
-  .copyright { margin-top: 18px; font-size: 12px; color: var(--muted); }
+  .footer p { color: var(--muted); font-size: 14px; margin: 10px 0; }
 
+  .email {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .copyright {
+    margin-top: 18px;
+    font-size: 12px;
+    color: var(--muted);
+  }
 </style>
 </head>
 
 <body>
 
-<!-- Light/Dark Toggle -->
+<!-- Theme Toggle -->
 <div class="toggle-container">
   <button class="toggle-btn" onclick="document.body.classList.toggle('dark')">
     🌙 Night / ☀️ Day
@@ -181,27 +199,21 @@
   <div class="tagline">Solving Infra Problems Daily</div>
 
   <div class="socials">
-
-    <!-- LinkedIn -->
     <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn">
     </a>
 
-    <!-- GitHub -->
     <a href="https://github.com/amanpatelit" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub">
     </a>
 
-    <!-- YouTube -->
     <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">
       <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube">
     </a>
 
-    <!-- RSS -->
     <a href="#">
       <img src="https://cdn-icons-png.flaticon.com/512/2504/2504924.png" alt="RSS">
     </a>
-
   </div>
 
   <a class="btn" href="https://amannewsletter.substack.com/" target="_blank">
