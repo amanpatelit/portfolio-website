@@ -3,274 +3,321 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Aman Patel — AI DevOps Engineer | AWS, Kubernetes, Cloud Automation</title>
-  <meta name="description" content="Aman Patel — AI DevOps Engineer focusing on scalable cloud infrastructure, Kubernetes, EKS, CI/CD, and DevSecOps. Talks, blogs and community sessions." />
-  <link rel="canonical" href="https://amanops.com/" />
+
+  <!-- Browser Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.amansdlc.com/aiwithaman.png" />
+  <link rel="shortcut icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png" />
+
+  <!-- Primary SEO Title -->
+  <title>Aman Patel — AI DevOps Engineer | AWS, Kubernetes, Cloud Automation</title>
+
+  <!-- Meta Description -->
+  <meta name="description" content="Aman Patel is an AI DevOps Engineer specializing in AWS, Kubernetes, EKS, DevSecOps, Cloud Automation, CI/CD, and scalable production systems. Explore blogs, talks, and cloud-native insights." />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://amanops.com/" />
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Aman Patel — AI DevOps Engineer" />
-  <meta property="og:description" content="Cloud-native engineering, Kubernetes, CI/CD and infrastructure automation." />
+  <meta property="og:description" content="Cloud, DevOps & AI-driven infrastructure specialist. AWS Community Builder, CNCF Speaker, and Kubernetes practitioner." />
   <meta property="og:image" content="https://cdn.amansdlc.com/aiwithaman.png" />
-  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://amanops.com/" />
+  <meta property="og:type" content="profile" />
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Aman Patel — AI DevOps Engineer" />
+  <meta name="twitter:description" content="AWS, Kubernetes, DevSecOps & scalable cloud systems expert." />
+  <meta name="twitter:image" content="https://cdn.amansdlc.com/aiwithaman.png" />
+
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Aman Patel",
+    "jobTitle": "AI DevOps Engineer",
+    "url": "https://amanops.com",
+    "image": "https://cdn.amansdlc.com/aiwithaman.png",
+    "sameAs": [
+      "https://www.linkedin.com/in/amanpatelofficial/",
+      "https://github.com/amanpatelit",
+      "https://www.youtube.com/@techwithamanpatel"
+    ],
+    "description": "DevOps & Cloud Engineer focusing on scalable architectures, Kubernetes ecosystems, CI/CD automation and DevSecOps."
+  }
+  </script>
+
   <style>
-    /* ---------- Base / Layout ---------- */
-    :root{
-      --bg:#fbf3ea;
-      --text:#222428;
-      --accent:#b30000;
-      --muted:#6b6b6b;
-      --container:1180px;
-      --max-hero-width:840px;
-    }
-    html,body{height:100%;}
-    body{
-      margin:0;
-      background:var(--bg);
-      color:var(--text);
-      font-family: "Merriweather", ui-serif, Georgia, serif;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.65;
-      -webkit-font-feature-settings: "kern";
-    }
-    /* simple container like Arpit */
-    .wrap{
-      max-width:var(--container);
-      margin:38px auto;
-      padding:0 28px;
+    body {
+      margin: 0;
+      font-family: ui-serif, Georgia, serif;
+      background: #f7f0e6;
+      color: #2b2b2b;
+      overflow-x: hidden;
     }
 
-    /* ---------- Header ---------- */
-    header{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:20px;
-      padding:10px 28px;
-      background:transparent;
-    }
-    .brand{
-      font-weight:700;
-      font-size:22px;
-    }
-    nav a{
-      margin-left:18px;
-      text-decoration:none;
-      color:var(--text);
-      font-weight:600;
-      font-size:15px;
-    }
-    .hrline{border:none;height:1px;background:rgba(0,0,0,0.06); margin:14px 0 28px;}
-
-    /* ---------- Hero (two-column) ---------- */
-    .hero{
-      display:grid;
-      grid-template-columns: 1fr 380px;
-      gap:36px;
-      align-items:start;
-      align-content:start;
+    header {
+      display: flex;
+      justify-content: space-between;
+      padding: 22px 60px;
+      font-size: 18px;
+      position: sticky;
+      top: 0;
+      background: #f7f0e6;
+      z-index: 100;
     }
 
-    .hero-left{
-      max-width:var(--max-hero-width);
+    header a {
+      margin-left: 24px;
+      text-decoration: none;
+      color: #2b2b2b;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s ease;
     }
 
-    h1{
-      font-size:52px;
-      margin:0 0 6px 0;
-      letter-spacing:-0.02em;
-      line-height:1.02;
-    }
-    .tag{
-      color:var(--accent);
-      font-style:italic;
-      font-weight:700;
-      margin:8px 0 18px 0;
-      font-size:22px;
+    header a:hover {
+      color: #b30000;
     }
 
-    p.intro{
-      color:#2e2e2e;
-      margin:14px 0;
-      font-size:17px;
-      max-width:760px;
+    header a.active {
+      color: #b30000;
+      border-bottom: 2px solid #b30000;
+      padding-bottom: 4px;
     }
 
-    /* social buttons row */
-    .social-row{
-      margin-top:20px;
-      display:flex;
-      gap:12px;
-      flex-wrap:wrap;
+    hr { opacity: 0.25; }
+
+    .container {
+      max-width: 1180px;
+      margin: auto;
+      padding: 40px 60px;
     }
 
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      padding:10px 14px;
-      border-radius:12px;
-      background:#fff;
-      border:1px solid rgba(0,0,0,0.08);
-      text-decoration:none;
-      color:var(--text);
-      font-weight:700;
-      font-size:14px;
-      box-shadow:0 1px 0 rgba(0,0,0,0.02);
-    }
-    .pill svg{ width:18px; height:18px; display:block; }
-
-    /* right image card */
-    .hero-right{
-      display:flex;
-      justify-content:center;
-      align-items:start;
-    }
-    .photo-card{
-      width:100%;
-      max-width:380px;
-      border-radius:22px;
-      overflow:hidden;
-      background:linear-gradient(180deg, #fff, #fff);
-      box-shadow: 0 10px 28px rgba(43,43,43,0.08);
-      border: 1px solid rgba(0,0,0,0.05);
-    }
-    .photo-card img{
-      width:100%;
-      height:100%;
-      display:block;
-      object-fit:cover;
-      aspect-ratio: 1 / 1;
+    .hero {
+      display: flex;
+      gap: 50px;
+      align-items: flex-start;
+      flex-wrap: wrap;
     }
 
-    /* lists and headings */
-    h2{ margin-top:36px; font-size:26px; }
-    ul{ padding-left:20px; color:var(--muted); }
-
-    /* follow box (below talks page style) */
-    .follow-box{
-      margin-top:36px;
-      padding:18px;
-      background:#fff;
-      border-radius:12px;
-      border:1px solid rgba(0,0,0,0.04);
-      max-width:760px;
+    .hero img {
+      width: 340px;
+      border-radius: 18px;
+      object-fit: cover;
     }
 
-    /* small devices */
-    @media (max-width:980px){
-      .hero{ grid-template-columns: 1fr; gap:28px; }
-      .photo-card{ max-width:320px; margin:0 auto; border-radius:18px; }
-      h1{ font-size:40px; text-align:center; }
-      .hero-left{ text-align:center; }
-      .social-row{ justify-content:center; }
+    h1 { font-size: 44px; margin: 0; }
+    .tagline {
+      font-size: 24px;
+      margin-top: 8px;
+      font-style: italic;
+      color: #c0392b;
+      font-weight: 600;
     }
 
-    @media (max-width:420px){
-      .wrap{ padding:0 16px; }
-      h1{ font-size:34px; }
-      .tag{ font-size:18px; }
-      .pill{ padding:9px 12px; font-size:13px; }
+    p { font-size: 18px; line-height: 1.65; }
+
+    .social-buttons {
+      display: flex;
+      gap: 16px;
+      margin-top: 25px;
+      flex-wrap: wrap;
+    }
+
+    .social-buttons a {
+      border: 1px solid #999;
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: white;
+      text-decoration: none;
+      font-size: 16px;
+      color: #2b2b2b;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .social-buttons a:hover {
+      background: #e6e6e6;
+    }
+
+    h2 { margin-top: 50px; font-size: 28px; }
+
+    ul { font-size: 17px; line-height: 1.75; }
+
+    #talks-section img {
+      width: 100%;
+      max-width: 750px;
+      border-radius: 18px;
+      display: block;
+      margin: 35px auto 10px;
+    }
+
+    .caption {
+      text-align: center;
+      font-size: 16px;
+      opacity: 0.7;
+      margin-bottom: 40px;
+    }
+
+    .follow-box {
+      margin-top: 40px;
+      padding: 22px;
+      background: white;
+      border-radius: 14px;
+      border: 1px solid #d8d8d8;
+      max-width: 780px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .follow-links {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .follow-links a {
+      padding: 10px 18px;
+      border-radius: 10px;
+      background: #f0f0f0;
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      border: 1px solid #cfcfcf;
+      transition: 0.2s;
+    }
+
+    .follow-links a:hover {
+      background: #e3e3e3;
+    }
+
+    @media(max-width: 900px) {
+      header { padding: 20px; }
+      .container { padding: 30px 20px; }
+      .hero { flex-direction: column; text-align: center; }
+      .hero img { margin: auto; width: 100%; max-width: 360px; }
+    }
+
+    .page { display: none; }
+    .page.active { display: block; animation: fadein .3s ease-in-out; }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
-  <!-- Google font preconnect (optional) -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,700&display=swap" rel="stylesheet">
+
+  <script>
+    function showPage(id) {
+      document.querySelectorAll(".page").forEach(p => p.classList.remove("active"));
+      document.getElementById(id).classList.add("active");
+
+      document.querySelectorAll("header a[data-page]").forEach(a => a.classList.remove("active"));
+      const activeLink = document.querySelector(`[data-page='${id}']`);
+      if (activeLink) activeLink.classList.add("active");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  </script>
 </head>
+
 <body>
-  <div class="wrap">
 
-    <!-- header -->
-    <header>
-      <div class="brand">Aman Patel</div>
-      <nav aria-label="Main navigation">
-        <a href="#home">Home</a>
-        <a href="https://amannewsletter.substack.com/" target="_blank" rel="noopener">Blogs</a>
-        <a href="#talks">Talks</a>
-      </nav>
-    </header>
+<header role="navigation">
+  <div style="font-weight:700; font-size:22px;">Aman Patel</div>
+  <nav aria-label="Main Navigation">
+    <a data-page="home-section" class="active" onclick="showPage('home-section')">Home</a>
+    <a href="https://amannewsletter.substack.com/" target="_blank" rel="noopener">Blogs</a>
+    <a data-page="talks-section" onclick="showPage('talks-section')">Talks</a>
+  </nav>
+</header>
 
-    <div class="hrline" role="separator" aria-hidden="true"></div>
+<hr />
 
-    <!-- hero -->
-    <section id="home" class="hero" aria-labelledby="hero-heading">
-      <div class="hero-left">
-        <h1 id="hero-heading">Hey, I am Aman</h1>
-        <div class="tag">curious, tinkerer, and explorer</div>
+<!-- HOME PAGE -->
+<div id="home-section" class="container page active">
+  <div class="hero">
 
-        <p class="intro">
-          I am a DevOps & Cloud Engineer specializing in scalable cloud infrastructure, Kubernetes ecosystems,
-          automation, CI/CD, and production-grade distributed systems. My work focuses on designing resilient,
-          secure, and highly available architectures for modern applications.
-        </p>
+    <!-- IMAGE LEFT -->
+    <img src="https://cdn.amansdlc.com/aiwithaman.png" 
+         alt="Aman Patel AI DevOps Engineer" loading="lazy" />
 
-        <p class="intro">
-          I have hands-on experience across AWS, GCP, EKS, Docker, Jenkins, GitOps workflows, observability stacks,
-          and infrastructure automation. I collaborate with global engineering teams to build, optimize, and secure
-          cloud environments while solving real-world production challenges.
-        </p>
+    <!-- TEXT RIGHT -->
+    <div>
+      <h1>Hey, I am Aman</h1>
+      <div class="tagline">curious, tinkerer, and explorer</div>
 
-        <p class="intro">
-          I actively share my learnings through blogs, open-source contributions, YouTube content, and community sessions.
-          I have delivered technical webinars under the CNCF ecosystem and contribute as an <strong>AWS Community Builder</strong>.
-        </p>
+      <p>
+        I am a DevOps & Cloud Engineer specializing in scalable cloud infrastructure, Kubernetes ecosystems,
+        automation, CI/CD, and production-grade distributed systems. My work focuses on designing resilient,
+        secure, and highly available architectures.
+      </p>
 
-        <div class="social-row" aria-label="Social links">
-          <a class="pill" href="https://www.youtube.com/@techwithamanpatel" target="_blank" rel="noopener">
-            <!-- YouTube svg -->
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2s-.2-1.7-.8-2.4c-.8-.9-1.7-.9-2.1-1C16.8 2.4 12 2.4 12 2.4h0s-4.8 0-8.6.4c-.4.1-1.3.1-2.1 1C.7 4.5.5 6.2.5 6.2S.2 8 .2 9.9v.9c0 1.9.3 3.7.3 3.7s.2 1.7.8 2.4c.8.9 1.8.9 2.3 1 1.7.2 7.1.3 7.1.3s4.8 0 8.6-.4c.4-.1 1.3-.1 2.1-1 .6-.7.8-2.4.8-2.4s.3-1.8.3-3.7v-.9c0-1.9-.3-3.7-.3-3.7zM9.8 15.5V8.5l6.3 3.5-6.3 3.5z"/></svg>
-            YouTube
-          </a>
+      <p>
+        I have experience across AWS, GCP, EKS, Docker, Jenkins, GitOps workflows, observability stacks,
+        and infrastructure automation. I collaborate with global engineering teams to build, optimize,
+        and secure cloud environments.
+      </p>
 
-          <a class="pill" href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank" rel="noopener">
-            <!-- LinkedIn svg -->
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.6 4.14 5.5 3 5.5 1.86 5.5 1 4.6 1 3.5 1 2.4 1.86 1.5 3 1.5c1.14 0 1.98.9 1.98 2zM.5 8.99h5v14.01h-5V8.99zM9.5 8.99h4.8v1.98h.1c.7-1.3 2.4-2.7 4.9-2.7 5.2 0 6.2 3.4 6.2 7.8v8.9h-5v-7.9c0-1.9 0-4.3-2.6-4.3-2.6 0-3 2-3 4.2v8h-5V8.99z"/></svg>
-            LinkedIn
-          </a>
+      <p>
+        I share my learnings through blogs, open-source contributions, YouTube, and community talks.
+        I also deliver CNCF webinars and contribute as an <strong>AWS Community Builder</strong>.
+      </p>
 
-          <a class="pill" href="https://github.com/amanpatelit" target="_blank" rel="noopener">
-            <!-- GitHub svg -->
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.9 5.3.9 11.6c0 4.6 2.9 8.6 6.9 10 0.5.1.7-.2.7-.5v-1.9c-2.8.6-3.4-1.1-3.4-1.1-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1 1.7.7 2.1 1.3.1-.9.4-1.5.8-1.9-2.2-.3-4.5-1.1-4.5-4.9 0-1.1.4-2 1.1-2.7-.1-.3-.5-1.3.1-2.7 0 0 .9-.3 2.9 1.1.8-.2 1.6-.3 2.4-.3s1.6.1 2.4.3c2-1.4 2.9-1.1 2.9-1.1.6 1.4.2 2.4.1 2.7.7.7 1.1 1.6 1.1 2.7 0 3.9-2.3 4.6-4.5 4.9.4.4.8 1 .8 2v3c0 .3.2.6.7.5 4-1.4 6.9-5.4 6.9-10C23 5.3 18.2.5 12 .5z"/></svg>
-            GitHub
-          </a>
-        </div>
+      <div class="social-buttons">
+        <a href="https://www.youtube.com/@techwithamanpatel" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/amanpatelit" target="_blank" rel="noopener">GitHub</a>
       </div>
-
-      <div class="hero-right" aria-hidden="false">
-        <div class="photo-card" role="img" aria-label="Aman Patel profile photo">
-          <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman Patel — AI DevOps Engineer" loading="lazy">
-        </div>
-      </div>
-    </section>
-
-    <!-- extra content section -->
-    <section id="more">
-      <h2>Recent Blog Posts • <a href="https://amannewsletter.substack.com/" target="_blank" rel="noopener">Full archive →</a></h2>
-      <ul>
-        <li><strong>Dec 2025:</strong> Scaling EKS Clusters for High Traffic</li>
-        <li><strong>Nov 2025:</strong> Advanced CI/CD Pipeline Architecture</li>
-        <li><strong>Oct 2025:</strong> Securing AWS Infrastructure with Zero Trust</li>
-      </ul>
-
-      <h2>Recent Papers I Studied</h2>
-      <ul>
-        <li>DeepSeekMath: Towards Better LLM Reasoning</li>
-        <li>How LLM Inference Pipelines Work</li>
-        <li>Thread Safety Design Patterns</li>
-      </ul>
-
-      <div class="follow-box">
-        <strong>Follow Me & Stay Connected</strong>
-        <div style="height:12px"></div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
-          <a class="pill" href="https://github.com/amanpatelit" target="_blank" rel="noopener">GitHub</a>
-          <a class="pill" href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank" rel="noopener">LinkedIn</a>
-          <a class="pill" href="https://www.youtube.com/@techwithamanpatel" target="_blank" rel="noopener">YouTube</a>
-        </div>
-      </div>
-
-    </section>
+    </div>
 
   </div>
+
+  <h2>Recent Blog Posts</h2>
+  <ul>
+    <li><strong>Dec 2025:</strong> Scaling EKS Clusters for High Traffic</li>
+    <li><strong>Nov 2025:</strong> Advanced CI/CD Pipeline Architecture</li>
+    <li><strong>Oct 2025:</strong> Securing AWS Infrastructure with Zero Trust</li>
+  </ul>
+
+  <h2>Recent Papers I Studied</h2>
+  <ul>
+    <li>DeepSeekMath: Towards Better LLM Reasoning</li>
+    <li>How LLM Inference Pipelines Work</li>
+    <li>Thread Safety Design Patterns</li>
+  </ul>
+</div>
+
+<!-- TALKS PAGE -->
+<div id="talks-section" class="container page">
+  <h1 style="text-align:center; font-size:42px; font-weight:700;">Talks and Presentations</h1>
+
+  <p style="text-align:center; max-width:820px; margin:auto;">
+    I enjoy speaking about engineering, cloud-native ecosystems, DevOps, and career growth.
+    For invitations, reach out at
+    <a href="mailto:amanpatel.itofficial@gmail.com">amanpatel.itofficial@gmail.com</a>.
+  </p>
+
+  <img src="https://cdn.amansdlc.com/AIwithDevOpsTalks.png"
+       alt="Aman Patel delivering cloud-native DevOps community talk"
+       loading="lazy">
+
+  <p class="caption">Aman Community Session</p>
+
+  <div class="follow-box">
+    <h3>Follow Me & Stay Connected</h3>
+
+    <div class="follow-links">
+      <a href="https://github.com/amanpatelit" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.youtube.com/@techwithamanpatel" target="_blank" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
