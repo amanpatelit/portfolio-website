@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
   <title>Aman Patel — DevOps & Cloud Engineer</title>
-
   <link rel="icon" href="https://cdn.amansdlc.com/aiwithaman.png"/>
 
   <style>
@@ -29,6 +28,7 @@
       text-decoration:none;
       font-weight:600;
       color:#1f1f1f;
+      cursor:pointer;
     }
 
     header nav a.active,
@@ -36,12 +36,15 @@
       color:#c0392b;
     }
 
-    /* ---------- LAYOUT ---------- */
+    /* ---------- COMMON ---------- */
     .container{
       max-width:1200px;
       margin:auto;
       padding:40px 64px 80px;
     }
+
+    .page{display:none;}
+    .page.active{display:block;}
 
     /* ---------- HERO ---------- */
     .hero{
@@ -72,7 +75,7 @@
       max-width:640px;
     }
 
-    /* ---------- SOCIAL BUTTONS ---------- */
+    /* ---------- SOCIAL ---------- */
     .socials{
       display:flex;
       gap:14px;
@@ -94,7 +97,7 @@
       font-size:15px;
     }
 
-    /* ---------- IMAGE CARD ---------- */
+    /* ---------- HERO IMAGE ---------- */
     .hero-image{
       background:#ffffff;
       border-radius:22px;
@@ -151,6 +154,20 @@
       font-size:15px;
     }
 
+    /* ---------- TALKS ---------- */
+    .talk-image{
+      width:100%;
+      max-width:780px;
+      border-radius:20px;
+      display:block;
+      margin:40px auto;
+    }
+
+    .caption{
+      text-align:center;
+      opacity:0.7;
+    }
+
     /* ---------- RESPONSIVE ---------- */
     @media(max-width:900px){
       header{padding:20px;}
@@ -159,6 +176,18 @@
       h1{font-size:44px;}
     }
   </style>
+
+  <script>
+    function showPage(id){
+      document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+
+      document.querySelectorAll('nav a[data-page]').forEach(a=>a.classList.remove('active'));
+      document.querySelector(`[data-page="${id}"]`).classList.add('active');
+
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+  </script>
 </head>
 
 <body>
@@ -166,90 +195,89 @@
 <header>
   <div style="font-weight:700;font-size:22px;">Aman Patel</div>
   <nav>
-    <a class="active">Home</a>
+    <a data-page="home" class="active" onclick="showPage('home')">Home</a>
     <a href="https://amannewsletter.substack.com/" target="_blank">Blogs</a>
-    <a>Talks</a>
+    <a data-page="talks" onclick="showPage('talks')">Talks</a>
   </nav>
 </header>
 
-<div class="container">
+<!-- ================= HOME ================= -->
+<div id="home" class="page active">
+  <div class="container">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div>
-      <h1>Hey, I am Aman</h1>
-      <div class="tagline">curious, tinkerer, and explorer</div>
+    <section class="hero">
+      <div>
+        <h1>Hey, I am Aman</h1>
+        <div class="tagline">curious, tinkerer, and explorer</div>
 
-      <p>
-        I am a DevOps & Cloud Engineer specializing in scalable cloud infrastructure,
-        Kubernetes ecosystems, automation, CI/CD pipelines, and production-grade
-        distributed systems.
-      </p>
+        <p>
+          I am a DevOps & Cloud Engineer specializing in scalable cloud infrastructure,
+          Kubernetes ecosystems, automation, CI/CD pipelines, and production-grade
+          distributed systems.
+        </p>
 
-      <p>
-        My expertise spans AWS, GCP, Kubernetes, Docker, Jenkins, GitOps, observability
-        stacks, and cloud security. I collaborate with global teams to build resilient
-        cloud platforms.
-      </p>
+        <p>
+          My expertise spans AWS, GCP, Kubernetes, Docker, Jenkins, GitOps,
+          observability stacks, and cloud security. I collaborate with global
+          engineering teams to build resilient cloud platforms.
+        </p>
 
-      <p>
-        I share my learnings through blogs, YouTube content, open-source projects,
-        and community talks. I also deliver CNCF webinars and contribute as an
-        <strong>AWS Community Builder</strong>.
-      </p>
+        <p>
+          I share my learnings through blogs, YouTube content, open-source projects,
+          and community talks. I also deliver CNCF webinars and contribute as an
+          <strong>AWS Community Builder</strong>.
+        </p>
 
-      <div class="socials">
-        <a>▶ YouTube</a>
-        <a>🐦 Twitter</a>
-        <a>in LinkedIn</a>
-        <a>🐙 GitHub</a>
+        <div class="socials">
+          <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">▶ YouTube</a>
+          <a href="https://x.com/amanpatelit" target="_blank">🐦 Twitter</a>
+          <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">in LinkedIn</a>
+          <a href="https://github.com/amanpatelit" target="_blank">🐙 GitHub</a>
+        </div>
       </div>
+
+      <div class="hero-image">
+        <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman illustration">
+      </div>
+    </section>
+
+    <h2 class="section-title">Featured Blogs</h2>
+
+    <div class="blog-card">
+      <h3>How to Become an AWS Community Builder in 2026</h3>
+      <div class="blog-meta">by Aman Patel on AWS Builder Center</div>
+      <p>A complete guide covering eligibility, benefits, and selection criteria.</p>
+      <a href="https://builder.aws.com/content/36PZz34pdR59WVLoxYZp79gOJCq/how-to-become-an-aws-community-builder-in-2026" target="_blank">Read Full Article</a>
     </div>
 
-    <div class="hero-image">
-      <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman working illustration"/>
+    <div class="blog-card">
+      <h3>How to Install AWS Q Developer CLI on Ubuntu</h3>
+      <div class="blog-meta">AWS Builder Center</div>
+      <p>Step-by-step guide to install and configure Amazon Q Developer CLI.</p>
+      <a href="https://builder.aws.com/content/2zaNNxWt2oth2OU3jruPDXHV0yu/how-to-install-aws-q-developer-cli-on-ubuntu" target="_blank">Read Full Article</a>
     </div>
-  </section>
 
-  <!-- BLOGS -->
-  <h2 class="section-title">Featured Blogs</h2>
+    <div class="blog-card">
+      <h3>AWS Lambda Managed Instances</h3>
+      <div class="blog-meta">AWS Builder Center</div>
+      <p>Serverless simplicity combined with EC2-level flexibility.</p>
+      <a href="https://builder.aws.com/content/36mcL38srRqb766rd4FTD7vF9w2/aws-lambda-managed-instances-serverless-simplicity-with-ec2-level-flexibility" target="_blank">Read Full Article</a>
+    </div>
 
-  <div class="blog-card">
-    <h3>How to Become an AWS Community Builder in 2026</h3>
-    <div class="blog-meta">by Aman Patel on AWS Builder Center</div>
-    <p>
-      A complete guide covering eligibility, benefits, selection criteria,
-      and how to prepare for the AWS Community Builder program.
-    </p>
-    <a href="https://builder.aws.com/content/36PZz34pdR59WVLoxYZp79gOJCq/how-to-become-an-aws-community-builder-in-2026" target="_blank">
-      Read Full Article
-    </a>
   </div>
+</div>
 
-  <div class="blog-card">
-    <h3>How to Install AWS Q Developer CLI on Ubuntu</h3>
-    <div class="blog-meta">AWS Builder Center</div>
-    <p>
-      Step-by-step instructions to install and configure Amazon Q Developer
-      CLI on Ubuntu systems.
-    </p>
-    <a href="https://builder.aws.com/content/2zaNNxWt2oth2OU3jruPDXHV0yu/how-to-install-aws-q-developer-cli-on-ubuntu" target="_blank">
-      Read Full Article
-    </a>
+<!-- ================= TALKS ================= -->
+<div id="talks" class="page">
+  <div class="container">
+    <h1 style="text-align:center;">Talks & Presentations</h1>
+
+    <img src="https://cdn.amansdlc.com/AIwithDevOpsTalks.png" class="talk-image">
+    <p class="caption">Aman Community Session</p>
+
+    <img src="https://cdn.amansdlc.com/CNCF.png" class="talk-image">
+    <p class="caption">CNCF Webinar — Official Invitation</p>
   </div>
-
-  <div class="blog-card">
-    <h3>AWS Lambda Managed Instances</h3>
-    <div class="blog-meta">AWS Builder Center</div>
-    <p>
-      Learn how AWS Lambda Managed Instances combine serverless simplicity
-      with EC2-level flexibility.
-    </p>
-    <a href="https://builder.aws.com/content/36mcL38srRqb766rd4FTD7vF9w2/aws-lambda-managed-instances-serverless-simplicity-with-ec2-level-flexibility" target="_blank">
-      Read Full Article
-    </a>
-  </div>
-
 </div>
 
 </body>
