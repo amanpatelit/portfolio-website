@@ -61,7 +61,7 @@
       text-decoration: none;
       color: #2b2b2b;
       font-weight: 600;
-      transition: 0.2s;
+      transition: 0.2s ease;
       cursor: pointer;
     }
 
@@ -120,7 +120,7 @@
       margin-bottom: 18px;
     }
 
-    /* ----------- SOCIAL BUTTONS ----------- */
+    /* ---------- SOCIAL BUTTONS ----------- */
 
     .social-buttons {
       display: flex;
@@ -147,7 +147,7 @@
       background: #e8dfd5;
     }
 
-    /* ----------- FEATURED BLOGS ----------- */
+    /* -------- FEATURED BLOGS -------- */
 
     .featured-blog {
       margin-top: 40px;
@@ -198,13 +198,8 @@
       }
     }
 
-    .page {
-      display: none;
-    }
-
-    .page.active {
-      display: block;
-    }
+    .page { display: none; }
+    .page.active { display: block; }
   </style>
 
   <script>
@@ -234,9 +229,7 @@
     </nav>
   </header>
 
-  <!-- ================================
-       HOME PAGE
-  ================================ -->
+  <!-- ================= HOME ================= -->
   <div id="home-section" class="container page active">
 
     <div class="hero">
@@ -246,7 +239,7 @@
         <div class="tagline">curious, tinkerer, and explorer</div>
 
         <p>
-          I am a Senior AI DevOps & Cloud Engineer specializing in scalable cloud infrastructure, Kubernetes ecosystems,
+          I am a DevOps & Cloud Engineer specializing in scalable cloud infrastructure, Kubernetes ecosystems,
           automation, CI/CD pipelines, and production-grade distributed systems.
         </p>
 
@@ -309,58 +302,48 @@
 
     </div>
 
-    <!-- ========= FEATURED BLOG 1 ========= -->
+    <!-- ========= FEATURED BLOGS ========= -->
+
     <h2 style="margin-top:50px; font-size:28px;">Featured Blogs</h2>
 
     <div class="featured-blog">
       <h3>How to Become an AWS Community Builder in 2026</h3>
-      <p style="color:#666;">
-        by <strong>Aman Patel</strong> on <em>AWS Builder Center</em> — Dec 4, 2025
-      </p>
-
-      <p>
-        A complete guide to understanding the AWS Community Builder program — benefits, eligibility,
-        application strategy, and how to prepare effectively for the 2026 cohort.
-      </p>
-
+      <p style="color:#666;">by <strong>Aman Patel</strong> on AWS Builder Center</p>
+      <p>A complete guide covering eligibility, benefits, selection criteria, and how to prepare for AWS</p>
       <a href="https://builder.aws.com/content/36PZz34pdR59WVLoxYZp79gOJCq/how-to-become-an-aws-community-builder-in-2026"
         target="_blank">Read Full Article</a>
     </div>
 
-    <!-- ========= FEATURED BLOG 2 ========= -->
     <div class="featured-blog" style="margin-top:30px;">
       <h3>How to Install AWS Q Developer CLI on Ubuntu</h3>
-      <p style="color:#666;">Published on AWS Builder Center — Jul 11, 2025</p>
-
-      <p>
-        Step-by-step instructions to install AWS Q Developer CLI on Ubuntu, including Linux package steps,
-        binary installation, configuration tips, and using Amazon Q from the terminal.
-      </p>
-
+      <p style="color:#666;">Published on AWS Builder Center</p>
+      <p>Step-by-step instructions to install AWS Q Developer CLI on Ubuntu including binaries & config steps</p>
       <a href="https://builder.aws.com/content/2zaNNxWt2oth2OU3jruPDXHV0yu/how-to-install-aws-q-developer-cli-on-ubuntu"
+        target="_blank">Read Full Article</a>
+    </div>
+
+    <div class="featured-blog" style="margin-top:30px;">
+      <h3>AWS Lambda Managed Instances: Serverless Simplicity with EC2-Level Flexibility</h3>
+      <p style="color:#666;">Published on AWS Builder Center</p>
+      <p>An in-depth look at AWS Lambda Managed Instances — serverless simplicity with EC2 flexibility</p>
+      <a href="https://builder.aws.com/content/36mcL38srRqb766rd4FTD7vF9w2/aws-lambda-managed-instances-serverless-simplicity-with-ec2-level-flexibility"
         target="_blank">Read Full Article</a>
     </div>
 
   </div>
 
-  <!-- ================================
-       TALKS PAGE
-  ================================ -->
+  <!-- ================= TALKS PAGE ================= -->
   <div id="talks-section" class="container page">
 
     <h1 style="text-align:center; font-size:42px; font-weight:700;">Talks and Presentations</h1>
-
     <p style="text-align:center; max-width:820px; margin:auto;">
       I enjoy speaking about cloud-native engineering, DevOps, distributed systems, and career growth.
-      For invitations, contact
+      For invitations, email
       <a href="mailto:amanpatel.itofficial@gmail.com">amanpatel.itofficial@gmail.com</a>.
     </p>
 
     <img src="https://cdn.amansdlc.com/AIwithDevOpsTalks.png"
       style="width:100%; max-width:780px; border-radius:20px; display:block; margin:40px auto;">
-
-    <p style="text-align:center; opacity:0.7;">Aman Community Session</p>
-
   </div>
 
 </body>
