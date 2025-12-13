@@ -15,6 +15,7 @@
       color:#1f1f1f;
     }
 
+    /* ---------- HEADER ---------- */
     header{
       display:flex;
       justify-content:space-between;
@@ -35,6 +36,7 @@
       color:#c0392b;
     }
 
+    /* ---------- COMMON ---------- */
     .container{
       max-width:1200px;
       margin:auto;
@@ -44,10 +46,12 @@
     .page{display:none;}
     .page.active{display:block;}
 
+    /* ---------- HERO ---------- */
     .hero{
       display:grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap:60px;
+      align-items:start;
     }
 
     h1{
@@ -71,6 +75,7 @@
       max-width:640px;
     }
 
+    /* ---------- SOCIAL ---------- */
     .socials{
       display:flex;
       gap:14px;
@@ -79,6 +84,9 @@
     }
 
     .socials a{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
       padding:10px 16px;
       border-radius:12px;
       background:#f1eadf;
@@ -86,10 +94,12 @@
       text-decoration:none;
       color:#1f1f1f;
       font-weight:600;
+      font-size:15px;
     }
 
+    /* ---------- IMAGE CARD ---------- */
     .hero-image{
-      background:#fff;
+      background:#ffffff;
       border-radius:22px;
       padding:26px;
       box-shadow:0 8px 30px rgba(0,0,0,0.06);
@@ -100,6 +110,7 @@
       border-radius:18px;
     }
 
+    /* ---------- BLOGS ---------- */
     .section-title{
       font-size:32px;
       margin:80px 0 24px;
@@ -107,11 +118,28 @@
     }
 
     .blog-card{
-      background:#fff;
+      background:#ffffff;
       border:1px solid #e3dbcf;
       border-radius:16px;
       padding:28px;
       margin-bottom:26px;
+    }
+
+    .blog-card h3{
+      margin:0;
+      font-size:22px;
+    }
+
+    .blog-meta{
+      margin-top:6px;
+      font-size:15px;
+      color:#666;
+    }
+
+    .blog-card p{
+      margin-top:14px;
+      font-size:17px;
+      line-height:1.6;
     }
 
     .blog-card a{
@@ -123,8 +151,10 @@
       border-radius:10px;
       text-decoration:none;
       font-weight:600;
+      font-size:15px;
     }
 
+    /* ---------- TALKS ---------- */
     .talk-image{
       width:100%;
       max-width:780px;
@@ -146,6 +176,7 @@
       line-height:1.7;
     }
 
+    /* ---------- RESPONSIVE ---------- */
     @media(max-width:900px){
       header{padding:20px;}
       .container{padding:20px;}
@@ -178,39 +209,77 @@
   </nav>
 </header>
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 <div id="home" class="page active">
   <div class="container">
+
     <section class="hero">
       <div>
         <h1>Hey, I am Aman</h1>
         <div class="tagline">curious, tinkerer, and explorer</div>
 
-        <p>I am a DevOps & Cloud Engineer specializing in scalable cloud infrastructure, Kubernetes, automation, and CI/CD pipelines.</p>
+        <p>
+          I am a DevOps & Cloud Engineer specializing in scalable cloud infrastructure,
+          Kubernetes ecosystems, automation, CI/CD pipelines, and production-grade
+          distributed systems.
+        </p>
 
-        <p>I share my learnings through blogs, YouTube, open-source, and community talks as an <strong>AWS Community Builder</strong>.</p>
+        <p>
+          My expertise spans AWS, GCP, Kubernetes, Docker, Jenkins, GitOps,
+          observability stacks, and cloud security. I collaborate with global
+          engineering teams to build resilient cloud platforms.
+        </p>
+
+        <p>
+          I share my learnings through blogs, YouTube content, open-source projects,
+          and community talks. I also deliver CNCF webinars and contribute as an
+          <strong>AWS Community Builder</strong>.
+        </p>
 
         <div class="socials">
-          <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">YouTube</a>
-          <a href="https://x.com/amanpatelit" target="_blank">Twitter</a>
-          <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">LinkedIn</a>
-          <a href="https://github.com/amanpatelit" target="_blank">GitHub</a>
+          <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">▶ YouTube</a>
+          <a href="https://x.com/amanpatelit" target="_blank">🐦 Twitter</a>
+          <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">in LinkedIn</a>
+          <a href="https://github.com/amanpatelit" target="_blank">🐙 GitHub</a>
         </div>
       </div>
 
       <div class="hero-image">
-        <img src="https://cdn.amansdlc.com/aiwithaman.png">
+        <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman illustration">
       </div>
     </section>
+
+    <h2 class="section-title">Featured Blogs</h2>
+
+    <div class="blog-card">
+      <h3>How to Become an AWS Community Builder in 2026</h3>
+      <div class="blog-meta">AWS Builder Center</div>
+      <p>A complete guide covering eligibility, benefits, and selection criteria.</p>
+      <a href="https://builder.aws.com/content/36PZz34pdR59WVLoxYZp79gOJCq/how-to-become-an-aws-community-builder-in-2026" target="_blank">Read Full Article</a>
+    </div>
+
+    <div class="blog-card">
+      <h3>How to Install AWS Q Developer CLI on Ubuntu</h3>
+      <div class="blog-meta">AWS Builder Center</div>
+      <p>Step-by-step guide to install and configure Amazon Q Developer CLI.</p>
+      <a href="https://builder.aws.com/content/2zaNNxWt2oth2OU3jruPDXHV0yu/how-to-install-aws-q-developer-cli-on-ubuntu" target="_blank">Read Full Article</a>
+    </div>
+
+    <div class="blog-card">
+      <h3>AWS Lambda Managed Instances</h3>
+      <div class="blog-meta">AWS Builder Center</div>
+      <p>Serverless simplicity combined with EC2-level flexibility.</p>
+      <a href="https://builder.aws.com/content/36mcL38srRqb766rd4FTD7vF9w2/aws-lambda-managed-instances-serverless-simplicity-with-ec2-level-flexibility" target="_blank">Read Full Article</a>
+    </div>
+
   </div>
 </div>
 
-<!-- TALKS -->
+<!-- ================= TALKS ================= -->
 <div id="talks" class="page">
   <div class="container">
     <h1 style="text-align:center;">Talks & Presentations</h1>
 
-    <!-- ✅ ADDED TEXT -->
     <p class="talk-description">
       I enjoy speaking about engineering & career growth and have spoken at multiple companies and conferences.
       If you want to organise a talk, drop me an email at
