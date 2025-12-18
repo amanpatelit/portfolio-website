@@ -77,8 +77,6 @@
 
     .follow-text{
       margin-top:26px;
-      margin-bottom:10px;
-      font-size:16px;
       font-weight:600;
       color:#6b4f3f;
     }
@@ -91,9 +89,6 @@
     }
 
     .socials a{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
       padding:10px 16px;
       border-radius:12px;
       background:#f1eadf;
@@ -117,7 +112,7 @@
       border-radius:18px;
     }
 
-    /* ---------- BLOG ---------- */
+    /* ---------- FEATURED BLOG ---------- */
     .section-title{
       font-size:32px;
       margin:80px 0 24px;
@@ -132,8 +127,16 @@
       margin-bottom:26px;
     }
 
-    .blog-card h3{margin:0;font-size:22px;}
-    .blog-meta{margin-top:6px;font-size:15px;color:#666;}
+    .blog-card h3{
+      margin:0;
+      font-size:22px;
+    }
+
+    .blog-meta{
+      margin-top:6px;
+      font-size:15px;
+      color:#666;
+    }
 
     .blog-card p{
       margin-top:14px;
@@ -150,9 +153,18 @@
       border-radius:10px;
       text-decoration:none;
       font-weight:600;
+      font-size:15px;
     }
 
     /* ---------- TALKS ---------- */
+    .talk-description{
+      max-width:820px;
+      margin:30px auto;
+      text-align:center;
+      font-size:18px;
+      line-height:1.7;
+    }
+
     .talk-image{
       width:100%;
       max-width:780px;
@@ -166,14 +178,6 @@
       opacity:0.7;
     }
 
-    .talk-description{
-      max-width:820px;
-      margin:30px auto;
-      text-align:center;
-      font-size:18px;
-      line-height:1.7;
-    }
-
     /* ---------- RESPONSIVE ---------- */
     @media(max-width:900px){
       header{padding:20px;}
@@ -185,17 +189,13 @@
 
   <script>
     function showPage(id){
-      document.querySelectorAll('.page').forEach(p =>
-        p.classList.remove('active')
-      );
+      document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
       document.getElementById(id).classList.add('active');
 
-      document.querySelectorAll('nav a[data-page]').forEach(a =>
-        a.classList.remove('active')
-      );
+      document.querySelectorAll('nav a[data-page]').forEach(a=>a.classList.remove('active'));
       document.querySelector(`nav a[data-page="${id}"]`).classList.add('active');
 
-      window.scrollTo({ top:0, behavior:'smooth' });
+      window.scrollTo({top:0,behavior:'smooth'});
     }
   </script>
 </head>
@@ -211,9 +211,10 @@
   </nav>
 </header>
 
-<!-- HOME -->
+<!-- ================= HOME ================= -->
 <div id="home" class="page active">
   <div class="container">
+
     <section class="hero">
       <div>
         <h1>Hey, I am Aman</h1>
@@ -221,20 +222,14 @@
 
         <p>
           I am a DevOps & Cloud Engineer specializing in scalable cloud infrastructure,
-          Kubernetes ecosystems, automation, CI/CD pipelines, and production-grade
-          distributed systems.
+          Kubernetes ecosystems, automation, CI/CD pipelines, and production-grade systems.
         </p>
 
-        <p>
-          My expertise spans AWS, GCP, Kubernetes, Docker, Jenkins, GitOps,
-          observability stacks, and cloud security.
-        </p>
-
-        <p class="follow-text">Follow me here for new updates</p>
+        <p class="follow-text">Follow me for updates</p>
 
         <div class="socials">
           <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">▶ YouTube</a>
-          <a href="https://amannewsletter.substack.com" target="_blank">📰 News</a>
+          <a href="https://amannewsletter.substack.com" target="_blank">📰 Newsletter</a>
           <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">LinkedIn</a>
           <a href="https://github.com/amanpatelit" target="_blank">GitHub</a>
         </div>
@@ -244,10 +239,32 @@
         <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman illustration">
       </div>
     </section>
+
+    <!-- FEATURED BLOG -->
+    <h2 class="section-title">Featured Blogs</h2>
+
+    <div class="blog-card">
+      <h3>How to Become an AWS Community Builder in 2026</h3>
+      <div class="blog-meta">AWS Builder Center</div>
+      <p>A complete guide covering eligibility, benefits, and selection criteria.</p>
+      <a href="https://builder.aws.com/content/36PZz34pdR59WVLoxYZp79gOJCq/how-to-become-an-aws-community-builder-in-2026" target="_blank">
+        Read Full Article
+      </a>
+    </div>
+
+    <div class="blog-card">
+      <h3>How to Install AWS Q Developer CLI on Ubuntu</h3>
+      <div class="blog-meta">AWS Builder Center</div>
+      <p>Step-by-step guide to install and configure Amazon Q Developer CLI.</p>
+      <a href="https://builder.aws.com/content/2zaNNxWt2oth2OU3jruPDXHV0yu/how-to-install-aws-q-developer-cli-on-ubuntu" target="_blank">
+        Read Full Article
+      </a>
+    </div>
+
   </div>
 </div>
 
-<!-- TALKS -->
+<!-- ================= TALKS ================= -->
 <div id="talks" class="page">
   <div class="container">
     <h1 style="text-align:center;">Talks & Presentations</h1>
