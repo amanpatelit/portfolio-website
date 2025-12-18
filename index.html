@@ -319,11 +319,12 @@
 
     /* ---------- FOOTER ---------- */
     footer{
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+      background: linear-gradient(135deg, #1a252f 0%, #2c3e50 50%, #34495e 100%);
       color:#ecf0f1;
-      padding:60px 0 30px;
+      padding:80px 0 0;
       margin-top:120px;
       position: relative;
+      overflow: hidden;
     }
 
     footer::before{
@@ -332,8 +333,15 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, #3498db, transparent);
+      height: 3px;
+      background: linear-gradient(90deg, #3498db, #9b59b6, #e74c3c, #f39c12, #3498db);
+      background-size: 200% 100%;
+      animation: gradientShift 3s ease-in-out infinite;
+    }
+
+    @keyframes gradientShift {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
     }
 
     .footer-content{
@@ -341,45 +349,185 @@
       margin:auto;
       padding:0 64px;
       display:grid;
-      grid-template-columns:1fr 1fr 1fr;
-      gap:48px;
+      grid-template-columns:1.5fr 1fr 1fr;
+      gap:60px;
+    }
+
+    .footer-brand .footer-logo h3{
+      margin:0;
+      font-size:28px;
+      font-weight:800;
+      background: linear-gradient(135deg, #3498db, #9b59b6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-tagline{
+      display:block;
+      color:#3498db;
+      font-size:14px;
+      font-weight:500;
+      margin-top:4px;
+      text-transform:uppercase;
+      letter-spacing:1px;
+    }
+
+    .footer-badges{
+      display:flex;
+      gap:12px;
+      margin-top:20px;
+      flex-wrap:wrap;
+    }
+
+    .badge{
+      background: linear-gradient(135deg, #3498db, #2980b9);
+      color:white;
+      padding:6px 12px;
+      border-radius:20px;
+      font-size:12px;
+      font-weight:600;
+      text-transform:uppercase;
+      letter-spacing:0.5px;
     }
 
     .footer-section h3{
-      margin:0 0 24px 0;
+      margin:0 0 28px 0;
       font-size:20px;
       color:#3498db;
-      font-weight: 600;
+      font-weight: 700;
+      position:relative;
+    }
+
+    .footer-section h3::after{
+      content:'';
+      position:absolute;
+      bottom:-8px;
+      left:0;
+      width:30px;
+      height:2px;
+      background:#3498db;
     }
 
     .footer-section p{
       color:#bdc3c7;
-      line-height:1.7;
-      margin:0 0 16px 0;
+      line-height:1.8;
+      margin:0 0 20px 0;
+      font-size:15px;
     }
 
     .footer-section a{
       color:#ecf0f1;
       text-decoration:none;
       line-height:1.8;
-      margin:8px 0;
-      display:block;
+      margin:12px 0;
+      display:flex;
+      align-items:center;
+      gap:12px;
       transition: all 0.3s ease;
-      padding: 4px 0;
+      padding: 8px 0;
+      border-radius:6px;
+    }
+
+    .link-icon{
+      font-size:16px;
+      width:20px;
     }
 
     .footer-section a:hover{
       color:#3498db;
       transform: translateX(8px);
+      background: rgba(52, 152, 219, 0.1);
+      padding-left:12px;
+    }
+
+    .footer-contact{
+      margin-top:24px;
+      padding:20px;
+      background: rgba(52, 152, 219, 0.1);
+      border-radius:12px;
+      border-left:4px solid #3498db;
+    }
+
+    .footer-contact p{
+      margin:0 0 12px 0;
+      color:#3498db;
+      font-weight:600;
+    }
+
+    .footer-contact ul{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+
+    .footer-contact li{
+      color:#bdc3c7;
+      font-size:14px;
+      margin:6px 0;
+      padding-left:16px;
+      position:relative;
+    }
+
+    .footer-contact li::before{
+      content:'▸';
+      position:absolute;
+      left:0;
+      color:#3498db;
     }
 
     .footer-bottom{
       border-top:1px solid #34495e;
-      margin-top:40px;
-      padding-top:24px;
-      text-align:center;
+      margin-top:60px;
+      padding:30px 0;
+      background: rgba(0,0,0,0.2);
+    }
+
+    .footer-bottom-content{
+      max-width:1200px;
+      margin:auto;
+      padding:0 64px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .footer-bottom p{
+      margin:0;
       color:#95a5a6;
       font-size: 14px;
+    }
+
+    .footer-links{
+      display:flex;
+      gap:24px;
+    }
+
+    .footer-links a{
+      color:#95a5a6;
+      text-decoration:none;
+      font-size:14px;
+      transition:color 0.3s ease;
+    }
+
+    .footer-links a:hover{
+      color:#3498db;
+    }
+
+    .footer-tech{
+      text-align:center;
+      padding-top:20px;
+      border-top:1px solid rgba(255,255,255,0.1);
+      margin-top:20px;
+    }
+
+    .footer-tech p{
+      margin:0;
+      color:#7f8c8d;
+      font-size:12px;
+      font-style:italic;
     }
 
     /* ---------- RESPONSIVE ---------- */
@@ -532,8 +680,26 @@
       .footer-content{
         grid-template-columns:1fr;
         padding:0 20px;
-        gap:30px;
+        gap:40px;
         text-align:center;
+      }
+
+      .footer-bottom-content{
+        flex-direction:column;
+        text-align:center;
+        padding:0 20px;
+      }
+
+      .footer-links{
+        justify-content:center;
+      }
+
+      .footer-contact{
+        text-align:left;
+      }
+
+      .footer-badges{
+        justify-content:center;
       }
     }
   </style>
@@ -653,29 +819,68 @@
 <!-- ================= FOOTER ================= -->
 <footer>
   <div class="footer-content">
-    <div class="footer-section">
-      <h3>About</h3>
-      <p>DevOps & Cloud Engineer passionate about scalable infrastructure, Kubernetes, and cloud technologies. AWS Community Builder sharing knowledge through content and talks.</p>
+    <div class="footer-section footer-brand">
+      <div class="footer-logo">
+        <h3>Aman Patel</h3>
+        <span class="footer-tagline">DevOps & Cloud Engineer</span>
+      </div>
+      <p>Passionate about building scalable cloud infrastructure and sharing knowledge with the global tech community. AWS Community Builder dedicated to advancing cloud technologies.</p>
+      <div class="footer-badges">
+        <span class="badge">AWS Community Builder</span>
+        <span class="badge">CNCF Member</span>
+      </div>
     </div>
     
     <div class="footer-section">
-      <h3>Quick Links</h3>
-      <a href="https://amannewsletter.substack.com/" target="_blank">Newsletter</a>
-      <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">YouTube Channel</a>
-      <a href="https://github.com/amanpatelit" target="_blank">GitHub Projects</a>
-      <a href="mailto:amanpatel.itofficial@gmail.com">Contact Me</a>
+      <h3>Resources</h3>
+      <a href="https://amannewsletter.substack.com/" target="_blank">
+        <span class="link-icon">📧</span> Newsletter & Updates
+      </a>
+      <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">
+        <span class="link-icon">📺</span> YouTube Tutorials
+      </a>
+      <a href="https://github.com/amanpatelit" target="_blank">
+        <span class="link-icon">💻</span> Open Source Projects
+      </a>
+      <a href="https://builder.aws.com/profile/amanpatel" target="_blank">
+        <span class="link-icon">☁️</span> AWS Builder Articles
+      </a>
     </div>
     
     <div class="footer-section">
-      <h3>Connect</h3>
-      <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">LinkedIn</a>
-      <a href="https://builder.aws.com/profile/amanpatel" target="_blank">AWS Builder Profile</a>
-      <a href="https://amannewsletter.substack.com" target="_blank">Substack</a>
+      <h3>Professional</h3>
+      <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">
+        <span class="link-icon">💼</span> LinkedIn Profile
+      </a>
+      <a href="mailto:amanpatel.itofficial@gmail.com">
+        <span class="link-icon">✉️</span> Business Inquiries
+      </a>
+      <a href="#" onclick="showPage('talks')">
+        <span class="link-icon">🎤</span> Speaking Engagements
+      </a>
+      <div class="footer-contact">
+        <p><strong>Available for:</strong></p>
+        <ul>
+          <li>Technical Consulting</li>
+          <li>Conference Speaking</li>
+          <li>Content Collaboration</li>
+        </ul>
+      </div>
     </div>
   </div>
   
   <div class="footer-bottom">
-    <p>&copy; 2024 Aman Patel. All rights reserved. Built with passion for the cloud community.</p>
+    <div class="footer-bottom-content">
+      <p>&copy; 2024 Aman Patel. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#privacy">Privacy Policy</a>
+        <a href="#terms">Terms of Service</a>
+        <a href="#sitemap">Sitemap</a>
+      </div>
+    </div>
+    <div class="footer-tech">
+      <p>Built with modern web technologies • Hosted on AWS • Optimized for performance</p>
+    </div>
   </div>
 </footer>
 
