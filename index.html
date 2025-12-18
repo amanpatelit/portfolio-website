@@ -150,22 +150,32 @@
       align-items:center;
       gap:8px;
       padding:12px 20px;
-      border-radius:50px;
-      background: white;
-      border:2px solid #e1e8ed;
+      border-radius:12px;
+      background: transparent;
+      border:2px solid #d1d5db;
       text-decoration:none;
-      color:#2c3e50;
-      font-weight:600;
-      font-size:14px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      color:#6b7280;
+      font-weight:500;
+      font-size:15px;
+      transition: all 0.2s ease;
+      min-width:140px;
+      justify-content:center;
     }
 
     .socials a:hover{
-      transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-      border-color: #3498db;
-      color: #3498db;
+      border-color: #3b82f6;
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.05);
+    }
+
+    .socials a.linkedin{
+      border-color: #3b82f6;
+      color: #3b82f6;
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .socials a.linkedin:hover{
+      background: rgba(59, 130, 246, 0.15);
     }
 
     /* ---------- IMAGE CARD ---------- */
@@ -759,10 +769,18 @@
         <p class="follow-text">Follow me here for new updates</p>
 
         <div class="socials">
-          <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">▶ YouTube</a>
-          <a href="https://amannewsletter.substack.com" target="_blank"> News</a>
-          <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">in LinkedIn</a>
-          <a href="https://github.com/amanpatelit" target="_blank">🐙 GitHub</a>
+          <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">
+            <span>📺</span> YouTube (180k)
+          </a>
+          <a href="https://amannewsletter.substack.com" target="_blank">
+            <span>📧</span> Newsletter (5k)
+          </a>
+          <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank" class="linkedin">
+            <span>💼</span> LinkedIn (250k)
+          </a>
+          <a href="https://github.com/amanpatelit" target="_blank">
+            <span>💻</span> GitHub (6k)
+          </a>
         </div>
       </div>
 
