@@ -186,10 +186,150 @@
 
     /* ---------- RESPONSIVE ---------- */
     @media(max-width:900px){
-      header{padding:20px;}
-      .container{padding:20px;}
-      .hero{grid-template-columns:1fr;}
-      h1{font-size:44px;}
+      header{
+        padding:16px 20px;
+        flex-direction:column;
+        gap:16px;
+      }
+      
+      header nav{
+        display:flex;
+        gap:20px;
+      }
+      
+      header nav a{
+        margin-left:0;
+        font-size:16px;
+      }
+      
+      .container{
+        padding:20px;
+      }
+      
+      .hero{
+        grid-template-columns:1fr;
+        gap:40px;
+      }
+      
+      h1{
+        font-size:40px;
+        text-align:center;
+      }
+      
+      .tagline{
+        font-size:22px;
+        text-align:center;
+      }
+      
+      .hero p{
+        font-size:16px;
+        text-align:center;
+      }
+      
+      .follow-text{
+        text-align:center;
+      }
+      
+      .socials{
+        justify-content:center;
+      }
+      
+      .section-title{
+        font-size:28px;
+        text-align:center;
+      }
+      
+      .blog-card{
+        padding:20px;
+      }
+      
+      .blog-card h3{
+        font-size:20px;
+      }
+      
+      .talk-description{
+        font-size:16px;
+        padding:0 10px;
+      }
+    }
+    
+    @media(max-width:600px){
+      header{
+        padding:12px 16px;
+      }
+      
+      header nav{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+      
+      .container{
+        padding:16px;
+      }
+      
+      h1{
+        font-size:32px;
+      }
+      
+      .tagline{
+        font-size:18px;
+      }
+      
+      .hero p{
+        font-size:15px;
+      }
+      
+      .socials a{
+        padding:8px 12px;
+        font-size:14px;
+      }
+      
+      .blog-card{
+        padding:16px;
+        margin-bottom:20px;
+      }
+      
+      .blog-card h3{
+        font-size:18px;
+      }
+      
+      .blog-card p{
+        font-size:15px;
+      }
+      
+      .blog-card a{
+        padding:8px 14px;
+        font-size:14px;
+      }
+      
+      .section-title{
+        font-size:24px;
+        margin:60px 0 20px;
+      }
+    }
+    
+    @media(max-width:400px){
+      .container{
+        padding:12px;
+      }
+      
+      h1{
+        font-size:28px;
+      }
+      
+      .tagline{
+        font-size:16px;
+      }
+      
+      .socials{
+        flex-direction:column;
+        align-items:center;
+      }
+      
+      .socials a{
+        width:200px;
+        justify-content:center;
+      }
     }
   </style>
 
