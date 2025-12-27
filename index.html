@@ -492,21 +492,7 @@
       margin:80px 0 16px;
       font-weight:700;
       text-align: center;
-      animation: fadeInUp 0.8s ease-out 0.2s both;
       position: relative;
-    }
-
-    .section-title::after{
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #c0392b, #e74c3c);
-      border-radius: 2px;
-      animation: expandLine 1.2s ease-out 1s both;
     }
 
     @keyframes rotateIn {
@@ -593,7 +579,6 @@
       gap:20px;
       margin-bottom:64px;
       flex-wrap:wrap;
-      animation: fadeInUp 0.8s ease-out 0.6s both;
     }
 
     .filters button{
@@ -608,26 +593,11 @@
       overflow: hidden;
     }
 
-    .filters button::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), transparent);
-      transition: left 0.6s ease;
-    }
-
     .filters button:hover{
       transform: translateY(-3px) scale(1.05) rotate(2deg);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
       background: #e8ddd0;
       border-color: #c0392b;
-    }
-
-    .filters button:hover::before{
-      left: 100%;
     }
 
     .filters button.active{
@@ -636,7 +606,6 @@
       border-color:#c0392b;
       transform: translateY(-2px);
       box-shadow: 0 6px 20px rgba(192, 57, 43, 0.3);
-      animation: pulse 2s ease-in-out infinite;
     }
 
     .blog-card{
@@ -645,57 +614,16 @@
       border-radius:16px;
       padding:28px;
       margin-bottom:26px;
-      opacity: 0;
-      animation: fadeInUp 0.8s ease-out forwards;
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
       box-shadow: 0 4px 15px rgba(0,0,0,0.08);
-      transform: translateY(20px);
     }
-
-    .blog-card::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 4px;
-      background: linear-gradient(90deg, #c0392b, #e74c3c);
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
-    }
-
-    .blog-card::after{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(192, 57, 43, 0.05), transparent);
-      transition: left 0.6s ease;
-      z-index: 1;
-    }
-
-    .blog-card:nth-child(1) { animation-delay: 0.8s; }
-    .blog-card:nth-child(2) { animation-delay: 1s; }
-    .blog-card:nth-child(3) { animation-delay: 1.2s; }
-    .blog-card:nth-child(4) { animation-delay: 1.4s; }
 
     .blog-card:hover{
       transform: translateY(-10px) scale(1.03) rotate(1deg);
       box-shadow: 0 20px 40px rgba(0,0,0,0.15);
       border-color: #c0392b;
-      animation: glow 2s ease-in-out infinite;
-    }
-
-    .blog-card:hover::before{
-      transform: scaleX(1);
-    }
-
-    .blog-card:hover::after{
-      left: 100%;
     }
 
     .blog-card h3{
@@ -752,25 +680,10 @@
       z-index: 2;
     }
 
-    .blog-card a::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-      transition: left 0.6s ease;
-    }
-
     .blog-card:hover a{
       background: #a93226;
       transform: translateY(-3px) scale(1.05);
       box-shadow: 0 8px 25px rgba(192, 57, 43, 0.4);
-    }
-
-    .blog-card:hover a::before{
-      left: 100%;
     }
 
     /* ---------- TALKS ---------- */
@@ -1030,17 +943,10 @@
       document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
       btn.classList.add('active');
 
-      document.querySelectorAll('.blog-card').forEach((card, index) => {
-        if (category === 'all' || card.dataset.category === category) {
-          card.style.display = 'block';
-          // Re-trigger animation with staggered delay
-          card.style.animation = 'none';
-          setTimeout(() => {
-            card.style.animation = `fadeInUp 0.6s ease-out ${index * 0.1}s forwards`;
-          }, 10);
-        } else {
-          card.style.display = 'none';
-        }
+      document.querySelectorAll('.blog-card').forEach(card => {
+        card.style.display = 
+          category === 'all' || card.dataset.category === category
+          ? 'block' : 'none';
       });
     }
 
@@ -1065,7 +971,7 @@
       }, observerOptions);
 
       // Observe elements for scroll animations
-      document.querySelectorAll('.blog-card, .footer-section').forEach(el => {
+      document.querySelectorAll('.footer-section').forEach(el => {
         observer.observe(el);
       });
 
