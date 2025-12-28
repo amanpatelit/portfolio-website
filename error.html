@@ -194,6 +194,61 @@
       font-weight: bold;
     }
 
+    .system-info {
+      background: #f6f8fa;
+      border: 1px solid #d1d9e0;
+      border-radius: 6px;
+      padding: 16px;
+      margin: 16px 0;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    }
+
+    .info-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      font-size: 13px;
+    }
+
+    .info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .label {
+      color: #656d76;
+      font-weight: 600;
+      min-width: 120px;
+    }
+
+    .value {
+      color: #24292f;
+      font-weight: 400;
+      word-break: break-all;
+    }
+
+    .code-block {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+
+    .code-block h4 {
+      color: #f0f6fc;
+      font-size: 14px;
+      margin: 0 0 8px 0;
+      font-weight: 600;
+    }
+
+    .code-block code {
+      color: #7ee787;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+      font-size: 13px;
+      line-height: 1.4;
+      display: block;
+    }
+
     /* Footer */
     .footer {
       background: #ffffff;
@@ -297,10 +352,30 @@
       const currentYear = new Date().getFullYear();
       document.getElementById('current-year').textContent = currentYear;
       
-      // Add timestamp
-      const timestamp = new Date().toISOString();
+      // Generate technical details
+      const now = new Date();
+      const timestamp = now.toISOString();
+      const requestId = generateRequestId();
+      
       document.getElementById('timestamp').textContent = timestamp;
+      document.getElementById('request-id').textContent = requestId;
+      document.getElementById('user-agent').textContent = navigator.userAgent;
+      
+      // Update cURL command with current path
+      const currentPath = window.location.pathname;
+      const curlCommand = `curl -I -X GET https://amansdlc.com${currentPath}`;
+      document.getElementById('curl-command').textContent = curlCommand;
     });
+
+    function generateRequestId() {
+      const chars = 'abcdef0123456789';
+      let result = '';
+      for (let i = 0; i < 32; i++) {
+        result += chars.charAt(Math.floor(Math.random() * chars.length));
+        if (i === 7 || i === 11 || i === 15 || i === 19) result += '-';
+      }
+      return result;
+    }
   </script>
 </head>
 <body>
@@ -320,16 +395,16 @@
     <div class="error-container">
       <div class="status-indicator">
         <span class="status-dot"></span>
-        <span>Service Unavailable</span>
+        <span>HTTP 404 - Resource Not Found</span>
       </div>
       
       <div class="error-code">404</div>
       
-      <h1 class="error-title">Resource Not Found</h1>
+      <h1 class="error-title">Endpoint Not Found</h1>
       
       <p class="error-description">
-        The requested resource could not be located on this server. 
-        This may be due to a mistyped URL, moved content, or temporary service disruption.
+        The requested URI could not be resolved by the web server. 
+        The resource may have been moved, deleted, or the route is not configured in the application routing table.
       </p>
 
       <div class="error-actions">
@@ -337,34 +412,65 @@
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
           </svg>
-          Return Home
+          Return to Root
         </a>
         <a href="javascript:history.back()" class="btn btn-secondary">
           <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
             <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
           </svg>
-          Go Back
+          Previous Route
         </a>
       </div>
 
       <div class="error-details">
-        <h3>Troubleshooting Steps</h3>
+        <h3>System Information</h3>
+        <div class="system-info">
+          <div class="info-row">
+            <span class="label">Server:</span>
+            <span class="value">nginx/1.24.0</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Protocol:</span>
+            <span class="value">HTTP/2.0</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Method:</span>
+            <span class="value" id="request-method">GET</span>
+          </div>
+          <div class="info-row">
+            <span class="label">User-Agent:</span>
+            <span class="value" id="user-agent">Loading...</span>
+          </div>
+          <div class="info-row">
+            <span class="label">Timestamp:</span>
+            <span class="value" id="timestamp"></span>
+          </div>
+          <div class="info-row">
+            <span class="label">Request ID:</span>
+            <span class="value" id="request-id"></span>
+          </div>
+        </div>
+
+        <h3 style="margin-top: 24px;">Debugging Steps</h3>
         <ul>
-          <li>Verify the URL spelling and try again</li>
-          <li>Check if the resource has been moved or renamed</li>
-          <li>Clear your browser cache and cookies</li>
-          <li>Contact support if the issue persists</li>
+          <li>Check application routing configuration</li>
+          <li>Verify URL path parameters and query strings</li>
+          <li>Review server access logs for request patterns</li>
+          <li>Validate DNS resolution and load balancer configuration</li>
+          <li>Check CDN cache invalidation if using edge caching</li>
         </ul>
-        <p style="margin-top: 16px; font-size: 12px; color: #656d76;">
-          Error ID: <code id="timestamp"></code>
-        </p>
+
+        <div class="code-block">
+          <h4>cURL Debug Command:</h4>
+          <code id="curl-command">curl -I -X GET https://amansdlc.com/[requested-path]</code>
+        </div>
       </div>
     </div>
   </main>
 
   <footer class="footer">
     <div class="footer-container">
-      <p>&copy; <span id="current-year"></span> Aman Patel. All rights reserved. | DevOps & Cloud Engineering Services</p>
+      <p>&copy; <span id="current-year"></span> Aman Patel | Senior DevOps & Cloud Engineer | Infrastructure & Platform Engineering</p>
     </div>
   </footer>
 </body>
