@@ -7,148 +7,117 @@
   <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png" />
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: #1a1a1a;
-      color: #ffffff;
-      line-height: 1.6;
+      margin: 0;
+      font-family: ui-serif, Georgia, serif;
+      background: linear-gradient(-45deg, #f7f0e6, #faf5f0, #f0f7f0, #f5f0f7);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      color: #1f1f1f;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      position: relative;
-      overflow-x: hidden;
     }
 
-    /* Background Pattern */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: 
-        linear-gradient(45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
-        linear-gradient(-45deg, rgba(255,255,255,0.02) 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, rgba(255,255,255,0.02) 75%),
-        linear-gradient(-45deg, transparent 75%, rgba(255,255,255,0.02) 75%);
-      background-size: 60px 60px;
-      background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
-      z-index: -1;
-      opacity: 0.3;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     /* Header */
-    .header {
-      background: rgba(26, 26, 26, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
+    header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 24px;
+      padding: 24px 64px;
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
     .logo {
-      font-size: 24px;
       font-weight: 700;
-      color: #ffffff;
+      font-size: 24px;
+      color: #1f1f1f;
       text-decoration: none;
-      letter-spacing: -0.5px;
+      transition: all 0.3s ease;
     }
 
-    .nav {
-      display: flex;
-      gap: 40px;
+    .logo:hover {
+      color: #c0392b;
     }
 
-    .nav a {
-      color: rgba(255, 255, 255, 0.7);
+    header nav a {
+      margin-left: 28px;
       text-decoration: none;
-      font-size: 15px;
-      font-weight: 500;
-      padding: 8px 0;
-      transition: color 0.3s ease;
+      font-weight: 600;
+      color: #1f1f1f;
+      transition: all 0.3s ease;
       position: relative;
+      padding: 8px 16px;
+      border-radius: 8px;
     }
 
-    .nav a:hover {
-      color: #ffffff;
-    }
-
-    .nav a::after {
+    header nav a::after {
       content: '';
       position: absolute;
       bottom: 0;
       left: 0;
       width: 0;
       height: 2px;
-      background: #ffffff;
+      background: #c0392b;
       transition: width 0.3s ease;
     }
 
-    .nav a:hover::after {
+    header nav a:hover {
+      color: #c0392b;
+    }
+
+    header nav a:hover::after {
       width: 100%;
     }
 
     /* Main Content */
-    .main {
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 80px 64px;
       flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 80px 24px;
-      position: relative;
     }
 
-    .error-container {
-      max-width: 600px;
+    .error-content {
       text-align: center;
-      position: relative;
-      z-index: 2;
+      max-width: 600px;
     }
 
-    .error-code {
+    .error-number {
       font-size: 120px;
-      font-weight: 300;
-      color: rgba(255, 255, 255, 0.1);
+      font-weight: 700;
+      color: #c0392b;
+      margin: 0;
       line-height: 1;
-      margin-bottom: 40px;
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      letter-spacing: -5px;
     }
 
     .error-title {
       font-size: 48px;
-      font-weight: 300;
-      color: #ffffff;
-      margin-bottom: 24px;
-      letter-spacing: -1px;
+      font-weight: 700;
+      color: #1f1f1f;
+      margin: 20px 0;
     }
 
-    .error-description {
+    .error-message {
       font-size: 18px;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 48px;
-      line-height: 1.6;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
+      line-height: 1.7;
+      color: #666;
+      margin: 30px 0 40px;
     }
 
     .error-actions {
@@ -156,297 +125,217 @@
       gap: 20px;
       justify-content: center;
       flex-wrap: wrap;
-      margin-bottom: 60px;
     }
 
     .btn {
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 16px 32px;
-      border-radius: 0;
-      font-size: 15px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      cursor: pointer;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
     }
 
     .btn-primary {
-      background: #ffffff;
-      color: #1a1a1a;
-      border-color: #ffffff;
+      background: #c0392b;
+      color: #ffffff;
+      border: 1px solid #c0392b;
     }
 
     .btn-primary:hover {
-      background: transparent;
-      color: #ffffff;
+      background: #a93226;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(192, 57, 43, 0.3);
     }
 
     .btn-secondary {
-      background: transparent;
-      color: #ffffff;
-      border-color: rgba(255, 255, 255, 0.3);
+      background: #f1eadf;
+      color: #1f1f1f;
+      border: 1px solid #ded6ca;
     }
 
     .btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.1);
-      border-color: #ffffff;
-    }
-
-    /* Technical Details */
-    .tech-details {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 32px;
-      margin-top: 40px;
-      text-align: left;
-    }
-
-    .tech-details h3 {
-      font-size: 16px;
-      font-weight: 600;
-      color: #ffffff;
-      margin-bottom: 20px;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin-bottom: 32px;
-    }
-
-    .tech-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 12px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
-      font-size: 14px;
-    }
-
-    .tech-label {
-      color: rgba(255, 255, 255, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-size: 12px;
-    }
-
-    .tech-value {
-      color: #ffffff;
-      font-weight: 500;
-    }
-
-    .debug-section {
-      margin-top: 32px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .debug-command {
-      background: #000000;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 20px;
-      margin-top: 16px;
-      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
-      font-size: 14px;
-      color: #00ff00;
-      overflow-x: auto;
-    }
-
-    .debug-command::before {
-      content: '$ ';
-      color: rgba(255, 255, 255, 0.5);
+      background: #e8ddd0;
+      border-color: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
 
     /* Footer */
-    .footer {
-      background: rgba(26, 26, 26, 0.95);
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding: 24px;
+    footer {
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 48px 0 24px;
+      margin-top: 80px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 48px;
+    }
+
+    .footer-section h3 {
+      margin: 0 0 16px 0;
+      font-size: 16px;
+      color: #111827;
+      font-weight: 600;
+    }
+
+    .footer-section p {
+      color: #6b7280;
+      line-height: 1.6;
+      margin: 0 0 16px 0;
+      font-size: 14px;
+    }
+
+    .footer-section a {
+      color: #6b7280;
+      text-decoration: none;
+      line-height: 1.8;
+      margin: 4px 0;
+      display: block;
+      transition: all 0.3s ease;
+      font-size: 14px;
+    }
+
+    .footer-section a:hover {
+      color: #2563eb;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid #e2e8f0;
+      margin-top: 32px;
+      padding-top: 24px;
       text-align: center;
     }
 
-    .footer p {
-      font-size: 14px;
-      color: rgba(255, 255, 255, 0.5);
+    .footer-bottom p {
       margin: 0;
+      color: #6b7280;
+      font-size: 14px;
     }
 
     /* Responsive */
-    @media (max-width: 768px) {
-      .header-container {
-        padding: 16px 20px;
+    @media(max-width: 900px) {
+      header {
+        padding: 20px;
       }
-
-      .nav {
-        gap: 24px;
-      }
-
-      .nav a {
-        font-size: 14px;
-      }
-
-      .main {
+      
+      .container {
         padding: 40px 20px;
       }
-
-      .error-code {
+      
+      .error-number {
         font-size: 80px;
       }
-
+      
       .error-title {
-        font-size: 32px;
+        font-size: 36px;
       }
+      
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        padding: 0 20px;
+      }
+    }
 
-      .error-description {
+    @media(max-width: 600px) {
+      .error-number {
+        font-size: 60px;
+      }
+      
+      .error-title {
+        font-size: 28px;
+      }
+      
+      .error-message {
         font-size: 16px;
       }
-
+      
       .error-actions {
         flex-direction: column;
         align-items: center;
       }
-
+      
       .btn {
         width: 100%;
         max-width: 280px;
         justify-content: center;
       }
-
-      .tech-details {
-        padding: 20px;
-      }
-
-      .tech-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .logo {
-        font-size: 20px;
-      }
-
-      .error-code {
-        font-size: 60px;
-      }
-
-      .error-title {
-        font-size: 24px;
-      }
     }
   </style>
 
   <script>
+    // Auto-update copyright year
     document.addEventListener('DOMContentLoaded', function() {
       const currentYear = new Date().getFullYear();
       document.getElementById('current-year').textContent = currentYear;
-      
-      // Generate technical details
-      const now = new Date();
-      const timestamp = now.toISOString();
-      const requestId = generateRequestId();
-      
-      document.getElementById('timestamp').textContent = timestamp;
-      document.getElementById('request-id').textContent = requestId;
-      document.getElementById('user-agent').textContent = navigator.userAgent.substring(0, 50) + '...';
-      
-      // Update debug command with current path
-      const currentPath = window.location.pathname;
-      const debugCommand = `curl -I -X GET https://amansdlc.com${currentPath}`;
-      document.getElementById('debug-command').textContent = debugCommand;
     });
-
-    function generateRequestId() {
-      const chars = 'abcdef0123456789';
-      let result = '';
-      for (let i = 0; i < 16; i++) {
-        result += chars.charAt(Math.floor(Math.random() * chars.length));
-      }
-      return result;
-    }
   </script>
 </head>
 <body>
-  <header class="header">
-    <div class="header-container">
-      <a href="/" class="logo">Aman Patel</a>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a href="https://amannewsletter.substack.com/" target="_blank">Newsletter</a>
-        <a href="/#talks">Talks</a>
-        <a href="mailto:amanpatel.itofficial@gmail.com">Contact</a>
-      </nav>
-    </div>
+  <header>
+    <div class="logo">Aman Patel</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="https://amannewsletter.substack.com/" target="_blank">Newsletters</a>
+      <a href="/#talks">Talks</a>
+    </nav>
   </header>
 
-  <main class="main">
-    <div class="error-container">
-      <div class="error-code">404</div>
-      
-      <h1 class="error-title">Error Page</h1>
-      
-      <p class="error-description">
-        The page you are looking for doesn't exist. It may have been moved or removed altogether.
-        Please try searching for some other page, or return to the website's homepage to find what
-        you're looking for.
+  <div class="container">
+    <div class="error-content">
+      <div class="error-number">404</div>
+      <h1 class="error-title">Page Not Found</h1>
+      <p class="error-message">
+        Sorry, the page you're looking for doesn't exist. It might have been moved, 
+        deleted, or you entered the wrong URL. Let's get you back on track.
       </p>
-
       <div class="error-actions">
         <a href="/" class="btn btn-primary">
-          Back to Home →
+          ← Back to Home
         </a>
         <a href="javascript:history.back()" class="btn btn-secondary">
           Previous Page
         </a>
       </div>
+    </div>
+  </div>
 
-      <div class="tech-details">
-        <h3>System Information</h3>
-        <div class="tech-grid">
-          <div class="tech-item">
-            <span class="tech-label">Status Code</span>
-            <span class="tech-value">404</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-label">Protocol</span>
-            <span class="tech-value">HTTP/2.0</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-label">Method</span>
-            <span class="tech-value">GET</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-label">Server</span>
-            <span class="tech-value">nginx/1.24.0</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-label">Timestamp</span>
-            <span class="tech-value" id="timestamp">Loading...</span>
-          </div>
-          <div class="tech-item">
-            <span class="tech-label">Request ID</span>
-            <span class="tech-value" id="request-id">Loading...</span>
-          </div>
-        </div>
-
-        <div class="debug-section">
-          <h3>Debug Information</h3>
-          <div class="debug-command" id="debug-command">Loading...</div>
-        </div>
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>About</h3>
+        <p>Senior DevOps & Cloud Engineer passionate about scalable infrastructure, Kubernetes, and cloud technologies. AWS Community Builder sharing knowledge through content and talks.</p>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Resources</h3>
+        <a href="https://amannewsletter.substack.com/" target="_blank">Newsletter</a>
+        <a href="https://www.youtube.com/@techwithamanpatel" target="_blank">YouTube Channel</a>
+        <a href="https://github.com/amanpatelit" target="_blank">GitHub Projects</a>
+        <a href="https://builder.aws.com/profile/amanpatel" target="_blank">AWS Builder Articles</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Connect</h3>
+        <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">LinkedIn</a>
+        <a href="mailto:amanpatel.itofficial@gmail.com">Contact Me</a>
+        <a href="/#talks">Speaking Engagements</a>
       </div>
     </div>
-  </main>
-
-  <footer class="footer">
-    <p>&copy; <span id="current-year"></span> Aman Patel | Senior DevOps & Cloud Engineer</p>
+    
+    <div class="footer-bottom">
+      <p>&copy; <span id="current-year"></span> Aman Patel. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
