@@ -3,20 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Error - Sr. DevOps Engineer</title>
+  <title>404 - Page Not Found | Aman Patel</title>
   <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png" />
 
   <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #ebf8ff, #e0f2fe, #f0f9ff);
-      --text-color: #1e293b;
-      --primary: #0ea5e9;
-      --secondary: #38bdf8;
-      --shadow: rgba(56, 189, 248, 0.2);
-      --card-bg: rgba(255, 255, 255, 0.75);
-      --border: rgba(14, 165, 233, 0.1);
-    }
-
     body {
       margin: 0;
       height: 100vh;
@@ -24,140 +14,290 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      font-family: "Inter", "Segoe UI", Roboto, sans-serif;
-      background: var(--bg-gradient);
+      font-family: ui-serif, Georgia, serif;
+      background: linear-gradient(-45deg, #f7f0e6, #faf5f0, #f0f7f0, #f5f0f7);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
       text-align: center;
-      color: var(--text-color);
+      color: #1f1f1f;
       overflow: hidden;
     }
 
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      box-shadow: 0 8px 24px var(--shadow);
-      backdrop-filter: blur(12px);
-      border-radius: 16px;
-      padding: 50px 60px;
-      max-width: 520px;
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Header matching portfolio */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 64px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 1000;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-weight: 700;
+      font-size: 24px;
+      color: #1f1f1f;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .logo:hover {
+      color: #c0392b;
+    }
+
+    header nav a {
+      margin-left: 28px;
+      text-decoration: none;
+      font-weight: 600;
+      color: #1f1f1f;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 8px 16px;
+      border-radius: 8px;
+    }
+
+    header nav a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #c0392b;
+      transition: width 0.3s ease;
+    }
+
+    header nav a:hover {
+      color: #c0392b;
+    }
+
+    header nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Error content */
+    .error-container {
+      background: #ffffff;
+      border: 1px solid #e3dbcf;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      border-radius: 22px;
+      padding: 60px 80px;
+      max-width: 600px;
       margin: 0 20px;
       position: relative;
       z-index: 2;
-      animation: fadeIn 1s ease;
+      transition: all 0.4s ease;
     }
 
-    h1 {
-      font-size: 5rem;
+    .error-container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.12);
+    }
+
+    .error-number {
+      font-size: 8rem;
       font-weight: 700;
-      background: -webkit-linear-gradient(45deg, var(--primary), var(--secondary));
+      background: linear-gradient(135deg, #1f1f1f, #c0392b);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      background-clip: text;
       margin: 0;
       line-height: 1;
     }
 
-    h2 {
-      font-size: 1.8rem;
-      margin: 10px 0;
-      color: var(--text-color);
-      font-weight: 600;
+    .error-title {
+      font-size: 2.5rem;
+      margin: 20px 0 10px;
+      color: #1f1f1f;
+      font-weight: 700;
     }
 
-    p {
-      font-size: 1rem;
-      color: #475569;
+    .error-message {
+      font-size: 1.2rem;
+      color: #666;
       line-height: 1.6;
-      margin: 1rem 0 2rem;
+      margin: 1.5rem 0 2.5rem;
+      max-width: 480px;
     }
 
-    a {
+    .back-button {
+      display: inline-block;
       text-decoration: none;
-      background: var(--primary);
+      background: #c0392b;
       color: #ffffff;
-      padding: 12px 30px;
-      border-radius: 8px;
+      padding: 14px 32px;
+      border-radius: 12px;
       font-weight: 600;
-      box-shadow: 0 6px 16px var(--shadow);
+      font-size: 16px;
       transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(192, 57, 43, 0.3);
     }
 
-    a:hover {
-      background: var(--secondary);
+    .back-button:hover {
+      background: #a93226;
       transform: translateY(-2px);
-      box-shadow: 0 10px 20px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 8px 25px rgba(192, 57, 43, 0.4);
     }
 
-    footer {
-      position: absolute;
-      bottom: 12px;
-      color: #64748b;
-      font-size: 0.9rem;
-    }
-
-    /* Animated background clouds */
-    .background-clouds {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      z-index: 0;
-      opacity: 0.4;
-    }
-
-    .cloud {
-      position: absolute;
-      background: white;
-      border-radius: 50%;
-      box-shadow: 40px 40px 80px rgba(14, 165, 233, 0.1);
-      animation: float 60s linear infinite;
-    }
-
-    .cloud:nth-child(1) {
+    /* Illustration */
+    .error-illustration {
       width: 200px;
-      height: 100px;
-      top: 15%;
-      left: -250px;
-      animation-delay: 0s;
-    }
-    .cloud:nth-child(2) {
-      width: 250px;
-      height: 120px;
-      top: 55%;
-      left: -300px;
-      animation-delay: 25s;
-    }
-    .cloud:nth-child(3) {
-      width: 180px;
-      height: 90px;
-      top: 75%;
-      left: -220px;
-      animation-delay: 50s;
+      height: 200px;
+      margin: 0 auto 30px;
+      background: linear-gradient(135deg, rgba(192, 57, 43, 0.1), rgba(231, 76, 60, 0.1));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      color: #c0392b;
+      position: relative;
+      overflow: hidden;
     }
 
-    @keyframes float {
-      from { transform: translateX(0); }
-      to { transform: translateX(130vw); }
+    .error-illustration::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: translateX(-100%);
+      animation: shimmer 2s ease-in-out infinite;
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+    @keyframes shimmer {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    /* Footer matching portfolio */
+    footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    footer p {
+      margin: 0;
+      color: #6b7280;
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media(max-width: 900px) {
+      header {
+        padding: 20px;
+      }
+      
+      .error-container {
+        padding: 40px 30px;
+        margin: 0 20px;
+      }
+      
+      .error-number {
+        font-size: 6rem;
+      }
+      
+      .error-title {
+        font-size: 2rem;
+      }
+      
+      .error-message {
+        font-size: 1.1rem;
+      }
+      
+      header nav a {
+        margin-left: 16px;
+        font-size: 14px;
+      }
+    }
+
+    @media(max-width: 600px) {
+      .error-container {
+        padding: 30px 20px;
+      }
+      
+      .error-number {
+        font-size: 4.5rem;
+      }
+      
+      .error-title {
+        font-size: 1.8rem;
+      }
+      
+      .error-illustration {
+        width: 150px;
+        height: 150px;
+        font-size: 3rem;
+      }
+    }
+
+    /* Scroll progress indicator */
+    .scroll-indicator {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, #c0392b, #e74c3c);
+      z-index: 10000;
     }
   </style>
+
+  <script>
+    // Auto-update copyright year
+    document.addEventListener('DOMContentLoaded', function() {
+      const currentYear = new Date().getFullYear();
+      document.getElementById('current-year').textContent = currentYear;
+    });
+  </script>
 </head>
 <body>
-  <div class="background-clouds">
-    <div class="cloud"></div>
-    <div class="cloud"></div>
-    <div class="cloud"></div>
+  <div class="scroll-indicator"></div>
+
+  <header>
+    <a href="/" class="logo">Aman Patel</a>
+    <nav>
+      <a href="/">Home</a>
+      <a href="https://amannewsletter.substack.com/" target="_blank">Newsletters</a>
+      <a href="/#talks">Talks</a>
+    </nav>
+  </header>
+
+  <div class="error-container">
+    <div class="error-illustration">
+      🔍
+    </div>
+    <div class="error-number">404</div>
+    <h1 class="error-title">Page Not Found</h1>
+    <p class="error-message">
+      Oops! The page you're looking for seems to have wandered off into the cloud. 
+      It might have been moved, deleted, or is taking a coffee break in a different server.
+    </p>
+    <a href="/" class="back-button">← Back to Home</a>
   </div>
 
-  <div class="card">
-    <h1>404</h1>
-    <h2>Page Not Found</h2>
-    <p>Sorry, we can’t find the page you’re looking for.<br>
-    It might have been moved, deleted, or never existed.</p>
-    <a href="/">← Back to Home</a>
-  </div>
-
-  <footer>© 2025 amansdlc.com. All rights reserved.</footer>
+  <footer>
+    <p>&copy; <span id="current-year"></span> Aman Patel. All rights reserved.</p>
+  </footer>
 </body>
 </html>
