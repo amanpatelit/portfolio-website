@@ -3,271 +3,369 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>404 - Page Not Found | Aman Patel</title>
+  <title>404 - Resource Not Found | Aman Patel</title>
   <link rel="icon" type="image/png" href="https://cdn.amansdlc.com/aiwithaman.png" />
 
   <style>
-    body {
+    * {
       margin: 0;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #f8fafc, #f1f5f9, #e2e8f0);
-      text-align: center;
-      color: #1f1f1f;
-      overflow: hidden;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    header {
-      position: fixed;
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #fafbfc;
+      color: #24292f;
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Header */
+    .header {
+      background: #ffffff;
+      border-bottom: 1px solid #d1d9e0;
+      padding: 0;
+      position: sticky;
       top: 0;
-      left: 0;
-      right: 0;
+      z-index: 1000;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .header-container {
+      max-width: 1200px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 64px;
-      background: rgba(255, 255, 255, 0.98);
-      backdrop-filter: blur(10px);
-      z-index: 1000;
-      border-bottom: 1px solid #e1e5e9;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      padding: 16px 24px;
     }
 
     .logo {
-      font-weight: 700;
-      font-size: 22px;
-      color: #1f1f1f;
+      font-size: 20px;
+      font-weight: 600;
+      color: #24292f;
       text-decoration: none;
-      transition: all 0.3s ease;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      letter-spacing: -0.025em;
     }
 
     .logo:hover {
-      color: #c0392b;
+      color: #0969da;
     }
 
-    header nav a {
-      margin-left: 32px;
+    .nav {
+      display: flex;
+      gap: 32px;
+    }
+
+    .nav a {
+      color: #656d76;
       text-decoration: none;
+      font-size: 14px;
       font-weight: 500;
-      color: #475569;
-      transition: all 0.3s ease;
-      padding: 8px 12px;
-      border-radius: 6px;
-      font-size: 15px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 8px 0;
+      transition: color 0.2s ease;
     }
 
-    header nav a:hover {
-      color: #c0392b;
-      background: rgba(192, 57, 43, 0.05);
+    .nav a:hover {
+      color: #24292f;
     }
 
-    /* Error content */
-    .error-container {
-      background: #ffffff;
-      border: 1px solid #e1e5e9;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      border-radius: 16px;
-      padding: 60px 80px;
-      max-width: 600px;
-      margin: 0 20px;
-      position: relative;
-      z-index: 2;
-      transition: all 0.3s ease;
-    }
-
-    .error-container:hover {
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    }
-
-    .error-number {
-      font-size: 6rem;
-      font-weight: 700;
-      color: #c0392b;
-      margin: 0 0 20px 0;
-      line-height: 1;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .error-title {
-      font-size: 2rem;
-      margin: 0 0 20px 0;
-      color: #1f1f1f;
-      font-weight: 600;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .error-message {
-      font-size: 1.1rem;
-      color: #555;
-      line-height: 1.6;
-      margin: 0 0 40px 0;
-      max-width: 500px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .back-button {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      text-decoration: none;
-      background: #c0392b;
-      color: #ffffff;
-      padding: 12px 24px;
-      border-radius: 8px;
-      font-weight: 600;
-      font-size: 15px;
-      transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(192, 57, 43, 0.2);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    .back-button:hover {
-      background: #a93226;
-      box-shadow: 0 4px 12px rgba(192, 57, 43, 0.3);
-    }
-
-    .back-button::before {
-      content: '←';
-      font-size: 16px;
-    }
-
-    /* Illustration */
-    .error-illustration {
-      width: 120px;
-      height: 120px;
-      margin: 0 auto 40px;
-      background: linear-gradient(135deg, rgba(192, 57, 43, 0.08), rgba(231, 76, 60, 0.08));
-      border: 2px solid rgba(192, 57, 43, 0.2);
-      border-radius: 12px;
+    /* Main Content */
+    .main {
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2.5rem;
-      color: #c0392b;
-      font-weight: 600;
+      padding: 80px 24px;
     }
 
-    /* Footer matching portfolio */
-    footer {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #ffffff;
-      border-top: 1px solid #e1e5e9;
-      padding: 16px 0;
+    .error-container {
+      max-width: 600px;
       text-align: center;
     }
 
-    footer p {
+    .error-code {
+      font-size: 120px;
+      font-weight: 700;
+      color: #d1d9e0;
+      line-height: 1;
+      margin-bottom: 24px;
+      font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    }
+
+    .error-title {
+      font-size: 32px;
+      font-weight: 600;
+      color: #24292f;
+      margin-bottom: 16px;
+      letter-spacing: -0.025em;
+    }
+
+    .error-description {
+      font-size: 16px;
+      color: #656d76;
+      margin-bottom: 40px;
+      line-height: 1.6;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .error-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      border: 1px solid transparent;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: #0969da;
+      color: #ffffff;
+      border-color: #0969da;
+    }
+
+    .btn-primary:hover {
+      background: #0860ca;
+      border-color: #0860ca;
+    }
+
+    .btn-secondary {
+      background: #ffffff;
+      color: #24292f;
+      border-color: #d1d9e0;
+    }
+
+    .btn-secondary:hover {
+      background: #f6f8fa;
+      border-color: #afb8c1;
+    }
+
+    .error-details {
+      margin-top: 48px;
+      padding: 24px;
+      background: #ffffff;
+      border: 1px solid #d1d9e0;
+      border-radius: 8px;
+      text-align: left;
+    }
+
+    .error-details h3 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #24292f;
+      margin-bottom: 12px;
+    }
+
+    .error-details ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .error-details li {
+      font-size: 14px;
+      color: #656d76;
+      margin-bottom: 8px;
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .error-details li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: #0969da;
+      font-weight: bold;
+    }
+
+    /* Footer */
+    .footer {
+      background: #ffffff;
+      border-top: 1px solid #d1d9e0;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: #656d76;
       margin: 0;
-      color: #64748b;
-      font-size: 13px;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    /* Status indicator */
+    .status-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      color: #656d76;
+      margin-bottom: 24px;
+    }
+
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #d1242f;
     }
 
     /* Responsive */
-    @media(max-width: 900px) {
-      header {
-        padding: 20px;
+    @media (max-width: 768px) {
+      .header-container {
+        padding: 12px 16px;
       }
-      
-      .error-container {
-        padding: 40px 30px;
-        margin: 0 20px;
+
+      .nav {
+        gap: 20px;
       }
-      
-      .error-number {
-        font-size: 6rem;
+
+      .nav a {
+        font-size: 13px;
       }
-      
+
+      .main {
+        padding: 40px 16px;
+      }
+
+      .error-code {
+        font-size: 80px;
+      }
+
       .error-title {
-        font-size: 2rem;
+        font-size: 24px;
       }
-      
-      .error-message {
-        font-size: 1.1rem;
+
+      .error-description {
+        font-size: 15px;
       }
-      
-      header nav a {
-        margin-left: 16px;
-        font-size: 14px;
+
+      .error-actions {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .btn {
+        width: 100%;
+        max-width: 280px;
+        justify-content: center;
+      }
+
+      .error-details {
+        margin-top: 32px;
+        padding: 16px;
       }
     }
 
-    @media(max-width: 600px) {
-      .error-container {
-        padding: 30px 20px;
+    @media (max-width: 480px) {
+      .logo {
+        font-size: 18px;
       }
-      
-      .error-number {
-        font-size: 4.5rem;
-      }
-      
-      .error-title {
-        font-size: 1.8rem;
-      }
-      
-      .error-illustration {
-        width: 100px;
-        height: 100px;
-        font-size: 2rem;
-      }
-    }
 
-    /* Scroll progress indicator */
-    .scroll-indicator {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #c0392b;
-      z-index: 10000;
+      .error-code {
+        font-size: 60px;
+      }
+
+      .error-title {
+        font-size: 20px;
+      }
     }
   </style>
 
   <script>
-    // Auto-update copyright year
     document.addEventListener('DOMContentLoaded', function() {
       const currentYear = new Date().getFullYear();
       document.getElementById('current-year').textContent = currentYear;
+      
+      // Add timestamp
+      const timestamp = new Date().toISOString();
+      document.getElementById('timestamp').textContent = timestamp;
     });
   </script>
 </head>
 <body>
-  <div class="scroll-indicator"></div>
-
-  <header>
-    <a href="/" class="logo">Aman Patel</a>
-    <nav>
-      <a href="/">Home</a>
-      <a href="https://amannewsletter.substack.com/" target="_blank">Newsletters</a>
-      <a href="/#talks">Talks</a>
-    </nav>
+  <header class="header">
+    <div class="header-container">
+      <a href="/" class="logo">Aman Patel</a>
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="https://amannewsletter.substack.com/" target="_blank">Newsletter</a>
+        <a href="/#talks">Talks</a>
+        <a href="mailto:amanpatel.itofficial@gmail.com">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <div class="error-container">
-    <div class="error-illustration">
-      404
-    </div>
-    <div class="error-number">Error 404</div>
-    <h1 class="error-title">Resource Not Found</h1>
-    <p class="error-message">
-      The requested resource could not be located on this server. 
-      Please verify the URL or navigate back to the main application.
-    </p>
-    <a href="/" class="back-button">Return to Dashboard</a>
-  </div>
+  <main class="main">
+    <div class="error-container">
+      <div class="status-indicator">
+        <span class="status-dot"></span>
+        <span>Service Unavailable</span>
+      </div>
+      
+      <div class="error-code">404</div>
+      
+      <h1 class="error-title">Resource Not Found</h1>
+      
+      <p class="error-description">
+        The requested resource could not be located on this server. 
+        This may be due to a mistyped URL, moved content, or temporary service disruption.
+      </p>
 
-  <footer>
-    <p>&copy; <span id="current-year"></span> Aman Patel. All rights reserved.</p>
+      <div class="error-actions">
+        <a href="/" class="btn btn-primary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5ZM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5 5 5Z"/>
+          </svg>
+          Return Home
+        </a>
+        <a href="javascript:history.back()" class="btn btn-secondary">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+            <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+          </svg>
+          Go Back
+        </a>
+      </div>
+
+      <div class="error-details">
+        <h3>Troubleshooting Steps</h3>
+        <ul>
+          <li>Verify the URL spelling and try again</li>
+          <li>Check if the resource has been moved or renamed</li>
+          <li>Clear your browser cache and cookies</li>
+          <li>Contact support if the issue persists</li>
+        </ul>
+        <p style="margin-top: 16px; font-size: 12px; color: #656d76;">
+          Error ID: <code id="timestamp"></code>
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; <span id="current-year"></span> Aman Patel. All rights reserved. | DevOps & Cloud Engineering Services</p>
+    </div>
   </footer>
 </body>
 </html>
