@@ -235,12 +235,24 @@
         display: flex;
         gap: 20px;
         justify-content: center;
+        flex-wrap: wrap;
       }
       
       header nav a {
         margin-left: 0;
-        padding: 6px 12px;
+        padding: 10px 15px;
         font-size: 15px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+      
+      header nav a:hover,
+      header nav a:focus {
+        background-color: rgba(0,0,0,0.05);
       }
       
       .container {
@@ -274,6 +286,7 @@
       
       .logo {
         font-size: 20px;
+        padding: 10px;
       }
       
       header nav {
@@ -283,7 +296,8 @@
       
       header nav a {
         font-size: 14px;
-        padding: 4px 8px;
+        padding: 12px 16px;
+        min-width: 80px;
       }
       
       .container {
@@ -302,11 +316,20 @@
       .error-message {
         font-size: 15px;
         margin: 16px 0 24px;
+        line-height: 1.6;
+      }
+      
+      .error-actions {
+        gap: 12px;
       }
       
       .btn {
-        padding: 10px 20px;
+        padding: 12px 20px;
         font-size: 15px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       
       footer {
@@ -327,6 +350,14 @@
       .footer-section p,
       .footer-section a {
         font-size: 13px;
+        line-height: 1.6;
+      }
+      
+      .footer-section a {
+        padding: 4px 0;
+        min-height: 32px;
+        display: flex;
+        align-items: center;
       }
       
       .footer-bottom {
@@ -362,12 +393,31 @@
         width: 100%;
         max-width: 250px;
         justify-content: center;
-        padding: 12px 16px;
+        padding: 14px 16px;
         font-size: 14px;
+        min-height: 48px;
       }
     }
 
     @media(max-width: 480px) {
+      header {
+        padding: 12px;
+      }
+      
+      .logo {
+        font-size: 18px;
+      }
+      
+      header nav a {
+        font-size: 13px;
+        padding: 10px 12px;
+        min-width: 70px;
+      }
+      
+      .container {
+        padding: 20px 12px;
+      }
+      
       .error-number {
         font-size: 48px;
       }
@@ -382,8 +432,30 @@
       
       .btn {
         max-width: 200px;
-        padding: 10px 12px;
+        padding: 12px 16px;
         font-size: 13px;
+        min-height: 44px;
+      }
+    }
+
+    /* Touch improvements for mobile */
+    @media (hover: none) and (pointer: coarse) {
+      header nav a,
+      .btn,
+      .footer-section a {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .btn {
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
+      
+      .btn:active {
+        transform: scale(0.98);
       }
     }
   </style>
