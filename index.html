@@ -502,7 +502,7 @@
       border-radius: 16px;
     }
 
-    /* Image container with animated circles */
+    /* Image container with professional animated circles */
     .hero-image-wrapper {
       position: relative;
       display: inline-block;
@@ -515,35 +515,27 @@
       position: absolute;
       border-radius: 50%;
       border: 1px solid;
-      opacity: 0.4;
+      opacity: 0.15;
       animation: rotateCircle linear infinite;
       top: 50%;
       left: 50%;
     }
 
     .circle-1 {
-      width: 260px;
-      height: 260px;
-      border-color: rgba(102, 126, 234, 0.4);
+      width: 250px;
+      height: 250px;
+      border-color: rgba(102, 126, 234, 0.2);
       transform: translate(-50%, -50%);
-      animation-duration: 15s;
+      animation-duration: 30s;
     }
 
     .circle-2 {
-      width: 300px;
-      height: 300px;
-      border-color: rgba(240, 147, 251, 0.3);
+      width: 280px;
+      height: 280px;
+      border-color: rgba(118, 75, 162, 0.15);
       transform: translate(-50%, -50%);
-      animation-duration: 20s;
+      animation-duration: 45s;
       animation-direction: reverse;
-    }
-
-    .circle-3 {
-      width: 340px;
-      height: 340px;
-      border-color: rgba(118, 75, 162, 0.2);
-      transform: translate(-50%, -50%);
-      animation-duration: 25s;
     }
 
     @keyframes rotateCircle {
@@ -555,34 +547,27 @@
       }
     }
 
-    /* Add some dots on the circles */
+    /* Professional accent dots */
     .circle-dot {
       position: absolute;
-      width: 6px;
-      height: 6px;
-      background: linear-gradient(45deg, #667eea, #f093fb);
+      width: 4px;
+      height: 4px;
+      background: rgba(102, 126, 234, 0.4);
       border-radius: 50%;
-      opacity: 0.7;
+      opacity: 0.6;
     }
 
     .circle-1 .circle-dot {
-      top: -3px;
+      top: -2px;
       left: 50%;
       transform: translateX(-50%);
-      background: linear-gradient(45deg, #667eea, #764ba2);
     }
 
     .circle-2 .circle-dot {
       top: 50%;
-      right: -3px;
+      right: -2px;
       transform: translateY(-50%);
-      background: linear-gradient(45deg, #f093fb, #667eea);
-    }
-
-    .circle-3 .circle-dot {
-      bottom: -3px;
-      left: 25%;
-      background: linear-gradient(45deg, #764ba2, #f093fb);
+      background: rgba(118, 75, 162, 0.4);
     }
 
     /* Position the hero image inside the wrapper */
@@ -590,6 +575,17 @@
       position: relative;
       z-index: 10;
       margin: 0;
+    }
+
+    /* Subtle hover effect */
+    .hero-image-wrapper:hover .animated-circle {
+      opacity: 0.25;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-image-wrapper:hover .circle-dot {
+      opacity: 0.8;
+      transition: opacity 0.3s ease;
     }
 
     .hero-image:hover{
@@ -998,18 +994,13 @@
       }
       
       .circle-2 {
-        width: 230px;
-        height: 230px;
-      }
-      
-      .circle-3 {
-        width: 260px;
-        height: 260px;
+        width: 220px;
+        height: 220px;
       }
       
       .circle-dot {
-        width: 4px;
-        height: 4px;
+        width: 3px;
+        height: 3px;
       }
       
 
@@ -1377,17 +1368,22 @@
         animation: none;
       }
       
-      /* Slower circle animations on touch devices */
+      /* Much slower, professional circle animations on touch devices */
       .circle-1 {
-        animation-duration: 25s !important;
+        animation-duration: 60s !important;
       }
       
       .circle-2 {
-        animation-duration: 30s !important;
+        animation-duration: 90s !important;
       }
       
-      .circle-3 {
-        animation-duration: 35s !important;
+      /* Disable hover effects on touch */
+      .hero-image-wrapper:hover .animated-circle {
+        opacity: 0.15;
+      }
+      
+      .hero-image-wrapper:hover .circle-dot {
+        opacity: 0.6;
       }
       
       h1 {
@@ -1529,19 +1525,23 @@
     }
 
     body.dark-mode .circle-1 {
-      border-color: rgba(102, 126, 234, 0.5);
+      border-color: rgba(102, 126, 234, 0.25);
     }
 
     body.dark-mode .circle-2 {
-      border-color: rgba(240, 147, 251, 0.4);
-    }
-
-    body.dark-mode .circle-3 {
-      border-color: rgba(118, 75, 162, 0.3);
+      border-color: rgba(118, 75, 162, 0.2);
     }
 
     body.dark-mode .circle-dot {
-      opacity: 0.8;
+      opacity: 0.7;
+    }
+
+    body.dark-mode .hero-image-wrapper:hover .animated-circle {
+      opacity: 0.3;
+    }
+
+    body.dark-mode .hero-image-wrapper:hover .circle-dot {
+      opacity: 0.9;
     }
 
     body.dark-mode .socials a {
@@ -1752,9 +1752,6 @@
           <div class="circle-dot"></div>
         </div>
         <div class="animated-circle circle-2">
-          <div class="circle-dot"></div>
-        </div>
-        <div class="animated-circle circle-3">
           <div class="circle-dot"></div>
         </div>
         <div class="hero-image">
