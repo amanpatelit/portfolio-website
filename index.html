@@ -331,6 +331,32 @@
       50% { transform: translateY(-20px) rotate(180deg); }
     }
 
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .book-call-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .book-call-section .book-call-btn {
+      padding: 12px 24px !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      border-radius: 12px !important;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+    }
+
     h1{
       font-size:56px;
       margin:0;
@@ -816,6 +842,15 @@
       .hero{grid-template-columns:1fr;}
       h1{font-size:44px;}
       
+      .hero-right {
+        order: -1; /* Move image and button above content on mobile */
+        margin-bottom: 30px;
+      }
+      
+      .book-call-section {
+        margin-bottom: 16px;
+      }
+      
       .new-year-banner {
         padding: 8px 15px;
         font-size: 13px;
@@ -873,6 +908,19 @@
       header {
         padding: 16px;
         backdrop-filter: blur(5px);
+      }
+      
+      .hero-right {
+        gap: 12px;
+      }
+      
+      .book-call-section {
+        margin-bottom: 12px;
+      }
+      
+      .book-call-section .book-call-btn {
+        padding: 10px 20px !important;
+        font-size: 14px !important;
       }
       
       .hero::before {
@@ -945,6 +993,19 @@
       /* Extra small mobile optimizations */
       body::before {
         display: none; /* Remove background gradients on very small screens */
+      }
+      
+      .hero-right {
+        gap: 8px;
+      }
+      
+      .book-call-section {
+        margin-bottom: 8px;
+      }
+      
+      .book-call-section .book-call-btn {
+        padding: 8px 16px !important;
+        font-size: 13px !important;
       }
       
       .hero::before {
@@ -1154,15 +1215,19 @@
         </p>
 
         <div class="socials">
-          <a href="https://topmate.io/amanpatel" target="_blank" class="book-call-btn">📅 Book 1:1 Call</a>
           <a href="https://www.youtube.com/@opswithaman" target="_blank">▶ YouTube</a>
           <a href="https://www.linkedin.com/in/amanpatelofficial/" target="_blank">LinkedIn</a>
           <a href="https://github.com/amanpatelit" target="_blank">GitHub</a>
         </div>
       </div>
 
-      <div class="hero-image">
-        <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman illustration">
+      <div class="hero-right">
+        <div class="book-call-section">
+          <a href="https://topmate.io/amanpatel" target="_blank" class="book-call-btn">📅 Book 1:1 Call</a>
+        </div>
+        <div class="hero-image">
+          <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman illustration">
+        </div>
       </div>
     </section>
 
