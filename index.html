@@ -506,45 +506,44 @@
     .hero-image-wrapper {
       position: relative;
       display: inline-block;
+      width: 220px;
+      height: 220px;
+      margin: 0 auto;
     }
 
     .animated-circle {
       position: absolute;
       border-radius: 50%;
-      border: 2px solid;
-      opacity: 0.6;
-      animation: rotateCircle 8s linear infinite;
+      border: 1px solid;
+      opacity: 0.4;
+      animation: rotateCircle linear infinite;
+      top: 50%;
+      left: 50%;
     }
 
     .circle-1 {
-      width: 280px;
-      height: 280px;
-      border-color: rgba(102, 126, 234, 0.3);
-      top: 50%;
-      left: 50%;
+      width: 260px;
+      height: 260px;
+      border-color: rgba(102, 126, 234, 0.4);
       transform: translate(-50%, -50%);
-      animation-duration: 12s;
+      animation-duration: 15s;
     }
 
     .circle-2 {
-      width: 320px;
-      height: 320px;
-      border-color: rgba(240, 147, 251, 0.2);
-      top: 50%;
-      left: 50%;
+      width: 300px;
+      height: 300px;
+      border-color: rgba(240, 147, 251, 0.3);
       transform: translate(-50%, -50%);
-      animation-duration: 15s;
+      animation-duration: 20s;
       animation-direction: reverse;
     }
 
     .circle-3 {
-      width: 360px;
-      height: 360px;
-      border-color: rgba(118, 75, 162, 0.15);
-      top: 50%;
-      left: 50%;
+      width: 340px;
+      height: 340px;
+      border-color: rgba(118, 75, 162, 0.2);
       transform: translate(-50%, -50%);
-      animation-duration: 20s;
+      animation-duration: 25s;
     }
 
     @keyframes rotateCircle {
@@ -559,15 +558,15 @@
     /* Add some dots on the circles */
     .circle-dot {
       position: absolute;
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
       background: linear-gradient(45deg, #667eea, #f093fb);
       border-radius: 50%;
-      opacity: 0.8;
+      opacity: 0.7;
     }
 
     .circle-1 .circle-dot {
-      top: -4px;
+      top: -3px;
       left: 50%;
       transform: translateX(-50%);
       background: linear-gradient(45deg, #667eea, #764ba2);
@@ -575,15 +574,22 @@
 
     .circle-2 .circle-dot {
       top: 50%;
-      right: -4px;
+      right: -3px;
       transform: translateY(-50%);
       background: linear-gradient(45deg, #f093fb, #667eea);
     }
 
     .circle-3 .circle-dot {
-      bottom: -4px;
-      left: 30%;
+      bottom: -3px;
+      left: 25%;
       background: linear-gradient(45deg, #764ba2, #f093fb);
+    }
+
+    /* Position the hero image inside the wrapper */
+    .hero-image-wrapper .hero-image {
+      position: relative;
+      z-index: 10;
+      margin: 0;
     }
 
     .hero-image:hover{
@@ -974,6 +980,11 @@
         margin-top: 16px;
       }
       
+      .hero-image-wrapper {
+        width: 180px;
+        height: 180px;
+      }
+      
       .hero-image {
         max-width: 180px;
         margin: 0 auto;
@@ -982,23 +993,23 @@
       
       /* Scale down circles for mobile */
       .circle-1 {
-        width: 220px;
-        height: 220px;
+        width: 200px;
+        height: 200px;
       }
       
       .circle-2 {
-        width: 250px;
-        height: 250px;
+        width: 230px;
+        height: 230px;
       }
       
       .circle-3 {
-        width: 280px;
-        height: 280px;
+        width: 260px;
+        height: 260px;
       }
       
       .circle-dot {
-        width: 6px;
-        height: 6px;
+        width: 4px;
+        height: 4px;
       }
       
 
@@ -1367,16 +1378,16 @@
       }
       
       /* Slower circle animations on touch devices */
-      .animated-circle {
-        animation-duration: 20s !important;
-      }
-      
-      .circle-2 {
+      .circle-1 {
         animation-duration: 25s !important;
       }
       
-      .circle-3 {
+      .circle-2 {
         animation-duration: 30s !important;
+      }
+      
+      .circle-3 {
+        animation-duration: 35s !important;
       }
       
       h1 {
@@ -1518,19 +1529,19 @@
     }
 
     body.dark-mode .circle-1 {
-      border-color: rgba(102, 126, 234, 0.4);
+      border-color: rgba(102, 126, 234, 0.5);
     }
 
     body.dark-mode .circle-2 {
-      border-color: rgba(240, 147, 251, 0.3);
+      border-color: rgba(240, 147, 251, 0.4);
     }
 
     body.dark-mode .circle-3 {
-      border-color: rgba(118, 75, 162, 0.25);
+      border-color: rgba(118, 75, 162, 0.3);
     }
 
     body.dark-mode .circle-dot {
-      opacity: 0.9;
+      opacity: 0.8;
     }
 
     body.dark-mode .socials a {
