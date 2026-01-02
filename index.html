@@ -11,25 +11,11 @@
     body{
       margin:0;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 100%);
+      background: #fefefe;
       color:#333;
       position: relative;
       overflow-x: hidden;
       line-height: 1.6;
-    }
-
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(59, 130, 246, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.02) 0%, transparent 50%);
-      z-index: -1;
-      pointer-events: none;
     }
 
 
@@ -220,7 +206,7 @@
       top: 0;
       background: #fefefe;
       z-index: 1000;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
     }
 
     .logo{
@@ -229,6 +215,23 @@
       color: #333;
       text-decoration: none;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .logo::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, #007bff, #6f42c1);
+      transition: width 0.3s ease;
+    }
+
+    .logo:hover::after {
+      width: 100%;
     }
 
     header nav {
@@ -304,13 +307,6 @@
       max-width:900px;
       margin:auto;
       padding:40px 40px 60px;
-      background: rgba(255, 255, 255, 0.8);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      margin-top: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .page{display:none;}
@@ -348,17 +344,39 @@
       font-size:36px;
       margin:0 0 16px 0;
       font-weight:600;
-      background: linear-gradient(135deg, #333, #007bff);
+      background: linear-gradient(135deg, #333, #007bff, #6f42c1);
+      background-size: 200% 200%;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       position: relative;
       line-height: 1.2;
+      animation: gradientShift 8s ease-in-out infinite;
     }
 
-    @keyframes gradientText {
+    @keyframes gradientShift {
       0%, 100% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
+    }
+
+    h1::after {
+      content: '✨';
+      position: absolute;
+      right: -30px;
+      top: -8px;
+      font-size: 20px;
+      animation: sparkle 3s ease-in-out infinite;
+    }
+
+    @keyframes sparkle {
+      0%, 100% { 
+        opacity: 0.6; 
+        transform: rotate(0deg) scale(1);
+      }
+      50% { 
+        opacity: 1; 
+        transform: rotate(180deg) scale(1.1);
+      }
     }
 
 
