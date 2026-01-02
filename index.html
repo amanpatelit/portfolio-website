@@ -478,49 +478,141 @@
 
     /* ---------- IMAGE ---------- */
     .hero-image{
-      background:#ffffff;
-      border-radius:16px;
-      padding:16px;
-      box-shadow:0 6px 20px rgba(0,0,0,0.08);
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius:20px;
+      padding:20px;
+      box-shadow:0 8px 32px rgba(0,0,0,0.12), 0 2px 8px rgba(0,0,0,0.08);
       transition: all 0.4s ease;
       position: relative;
       overflow: hidden;
       max-width: 220px;
       margin: 0 auto;
+      transform: rotate(-2deg);
     }
 
     .hero-image::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent, rgba(240, 147, 251, 0.1), transparent);
+      animation: rotateGradient 8s linear infinite;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .hero-image::after {
       content: '';
       position: absolute;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
-      background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.02));
+      background: linear-gradient(45deg, rgba(102, 126, 234, 0.05), rgba(240, 147, 251, 0.05));
+      border-radius: 20px;
       opacity: 0;
       transition: opacity 0.3s ease;
-      border-radius: 16px;
+    }
+
+    @keyframes rotateGradient {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
     }
 
     .hero-image:hover{
-      transform: translateY(-8px) scale(1.02);
-      box-shadow:0 20px 60px rgba(0,0,0,0.12);
+      transform: translateY(-12px) scale(1.05) rotate(0deg);
+      box-shadow:0 20px 60px rgba(0,0,0,0.2), 0 8px 20px rgba(102, 126, 234, 0.3);
     }
 
     .hero-image:hover::before {
       opacity: 1;
     }
 
+    .hero-image:hover::after {
+      opacity: 1;
+    }
+
     .hero-image img{
       width:100%;
-      border-radius:12px;
-      transition: transform 0.3s ease;
+      border-radius:16px;
+      transition: all 0.4s ease;
       position: relative;
-      z-index: 1;
+      z-index: 2;
+      filter: brightness(1.05) contrast(1.1);
     }
 
     .hero-image:hover img{
-      transform: scale(1.05);
+      transform: scale(1.02);
+      filter: brightness(1.1) contrast(1.15) saturate(1.1);
+    }
+
+    /* Creative floating elements around image */
+    .hero-image-container {
+      position: relative;
+      display: inline-block;
+    }
+
+    .floating-element {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: linear-gradient(45deg, #667eea, #f093fb);
+      border-radius: 50%;
+      opacity: 0.6;
+      animation: floatAround 6s ease-in-out infinite;
+    }
+
+    .floating-element:nth-child(1) {
+      top: 10%;
+      left: -10px;
+      animation-delay: 0s;
+      background: linear-gradient(45deg, #667eea, #764ba2);
+    }
+
+    .floating-element:nth-child(2) {
+      top: 30%;
+      right: -15px;
+      animation-delay: 2s;
+      background: linear-gradient(45deg, #f093fb, #667eea);
+      width: 6px;
+      height: 6px;
+    }
+
+    .floating-element:nth-child(3) {
+      bottom: 20%;
+      left: -8px;
+      animation-delay: 4s;
+      background: linear-gradient(45deg, #764ba2, #f093fb);
+      width: 10px;
+      height: 10px;
+    }
+
+    .floating-element:nth-child(4) {
+      bottom: 10%;
+      right: -12px;
+      animation-delay: 1s;
+      background: linear-gradient(45deg, #667eea, #f093fb);
+    }
+
+    @keyframes floatAround {
+      0%, 100% {
+        transform: translateY(0px) translateX(0px) scale(1);
+        opacity: 0.6;
+      }
+      25% {
+        transform: translateY(-15px) translateX(5px) scale(1.2);
+        opacity: 0.8;
+      }
+      50% {
+        transform: translateY(-8px) translateX(-3px) scale(0.9);
+        opacity: 0.4;
+      }
+      75% {
+        transform: translateY(-20px) translateX(8px) scale(1.1);
+        opacity: 0.7;
+      }
     }
 
     /* ---------- BLOG ---------- */
@@ -894,6 +986,17 @@
         max-width: 180px;
         margin: 0 auto;
         padding: 14px;
+        transform: rotate(-1deg);
+      }
+      
+      .floating-element {
+        width: 6px;
+        height: 6px;
+      }
+      
+      .floating-element:nth-child(3) {
+        width: 8px;
+        height: 8px;
       }
       
 
@@ -1261,6 +1364,14 @@
         animation: none;
       }
       
+      .hero-image::before {
+        animation: none;
+      }
+      
+      .floating-element {
+        animation-duration: 12s; /* Slower animation on touch */
+      }
+      
       h1 {
         animation: gradientText 8s ease-in-out infinite; /* Slower animation on touch */
       }
@@ -1395,8 +1506,16 @@
 
 
     body.dark-mode .hero-image {
-      background: #2d2d2d;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, #2d2d2d 0%, #3a3a3a 100%);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 2px 8px rgba(102, 126, 234, 0.2);
+    }
+
+    body.dark-mode .hero-image:hover {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 8px 20px rgba(240, 147, 251, 0.4);
+    }
+
+    body.dark-mode .floating-element {
+      opacity: 0.8;
     }
 
     body.dark-mode .socials a {
@@ -1602,8 +1721,14 @@
         </div>
       </div>
 
-      <div class="hero-image">
-        <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman illustration">
+      <div class="hero-image-container">
+        <div class="hero-image">
+          <img src="https://cdn.amansdlc.com/aiwithaman.png" alt="Aman illustration">
+        </div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
       </div>
     </section>
 
