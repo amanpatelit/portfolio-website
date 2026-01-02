@@ -502,7 +502,7 @@
       border-radius: 16px;
     }
 
-    /* Image container with professional animated circles */
+    /* Image container with animated circles */
     .hero-image-wrapper {
       position: relative;
       display: inline-block;
@@ -515,27 +515,47 @@
       position: absolute;
       border-radius: 50%;
       border: 1px solid;
-      opacity: 0.15;
+      opacity: 0.4;
       animation: rotateCircle linear infinite;
       top: 50%;
       left: 50%;
     }
 
     .circle-1 {
+<<<<<<< HEAD
       width: 300px;
       height: 300px;
       border-color: rgba(102, 126, 234, 0.2);
+=======
+      width: 260px;
+      height: 260px;
+      border-color: rgba(102, 126, 234, 0.4);
+>>>>>>> parent of 656c2a6 (updated the image)
       transform: translate(-50%, -50%);
-      animation-duration: 30s;
+      animation-duration: 15s;
     }
 
     .circle-2 {
+<<<<<<< HEAD
       width: 360px;
       height: 360px;
       border-color: rgba(118, 75, 162, 0.15);
+=======
+      width: 300px;
+      height: 300px;
+      border-color: rgba(240, 147, 251, 0.3);
+>>>>>>> parent of 656c2a6 (updated the image)
       transform: translate(-50%, -50%);
-      animation-duration: 45s;
+      animation-duration: 20s;
       animation-direction: reverse;
+    }
+
+    .circle-3 {
+      width: 340px;
+      height: 340px;
+      border-color: rgba(118, 75, 162, 0.2);
+      transform: translate(-50%, -50%);
+      animation-duration: 25s;
     }
 
     @keyframes rotateCircle {
@@ -547,27 +567,48 @@
       }
     }
 
-    /* Professional accent dots */
+    /* Add some dots on the circles */
     .circle-dot {
       position: absolute;
+<<<<<<< HEAD
       width: 5px;
       height: 5px;
       background: rgba(102, 126, 234, 0.4);
+=======
+      width: 6px;
+      height: 6px;
+      background: linear-gradient(45deg, #667eea, #f093fb);
+>>>>>>> parent of 656c2a6 (updated the image)
       border-radius: 50%;
-      opacity: 0.6;
+      opacity: 0.7;
     }
 
     .circle-1 .circle-dot {
+<<<<<<< HEAD
       top: -2.5px;
+=======
+      top: -3px;
+>>>>>>> parent of 656c2a6 (updated the image)
       left: 50%;
       transform: translateX(-50%);
+      background: linear-gradient(45deg, #667eea, #764ba2);
     }
 
     .circle-2 .circle-dot {
       top: 50%;
+<<<<<<< HEAD
       right: -2.5px;
+=======
+      right: -3px;
+>>>>>>> parent of 656c2a6 (updated the image)
       transform: translateY(-50%);
-      background: rgba(118, 75, 162, 0.4);
+      background: linear-gradient(45deg, #f093fb, #667eea);
+    }
+
+    .circle-3 .circle-dot {
+      bottom: -3px;
+      left: 25%;
+      background: linear-gradient(45deg, #764ba2, #f093fb);
     }
 
     /* Position the hero image inside the wrapper */
@@ -575,17 +616,6 @@
       position: relative;
       z-index: 10;
       margin: 0;
-    }
-
-    /* Subtle hover effect */
-    .hero-image-wrapper:hover .animated-circle {
-      opacity: 0.25;
-      transition: opacity 0.3s ease;
-    }
-
-    .hero-image-wrapper:hover .circle-dot {
-      opacity: 0.8;
-      transition: opacity 0.3s ease;
     }
 
     .hero-image:hover{
@@ -994,13 +1024,24 @@
       }
       
       .circle-2 {
+<<<<<<< HEAD
         width: 280px;
         height: 280px;
+=======
+        width: 230px;
+        height: 230px;
+      }
+      
+      .circle-3 {
+        width: 260px;
+        height: 260px;
+>>>>>>> parent of 656c2a6 (updated the image)
       }
       
       .circle-dot {
         width: 4px;
         height: 4px;
+<<<<<<< HEAD
       }
       
       .circle-1 .circle-dot {
@@ -1009,6 +1050,8 @@
       
       .circle-2 .circle-dot {
         right: -2px;
+=======
+>>>>>>> parent of 656c2a6 (updated the image)
       }
       
 
@@ -1376,22 +1419,17 @@
         animation: none;
       }
       
-      /* Much slower, professional circle animations on touch devices */
+      /* Slower circle animations on touch devices */
       .circle-1 {
-        animation-duration: 60s !important;
+        animation-duration: 25s !important;
       }
       
       .circle-2 {
-        animation-duration: 90s !important;
+        animation-duration: 30s !important;
       }
       
-      /* Disable hover effects on touch */
-      .hero-image-wrapper:hover .animated-circle {
-        opacity: 0.15;
-      }
-      
-      .hero-image-wrapper:hover .circle-dot {
-        opacity: 0.6;
+      .circle-3 {
+        animation-duration: 35s !important;
       }
       
       h1 {
@@ -1533,23 +1571,19 @@
     }
 
     body.dark-mode .circle-1 {
-      border-color: rgba(102, 126, 234, 0.25);
+      border-color: rgba(102, 126, 234, 0.5);
     }
 
     body.dark-mode .circle-2 {
-      border-color: rgba(118, 75, 162, 0.2);
+      border-color: rgba(240, 147, 251, 0.4);
+    }
+
+    body.dark-mode .circle-3 {
+      border-color: rgba(118, 75, 162, 0.3);
     }
 
     body.dark-mode .circle-dot {
-      opacity: 0.7;
-    }
-
-    body.dark-mode .hero-image-wrapper:hover .animated-circle {
-      opacity: 0.3;
-    }
-
-    body.dark-mode .hero-image-wrapper:hover .circle-dot {
-      opacity: 0.9;
+      opacity: 0.8;
     }
 
     body.dark-mode .socials a {
@@ -1760,6 +1794,9 @@
           <div class="circle-dot"></div>
         </div>
         <div class="animated-circle circle-2">
+          <div class="circle-dot"></div>
+        </div>
+        <div class="animated-circle circle-3">
           <div class="circle-dot"></div>
         </div>
         <div class="hero-image">
