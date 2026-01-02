@@ -848,6 +848,148 @@
       opacity:0.7;
     }
 
+    /* Professional Speaking Section */
+    .talks-intro {
+      max-width: 800px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+
+    .talks-intro p {
+      font-size: 17px;
+      line-height: 1.7;
+      color: #555;
+      margin-bottom: 32px;
+    }
+
+    .speaking-topics {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+
+    .speaking-topics h3 {
+      margin: 0 0 20px 0;
+      font-size: 20px;
+      color: #2c2c2c;
+      text-align: center;
+    }
+
+    .topics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+
+    .topic-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .topic-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      border-color: #c0392b;
+    }
+
+    .topic-icon {
+      font-size: 18px;
+      min-width: 24px;
+    }
+
+    .speaking-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 24px;
+      margin: 40px 0;
+    }
+
+    .speaking-card {
+      background: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      transition: all 0.3s ease;
+      border: 1px solid #e2e8f0;
+    }
+
+    .speaking-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+      border-color: #c0392b;
+    }
+
+    .speaking-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .speaking-info {
+      padding: 20px;
+    }
+
+    .speaking-info h4 {
+      margin: 0 0 8px 0;
+      font-size: 18px;
+      color: #2c2c2c;
+      font-weight: 600;
+    }
+
+    .speaking-info p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #666;
+    }
+
+    .speaking-cta {
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      border-radius: 12px;
+      padding: 32px;
+      text-align: center;
+      margin: 40px 0;
+      border: 1px solid #e2e8f0;
+    }
+
+    .speaking-cta h3 {
+      margin: 0 0 12px 0;
+      font-size: 22px;
+      color: #2c2c2c;
+    }
+
+    .speaking-cta p {
+      margin: 0 0 24px 0;
+      font-size: 16px;
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .speaking-contact-btn {
+      display: inline-block;
+      background: #c0392b;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .speaking-contact-btn:hover {
+      background: #a93226;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(192, 57, 43, 0.3);
+    }
+
     /* ---------- FOOTER ---------- */
     footer{
       background: #f8fafc;
@@ -1175,6 +1317,39 @@
         grid-template-columns:1fr; 
         gap:16px;
         padding: 0 12px;
+      }
+      
+      /* Speaking section mobile styles */
+      .topics-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+      
+      .speaking-gallery {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      
+      .speaking-card img {
+        height: 160px;
+      }
+      
+      .speaking-info {
+        padding: 16px;
+      }
+      
+      .speaking-cta {
+        padding: 24px 16px;
+        margin: 32px 0;
+      }
+      
+      .speaking-cta h3 {
+        font-size: 20px;
+      }
+      
+      .speaking-contact-btn {
+        padding: 12px 20px;
+        font-size: 15px;
       }
       
 
@@ -1647,6 +1822,62 @@
     body.dark-mode .scroll-indicator {
       background: linear-gradient(90deg, #667eea, #f093fb);
     }
+
+    /* Dark mode for speaking section */
+    body.dark-mode .talks-intro p {
+      color: #d0d0d0;
+    }
+
+    body.dark-mode .speaking-topics {
+      background: #2d2d2d;
+      border: 1px solid #404040;
+    }
+
+    body.dark-mode .speaking-topics h3 {
+      color: #ffffff;
+    }
+
+    body.dark-mode .topic-item {
+      background: #3a3a3a;
+      border-color: #555;
+      color: #ffffff;
+    }
+
+    body.dark-mode .topic-item:hover {
+      border-color: #c0392b;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    body.dark-mode .speaking-card {
+      background: #2d2d2d;
+      border-color: #404040;
+    }
+
+    body.dark-mode .speaking-card:hover {
+      border-color: #c0392b;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+    }
+
+    body.dark-mode .speaking-info h4 {
+      color: #ffffff;
+    }
+
+    body.dark-mode .speaking-info p {
+      color: #a0a0a0;
+    }
+
+    body.dark-mode .speaking-cta {
+      background: linear-gradient(135deg, #2d2d2d, #3a3a3a);
+      border-color: #404040;
+    }
+
+    body.dark-mode .speaking-cta h3 {
+      color: #ffffff;
+    }
+
+    body.dark-mode .speaking-cta p {
+      color: #d0d0d0;
+    }
   </style>
 
   <script>
@@ -1815,20 +2046,61 @@
     </div>
 
     <!-- TALKS SECTION -->
-    <h2 class="section-title">Talks & Presentations</h2>
+    <h2 class="section-title">Speaking Engagements</h2>
 
-    <p class="talk-description">
-      I enjoy speaking about engineering and career growth and have spoken at multiple
-      companies and conferences. If you would like to organise a talk, feel free to
-      reach out at
-      <a href="mailto:amanpatel.itofficial@gmail.com" style="color: #c0392b; text-decoration: none;">amanpatel.itofficial@gmail.com</a>.
-    </p>
+    <div class="talks-intro">
+      <p>As a thought leader in DevOps and cloud engineering, I regularly present at industry conferences, 
+      corporate events, and community gatherings. My presentations focus on practical implementations, 
+      architectural best practices, and emerging technologies in the cloud-native ecosystem.</p>
+      
+      <div class="speaking-topics">
+        <h3>Key Speaking Topics</h3>
+        <div class="topics-grid">
+          <div class="topic-item">
+            <span class="topic-icon">☁️</span>
+            <span>Cloud Architecture & Migration Strategies</span>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon">⚙️</span>
+            <span>DevOps Transformation & Best Practices</span>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon">🚀</span>
+            <span>Kubernetes & Container Orchestration</span>
+          </div>
+          <div class="topic-item">
+            <span class="topic-icon">🔧</span>
+            <span>Infrastructure as Code & Automation</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <img src="https://cdn.amansdlc.com/AIwithDevOpsTalks.png" class="talk-image">
-    <p class="caption">Aman — Community Session</p>
+    <div class="speaking-gallery">
+      <div class="speaking-card">
+        <img src="https://cdn.amansdlc.com/AIwithDevOpsTalks.png" alt="Community Session Presentation">
+        <div class="speaking-info">
+          <h4>DevOps Community Session</h4>
+          <p>Technical presentation on modern DevOps practices and cloud-native architectures for enterprise environments.</p>
+        </div>
+      </div>
 
-    <img src="https://cdn.amansdlc.com/CNCF.png" class="talk-image">
-    <p class="caption">CNCF Webinar — Official Invitation</p>
+      <div class="speaking-card">
+        <img src="https://cdn.amansdlc.com/CNCF.png" alt="CNCF Webinar">
+        <div class="speaking-info">
+          <h4>CNCF Official Webinar</h4>
+          <p>Invited speaker for Cloud Native Computing Foundation webinar series, discussing Kubernetes best practices and implementation strategies.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="speaking-cta">
+      <h3>Speaking Opportunities</h3>
+      <p>Available for keynotes, technical workshops, and panel discussions at conferences, corporate events, and educational institutions.</p>
+      <a href="mailto:amanpatel.itofficial@gmail.com" class="speaking-contact-btn">
+        📧 Request Speaking Engagement
+      </a>
+    </div>
 
   </div>
 </div>
