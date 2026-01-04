@@ -650,6 +650,66 @@
       line-height:1.6;
     }
 
+    .talks-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 40px;
+      margin-top: 40px;
+    }
+
+    .talk-card {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #e9ecef;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    }
+
+    .talk-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      border-color: #c0392b;
+    }
+
+    .talk-image-container {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .talk-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .talk-card:hover .talk-card-image {
+      transform: scale(1.05);
+    }
+
+    .talk-card-content {
+      padding: 24px;
+    }
+
+    .talk-card h3 {
+      margin: 0 0 12px 0;
+      font-size: 24px;
+      font-weight: 600;
+      color: #333;
+      font-family: ui-serif, Georgia, serif;
+    }
+
+    .talk-card p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.6;
+      color: #666;
+      font-family: ui-serif, Georgia, serif;
+    }
+
     .talk-image{
       width:100%;
       max-width:780px;
@@ -800,6 +860,27 @@
         max-width: 200px;
         margin: 0 auto;
         padding: 16px;
+      }
+
+      .talks-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .talk-image-container {
+        height: 200px;
+      }
+
+      .talk-card-content {
+        padding: 20px;
+      }
+
+      .talk-card h3 {
+        font-size: 20px;
+      }
+
+      .talk-card p {
+        font-size: 15px;
       }
       
       /* Scale down circles for mobile */
@@ -1289,104 +1370,125 @@
 
     /* ---------- DARK MODE ---------- */
     body.dark-mode {
-      background: linear-gradient(-45deg, #1a1a1a, #2d2d2d, #1e1e1e, #252525);
-      color: #ffffff;
-    }
-
-    body.dark-mode::before {
-      background: 
-        radial-gradient(circle at 20% 80%, rgba(102, 126, 234, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(118, 75, 162, 0.1) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(240, 147, 251, 0.08) 0%, transparent 50%);
+      background: #1a1a1a;
+      color: #e0e0e0;
     }
 
     body.dark-mode header {
-      background: rgba(26, 26, 26, 0.95);
+      background: #1a1a1a;
       border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-
-    body.dark-mode header:hover {
-      background: rgba(26, 26, 26, 0.98);
-      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
     }
 
     body.dark-mode .logo {
       color: #ffffff;
     }
 
-    body.dark-mode .logo:hover {
-      color: #f0f0f0;
-    }
-
     body.dark-mode header nav a {
-      color: #ffffff;
+      color: #b0b0b0;
     }
 
     body.dark-mode header nav a.active,
     body.dark-mode header nav a:hover {
-      color: #f0f0f0;
+      color: #ffffff;
     }
 
+    body.dark-mode .dark-mode-toggle {
+      border-color: #555;
+      color: #ffffff;
+    }
 
+    body.dark-mode .dark-mode-toggle:hover {
+      background: #333;
+      border-color: #777;
+    }
+
+    body.dark-mode .dark-mode-toggle .sun-icon {
+      display: none;
+    }
+
+    body.dark-mode .dark-mode-toggle .moon-icon {
+      display: block;
+    }
+
+    body.dark-mode h1 {
+      color: #ffffff;
+    }
+
+    body.dark-mode .tagline {
+      color: #ff6b6b;
+    }
+
+    body.dark-mode .hero p {
+      color: #b0b0b0;
+    }
+
+    body.dark-mode .hero p a {
+      color: #ff6b6b;
+    }
+
+    body.dark-mode .hero p strong {
+      color: #ffffff;
+    }
 
     body.dark-mode .hero-image {
       background: #2d2d2d;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
-    }
-
-    body.dark-mode .circle-1 {
-      border-color: rgba(102, 126, 234, 0.5);
-    }
-
-    body.dark-mode .circle-2 {
-      border-color: rgba(240, 147, 251, 0.4);
-    }
-
-    body.dark-mode .circle-3 {
-      border-color: rgba(118, 75, 162, 0.3);
-    }
-
-    body.dark-mode .circle-dot {
-      opacity: 0.8;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
     }
 
     body.dark-mode .socials a {
       background: #2d2d2d;
       border: 1px solid #404040;
-      color: #ffffff;
+      color: #e0e0e0;
     }
 
     body.dark-mode .socials a:hover {
       background: #3a3a3a;
-      border-color: #c0392b;
+      border-color: #ff6b6b;
+      color: #ffffff;
+    }
+
+    body.dark-mode .book-call-btn {
+      background: #ff6b6b !important;
+      border-color: #ff6b6b !important;
+    }
+
+    body.dark-mode .book-call-btn:hover {
+      background: #ff5252 !important;
+      border-color: #ff5252 !important;
+    }
+
+    body.dark-mode .section-title {
+      color: #ffffff;
     }
 
     body.dark-mode .filters button {
       background: #2d2d2d;
       border: 1px solid #404040;
-      color: #ffffff;
+      color: #e0e0e0;
     }
 
     body.dark-mode .filters button:hover {
       background: #3a3a3a;
-      border-color: #c0392b;
+      border-color: #ff6b6b;
+      color: #ffffff;
     }
 
     body.dark-mode .filters button.active {
-      background: #c0392b;
+      background: #ff6b6b;
       color: #fff;
-      border-color: #c0392b;
+      border-color: #ff6b6b;
     }
 
     body.dark-mode .blog-card {
       background: #2d2d2d;
       border: 1px solid #404040;
-      color: #ffffff;
+      color: #e0e0e0;
     }
 
     body.dark-mode .blog-card:hover {
-      border-color: #667eea;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+      border-color: #ff6b6b;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      background: #333333;
     }
 
     body.dark-mode .blog-card h3 {
@@ -1394,23 +1496,24 @@
     }
 
     body.dark-mode .blog-card:hover h3 {
-      color: #c0392b;
+      color: #ff6b6b;
     }
 
     body.dark-mode .blog-meta {
-      color: #a0a0a0;
-    }
-
-    body.dark-mode .blog-card:hover .blog-meta {
-      color: #b0b0b0;
+      color: #888888;
     }
 
     body.dark-mode .blog-card p {
-      color: #d0d0d0;
+      color: #b0b0b0;
     }
 
-    body.dark-mode .blog-card:hover p {
-      color: #e0e0e0;
+    body.dark-mode .blog-card a {
+      background: #ff6b6b;
+      color: #ffffff;
+    }
+
+    body.dark-mode .blog-card a:hover {
+      background: #ff5252;
     }
 
     body.dark-mode footer {
@@ -1423,15 +1526,15 @@
     }
 
     body.dark-mode .footer-section p {
-      color: #a0a0a0;
+      color: #888888;
     }
 
     body.dark-mode .footer-section a {
-      color: #a0a0a0;
+      color: #888888;
     }
 
     body.dark-mode .footer-section a:hover {
-      color: #ffffff;
+      color: #ff6b6b;
     }
 
     body.dark-mode .footer-bottom {
@@ -1439,11 +1542,31 @@
     }
 
     body.dark-mode .footer-bottom p {
-      color: #a0a0a0;
+      color: #888888;
     }
 
     body.dark-mode .scroll-indicator {
-      background: linear-gradient(90deg, #667eea, #f093fb);
+      background: linear-gradient(90deg, #ff6b6b, #ff8a80);
+    }
+
+    body.dark-mode .talk-card {
+      background: #2d2d2d;
+      border: 1px solid #404040;
+      color: #e0e0e0;
+    }
+
+    body.dark-mode .talk-card:hover {
+      border-color: #ff6b6b;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+      background: #333333;
+    }
+
+    body.dark-mode .talk-card h3 {
+      color: #ffffff;
+    }
+
+    body.dark-mode .talk-card p {
+      color: #b0b0b0;
     }
   </style>
 
@@ -1608,20 +1731,34 @@
 <!-- ================= TALKS ================= -->
 <div id="talks" class="page">
   <div class="container">
-    <h1 style="text-align:center;">Talks & Presentations</h1>
+    <h1 style="text-align:center; margin-bottom: 20px;">Talks & Presentations</h1>
 
-    <p class="talk-description">
-      I enjoy speaking about engineering and career growth and have spoken at multiple
-      companies and conferences. If you would like to organise a talk, feel free to
-      reach out at
-      <a href="mailto:amanpatel.itofficial@gmail.com">amanpatel.itofficial@gmail.com</a>.
+    <p class="talk-description" style="text-align: center; max-width: 800px; margin: 0 auto 60px auto; font-size: 18px; line-height: 1.6;">
+      I'm passionate about sharing knowledge on cloud architecture, DevOps excellence, and 
+      engineering at scale. Available for conference talks and corporate presentations.
     </p>
 
-    <img src="https://cdn.amansdlc.com/AIwithDevOpsTalks.png" class="talk-image">
-    <p class="caption">Aman — Community Session</p>
+    <div class="talks-grid">
+      <div class="talk-card">
+        <div class="talk-image-container">
+          <img src="https://cdn.amansdlc.com/AIwithDevOpsTalks.png" class="talk-card-image" alt="Community Session">
+        </div>
+        <div class="talk-card-content">
+          <h3>Community Session</h3>
+          <p>Deep dive into modern DevOps practices, cloud architecture patterns, and best practices for building scalable systems at enterprise scale.</p>
+        </div>
+      </div>
 
-    <img src="https://cdn.amansdlc.com/CNCF.png" class="talk-image">
-    <p class="caption">CNCF Webinar — Official Invitation</p>
+      <div class="talk-card">
+        <div class="talk-image-container">
+          <img src="https://cdn.amansdlc.com/CNCF.png" class="talk-card-image" alt="CNCF Webinar">
+        </div>
+        <div class="talk-card-content">
+          <h3>CNCF Webinar</h3>
+          <p>Official CNCF webinar on Kubernetes ecosystem, container orchestration, cloud-native architecture, and industry best practices.</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 
